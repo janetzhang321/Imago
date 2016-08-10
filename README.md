@@ -19,6 +19,6 @@
 
 ### ngCordova
 1. [ngCordova](http://ngcordova.com/) is a library that combines AngularJS and the Cordova API to make the integration of Cordova plugins more seamless
-2. We are going to be using ngCordova to access the phones hardware
+2. We are going to be using ngCordova to access the phone's hardware
 3. ngCordova plugin documentation: http://ngcordova.com/docs/plugins/
     - there you will find more information on how to integrate gps, camera, etc. to the project
