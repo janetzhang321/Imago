@@ -135,4 +135,62 @@ function ($scope, $stateParams) {
 
 
 }])
- 
+
+
+//
+// var onSuccess = function(position) {
+//        alert('Latitude: '          + position.coords.latitude          + '\n' +
+//              'Longitude: '         + position.coords.longitude         + '\n' +
+//              'Altitude: '          + position.coords.altitude          + '\n' +
+//              'Accuracy: '          + position.coords.accuracy          + '\n' +
+//              'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+//              'Heading: '           + position.coords.heading           + '\n' +
+//              'Speed: '             + position.coords.speed             + '\n' +
+//              'Timestamp: '         + position.timestamp                + '\n');
+//    };
+
+
+
+
+.controller('GeoCtrl', function($scope, $cordovaGeolocation) {
+$scope.anything='everything'
+  var posOptions = {timeout: 10000, enableHighAccuracy: false};
+  $cordovaGeolocation
+    .getCurrentPosition(posOptions)
+    .then(function (position) {
+      $scope.lat  = position.coords.latitude
+      $scope.long = position.coords.longitude
+      $scope.alt = position.coords.altitude
+      $scope.head = position.coords.heading  
+    }, function(err) {
+      // error
+      $scope.error=err
+    });
+
+
+  var watchOptions = {
+    timeout : 3000,
+    enableHighAccuracy: false // may cause errors if true
+  };
+
+  var watch = $cordovaGeolocation.watchPosition(watchOptions);
+  watch.then(
+    null,
+    function(err) {
+      // error
+    },
+    function(position) {
+      var lat  = position.coords.latitude
+      var long = position.coords.longitude
+  });
+
+
+//  watch.clearWatch();
+//  // OR
+//  $cordovaGeolocation.clearWatch(watch)
+//    .then(function(result) {
+//      // success
+//      }, function (error) {
+//      // error
+//    });
+});

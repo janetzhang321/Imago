@@ -25,7 +25,8 @@ angular.module('app.routes', [])
   .state('signIn', {
     url: '/SignIn',
     templateUrl: 'templates/signIn.html',
-    controller: 'signInCtrl'
+//    controller: 'signInCtrl'
+    controller: 'GeoCtrl'
   })
 
   .state('signUp', {
