@@ -136,115 +136,92 @@ function ($scope, $stateParams) {
 
 }])
 
+.controller('GeoCtrl', function($scope, $cordovaGeolocation, $ionicPlatform) {
 
-//
-// var onSuccess = function(position) {
-//        alert('Latitude: '          + position.coords.latitude          + '\n' +
-//              'Longitude: '         + position.coords.longitude         + '\n' +
-//              'Altitude: '          + position.coords.altitude          + '\n' +
-//              'Accuracy: '          + position.coords.accuracy          + '\n' +
-//              'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-//              'Heading: '           + position.coords.heading           + '\n' +
-//              'Speed: '             + position.coords.speed             + '\n' +
-//              'Timestamp: '         + position.timestamp                + '\n');
-//    };
+  $ionicPlatform.ready(function () { 
 
-
-
-
-.controller('GeoCtrl', function($scope, $cordovaGeolocation) {
-$scope.anything='everything'
-  var posOptions = {timeout: 10000, enableHighAccuracy: false};
-  $cordovaGeolocation
-    .getCurrentPosition(posOptions)
-    .then(function (position) {
-      $scope.lat  = position.coords.latitude
-      $scope.long = position.coords.longitude
-      $scope.alt = position.coords.altitude
-      $scope.head = position.coords.heading  
-    }, function(err) {
-      // error
-      $scope.error=err
-    });
+    // GET CURRENT POSITION ONLOAD
+    var posOptions = { timeout: 10000, enableHighAccuracy: false };
+    $cordovaGeolocation
+      .getCurrentPosition(posOptions)
+      .then(function (position) {
+        $scope.lat  = position.coords.latitude
+        $scope.long = position.coords.longitude
+        $scope.alt = position.coords.altitude
+        $scope.head = position.coords.heading  
 
 
-  var watchOptions = {
-    timeout : 3000,
-    enableHighAccuracy: false // may cause errors if true
-  };
 
-  var watch = $cordovaGeolocation.watchPosition(watchOptions);
-  watch.then(
-    null,
-    function(err) {
-      // error
-    },
-    function(position) {
-      var lat  = position.coords.latitude
-      var long = position.coords.longitude
+        // WATCH POSITION OPTIONS
+        var watchOptions = {
+          timeout : 3000,
+          enableHighAccuracy: false // may cause errors if true
+        };
+
+        // WATCH POSITION         
+        var watch = $cordovaGeolocation.watchPosition(watchOptions);
+        watch.then(
+          null,
+          function(err) {
+            $scope.error = err.message;
+          },
+          function(position) {
+            $scope.lat  = position.coords.latitude
+            $scope.long = position.coords.longitude
+            $scope.alt = position.coords.altitude
+            $scope.head = position.coords.heading  
+        });
+
+
+      }, function(err) {
+        // error
+        $scope.error = err.message;
+      });
+
+
   });
 
+  //  watch.clearWatch();
+  //  // OR
+  //  $cordovaGeolocation.clearWatch(watch)
+  //    .then(function(result) {
+  //      // success
+  //      }, function (error) {
+  //      // error
+  //    });
+})
 
-//  watch.clearWatch();
-//  // OR
-//  $cordovaGeolocation.clearWatch(watch)
-//    .then(function(result) {
-//      // success
-//      }, function (error) {
-//      // error
-//    });
+
+
+
+
+  .controller('PictureCtrl', function ($scope, $cordovaCamera, $ionicPlatform) {
+  
+    $ionicPlatform.ready(function () {
+
+      document.addEventListener("deviceready", function () {
+
+        var options = {
+          quality: 50,
+          destinationType: Camera.DestinationType.DATA_URL,
+          sourceType: Camera.PictureSourceType.CAMERA,
+          allowEdit: true,
+          encodingType: Camera.EncodingType.JPEG,
+          targetWidth: 100,
+          targetHeight: 100,
+          popoverOptions: CameraPopoverOptions,
+          saveToPhotoAlbum: false,
+          correctOrientation: true
+        };
+
+        $cordovaCamera.getPicture(options).then(function (imageData) {
+          var image = document.getElementById('myImage');
+          image.src = "data:image/jpeg;base64," + imageData;
+        }, function (err) {
+          // error
+        });
+
+      }, false);
+    });  
 });
 
-
-
-
-
-.controller('PictureCtrl', function($scope, $cordovaCamera) {
-
-  document.addEventListener("deviceready", function () {
-
-    var options = {
-      quality: 50,
-      destinationType: Camera.DestinationType.DATA_URL,
-      sourceType: Camera.PictureSourceType.CAMERA,
-      allowEdit: true,
-      encodingType: Camera.EncodingType.JPEG,
-      targetWidth: 100,
-      targetHeight: 100,
-      popoverOptions: CameraPopoverOptions,
-      saveToPhotoAlbum: false,
-	  correctOrientation:true
-    };
-
-    $cordovaCamera.getPicture(options).then(function(imageData) {
-      var image = document.getElementById('myImage');
-      image.src = "data:image/jpeg;base64," + imageData;
-    }, function(err) {
-      // error
-    });
-
-  }, false);
-});
-
-
-.controller('PictureCtrl', function($scope, $cordovaCamera) {
-
-  document.addEventListener("deviceready", function () {
-
-    var options = {
-      destinationType: Camera.DestinationType.FILE_URI,
-      sourceType: Camera.PictureSourceType.CAMERA,
-    };
-
-    $cordovaCamera.getPicture(options).then(function(imageURI) {
-      var image = document.getElementById('myImage');
-      image.src = imageURI;
-    }, function(err) {
-      // error
-    });
-
-
-    $cordovaCamera.cleanup().then(...); // only for FILE_URI
-
-  }, false);
-});

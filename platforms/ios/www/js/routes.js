@@ -10,7 +10,7 @@ angular.module('app.routes', [])
     
   
 
-      .state('tabsController', {
+  .state('tabsController', {
     url: '/Tabs',
     templateUrl: 'templates/tabsController.html',
     abstract:true
@@ -25,7 +25,8 @@ angular.module('app.routes', [])
   .state('signIn', {
     url: '/SignIn',
     templateUrl: 'templates/signIn.html',
-    controller: 'signInCtrl'
+//    controller: 'signInCtrl'
+    controller: 'GeoCtrl'
   })
 
   .state('signUp', {
@@ -54,8 +55,9 @@ angular.module('app.routes', [])
 
   .state('camera', {
     url: '/Camera',
-    templateUrl: 'templates/camera.html',
-    controller: 'cameraCtrl'
+    //templateUrl: 'templates/camera.html',
+//    controller: 'cameraCtrl'
+      controller: 'PictureCtrl'
   })
 
   .state('points', {
