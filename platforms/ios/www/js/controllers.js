@@ -136,46 +136,81 @@ function ($scope, $stateParams) {
 
 }])
 
+.controller('GeoCtrl', function($scope, $cordovaGeolocation, $ionicPlatform) {
+
+  $ionicPlatform.ready(function () { 
+    // var posOptions = { timeout: 10000, enableHighAccuracy: false };
+    // $cordovaGeolocation
+    //   .getCurrentPosition(posOptions)
+    //   .then(function (position) {
+    //     $scope.lat  = position.coords.latitude
+    //     $scope.long = position.coords.longitude
+    //     $scope.alt = position.coords.altitude
+    //     $scope.head = position.coords.heading  
+    //   }, function(err) {
+    //     // error
+    //     $scope.error=err
+    //   });
 
 
+    var watchOptions = {
+      timeout : 3000,
+      enableHighAccuracy: false // may cause errors if true
+    };
 
-
-.controller('GeoCtrl', function($cordovaGeolocation) {
-
-  var posOptions = {timeout: 10000, enableHighAccuracy: false};
-  $cordovaGeolocation
-    .getCurrentPosition(posOptions)
-    .then(function (position) {
-      var lat  = position.coords.latitude
-      var long = position.coords.longitude
-    }, function(err) {
-      // error
+    var watch = $cordovaGeolocation.watchPosition(watchOptions);
+    watch.then(
+      null,
+      function(err) {
+        // error
+      },
+      function(position) {
+        var lat  = position.coords.latitude
+        var long = position.coords.longitude
     });
-
-
-  var watchOptions = {
-    timeout : 3000,
-    enableHighAccuracy: false // may cause errors if true
-  };
-
-  var watch = $cordovaGeolocation.watchPosition(watchOptions);
-  watch.then(
-    null,
-    function(err) {
-      // error
-    },
-    function(position) {
-      var lat  = position.coords.latitude
-      var long = position.coords.longitude
   });
 
+  //  watch.clearWatch();
+  //  // OR
+  //  $cordovaGeolocation.clearWatch(watch)
+  //    .then(function(result) {
+  //      // success
+  //      }, function (error) {
+  //      // error
+  //    });
+})
 
-//  watch.clearWatch();
-//  // OR
-//  $cordovaGeolocation.clearWatch(watch)
-//    .then(function(result) {
-//      // success
-//      }, function (error) {
-//      // error
-//    });
+
+
+
+
+  .controller('PictureCtrl', function ($scope, $cordovaCamera, $ionicPlatform) {
+  
+    $ionicPlatform.ready(function () {
+
+      document.addEventListener("deviceready", function () {
+
+        var options = {
+          quality: 50,
+          destinationType: Camera.DestinationType.DATA_URL,
+          sourceType: Camera.PictureSourceType.CAMERA,
+          allowEdit: true,
+          encodingType: Camera.EncodingType.JPEG,
+          targetWidth: 100,
+          targetHeight: 100,
+          popoverOptions: CameraPopoverOptions,
+          saveToPhotoAlbum: false,
+          correctOrientation: true
+        };
+
+        $cordovaCamera.getPicture(options).then(function (imageData) {
+          var image = document.getElementById('myImage');
+          image.src = "data:image/jpeg;base64," + imageData;
+        }, function (err) {
+          // error
+        });
+
+      }, false);
+    });  
 });
+
