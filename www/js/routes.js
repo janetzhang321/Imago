@@ -7,8 +7,8 @@ angular.module('app.routes', [])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-    
-  
+
+
 
   .state('tabsController', {
     url: '/Tabs',
@@ -25,8 +25,7 @@ angular.module('app.routes', [])
   .state('signIn', {
     url: '/SignIn',
     templateUrl: 'templates/signIn.html',
-//    controller: 'signInCtrl'
-    controller: 'GeoCtrl'
+    controller: 'signInCtrl'
   })
 
   .state('signUp', {
@@ -38,7 +37,7 @@ angular.module('app.routes', [])
   .state('map', {
     url: '/Map',
     templateUrl: 'templates/map.html',
-    controller: 'mapCtrl'
+    controller: 'MapCtrl'
   })
 
   .state('profile', {
@@ -122,6 +121,6 @@ angular.module('app.routes', [])
 
 $urlRouterProvider.otherwise('/StartPage')
 
-  
+
 
 });
