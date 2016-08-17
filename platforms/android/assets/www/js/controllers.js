@@ -187,7 +187,7 @@ angular.module('app.controllers', [])
 
 
 
-  .controller('PictureCtrl', function ($scope, $cordovaCamera, $ionicPlatform) {
+  .controller('PictureCtrl', function ($scope, $cordovaCamera, $ionicPlatform, $state, $timeout, $stateParams) {
 
     $ionicPlatform.ready(function () {
 
@@ -207,6 +207,10 @@ angular.module('app.controllers', [])
         };
 
         $cordovaCamera.getPicture(options).then(function (imageData) {
+
+          // redirects to points page
+          $state.go('points');
+
           var image = document.getElementById('myImage');
           image.src = "data:image/jpeg;base64," + imageData;
         }, function (err) {
