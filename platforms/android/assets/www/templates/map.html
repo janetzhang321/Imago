@@ -18,7 +18,11 @@
 <ion-view view-title="Map">
     <ion-content>
         <div id="map" data-tap-disabled="true"></div>
-        <a id="camera-button-map"><i ui-sref="camera" class="icon ion-android-camera"></i></a>
+        <div id="camera-button-map">
+          <span>
+            <a ui-sref="camera"><i class="icon ion-android-camera"></i></a>
+          </span>
+        </div>
     </ion-content>
 </ion-view>
 <style>
@@ -39,9 +43,12 @@
     bottom: 20px;
 }
 
-#camera-button-map > i {
+#camera-button-map > span  {
   display: flex;
   justify-content: center;
+}
+
+#camera-button-map > span > a > i {
   font-size: 80px;
   color: black;
 }
