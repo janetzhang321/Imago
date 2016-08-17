@@ -56,6 +56,7 @@ angular.module('app.routes', [])
     url: '/Camera',
     //templateUrl: 'templates/camera.html',
 //    controller: 'cameraCtrl'
+      // templateUrl: 'templates/points.html',
       controller: 'PictureCtrl'
   })
 
