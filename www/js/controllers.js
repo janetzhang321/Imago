@@ -239,7 +239,12 @@ angular.module('app.controllers', [])
           var mapOptions = {
             center: latLng,
             zoom: 15,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            styles: [{
+              featureType: 'poi',
+              elementType: 'labels',
+              stylers: [ { visibility: 'off' } ]
+            }]
           };
 
           $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
@@ -340,7 +345,47 @@ angular.module('app.controllers', [])
             });    
               
             
+            //Distance algo  
               
+            function getDistanceBtwnCurrentLocationAndImago(currentLocation, imagoLocation) {
+              var radiusOfEarth = 3959; // in miles
+
+              // These should be the coordinates of the current location of the user
+              var lat1 = currentLocation.latitude,
+                lang1 = currentLocation.longitude;
+
+              // These should be the coordinates of the Imago
+              var lat2 = imagoLocation.latitude,
+                lang2 = imagoLocation.longitude;
+
+              // Converts from degrees to radians.
+              Math.radians = function (degrees) {
+                return degrees * Math.PI / 180;
+              };
+
+              var dlat = Math.radians(lat1 - lat2); // lattitude diference in radians
+              var dlang = Math.radians(lang1 - lang2); //longitude diference in radian
+
+              // distance between location of user and Imago
+              var distanceInMiles = radiusOfEarth * Math.sqrt(Math.pow(dlat, 2) + Math.pow(dlang, 2));
+
+              return distanceInMiles;
+            }
+            //End Dist
+              
+            //Test cases
+
+            // Below is an example of how to use function
+            var currentLocation = { latitude: 40.760909, longitude: -73.920736 };
+            var imagoLocation = { latitude: 40.755236, longitude: -73.924856 };
+
+            var distanceInMiles = getDistanceBtwnCurrentLocationAndImago(currentLocation, imagoLocation);
+            // print distance
+            console.log(distanceInMiles);
+            //End Test
+              
+              
+            
             //End Insert
               
             //Your location blue dot  
