@@ -250,8 +250,18 @@ angular.module('app.controllers', [])
             
             //Insert
             
+
+            /*
+            How to find latlng on googlemaps:
+                *when you have the place,
+                *right click
+                *choose What's here?
+                *gives exact latlng
+            */
             
-            var contentString = '<div id="content" class="popUp">'+
+            
+            //LIU
+            var LIUcontentString = '<div id="content" class="popUp">'+
               '<div id="siteNotice">'+
               '</div>'+
               '<div id="bodyContent">'+
@@ -259,8 +269,8 @@ angular.module('app.controllers', [])
               '</div>'+
               '</div>';
 
-            var infowindow = new google.maps.InfoWindow({
-                content: contentString,
+            var LIUInfoWindow = new google.maps.InfoWindow({
+                content: LIUcontentString,
                 maxWidth: 200,
                 maxHeight: 200,
             });
@@ -271,11 +281,67 @@ angular.module('app.controllers', [])
                 map: $scope.map,
                 title: 'Long Island University'
             });
+              
             LIU.addListener('click', function() {
-                infowindow.open($scope.map, LIU);
+                LIUInfoWindow.open($scope.map, LIU);
+            });
+            
+            //mmuseumm
+            var mmuseummContentString = '<div id="content" class="popUp">'+
+              '<div id="siteNotice">'+
+              '</div>'+
+              '<div id="bodyContent">'+
+              '<center><img class="hint" src="img/mmuseumm.jpg"></center>'+
+              '</div>'+
+              '</div>';
+
+            var mmuseummInfoWindow = new google.maps.InfoWindow({
+                content: mmuseummContentString,
+                maxWidth: 200,
+                maxHeight: 200,
+            });
+            
+            var mmuseummLatLng = {lat: 40.717366, lng: -74.002747};
+            var mmuseumm = new google.maps.Marker({
+                position: mmuseummLatLng,
+                map: $scope.map,
+                title: 'Mmuseumm'
             });
               
-            //Insert
+            mmuseumm.addListener('click', function() {
+                mmuseummInfoWindow.open($scope.map, mmuseumm);
+            });  
+              
+            //90 degree angle on doyer st
+              
+            var doyersContentString = '<div id="content" class="popUp">'+
+              '<div id="siteNotice">'+
+              '</div>'+
+              '<div id="bodyContent">'+
+              '<center><img class="hint" src="img/doyers.jpg"></center>'+
+              '</div>'+
+              '</div>';
+
+            var doyersInfoWindow = new google.maps.InfoWindow({
+                content: doyersContentString,
+                maxWidth: 200,
+                maxHeight: 200,
+            });
+            
+            var doyersLatLng = {lat: 40.714428, lng: -73.998113};
+            var doyers = new google.maps.Marker({
+                position: doyersLatLng,
+                map: $scope.map,
+                title: 'Doyers'
+            });
+              
+            doyers.addListener('click', function() {
+                doyersInfoWindow.open($scope.map, doyers);
+            });    
+              
+            
+              
+            //End Insert
               
             //Your location blue dot  
             var marker = new google.maps.Marker({
@@ -296,6 +362,8 @@ angular.module('app.controllers', [])
 
             });
 
+            //init pos  
+              
             var circleOpts = {
               'clickable': false,
               'radius': 100,
@@ -311,6 +379,8 @@ angular.module('app.controllers', [])
 
             var circle = new google.maps.Circle(circleOpts);
 
+            //refresh map  
+              
             var watchOptions = {
               timeout: 30000,
               enableHighAccuracy: true // may cause errors if true

@@ -12,3 +12,8 @@
     width: 200px;
     height: 200px;
 }
+
+img{
+    max-width: 150px;
+    max-height: auto;
+}
