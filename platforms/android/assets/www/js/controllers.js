@@ -247,7 +247,19 @@ angular.module('app.controllers', [])
           //Wait until the map is loaded
           google.maps.event.addListenerOnce($scope.map, 'idle', function () {
             console.log('map')
-
+            
+            //Insert
+            
+            var myLatLng = {lat: 40.6917779, lng: -73.9834032};
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: $scope.map,
+                title: 'Long Island University'
+            });
+              
+            //Insert
+              
+            //Your location blue dot  
             var marker = new google.maps.Marker({
               map: $scope.map,
               animation: google.maps.Animation.DROP,

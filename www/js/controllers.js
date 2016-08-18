@@ -247,7 +247,37 @@ angular.module('app.controllers', [])
           //Wait until the map is loaded
           google.maps.event.addListenerOnce($scope.map, 'idle', function () {
             console.log('map')
+            
+            //Insert
+            
+            
+            var contentString = '<div id="content" class="popUp">'+
+              '<div id="siteNotice">'+
+              '</div>'+
+              '<div id="bodyContent">'+
+              '<center><img class="hint" src="img/LIU.jpg"></center>'+
+              '</div>'+
+              '</div>';
 
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString,
+                maxWidth: 200,
+                maxHeight: 200,
+            });
+            
+            var LIULatLng = {lat: 40.6909652, lng: -73.9814591};
+            var LIU = new google.maps.Marker({
+                position: LIULatLng,
+                map: $scope.map,
+                title: 'Long Island University'
+            });
+            LIU.addListener('click', function() {
+                infowindow.open($scope.map, LIU);
+            });
+              
+            //Insert
+              
+            //Your location blue dot  
             var marker = new google.maps.Marker({
               map: $scope.map,
               animation: google.maps.Animation.DROP,
