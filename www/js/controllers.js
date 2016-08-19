@@ -268,6 +268,7 @@ angular.module('app.controllers', [])
             Imagos.getLIU($scope.map);
             Imagos.getMmuseum($scope.map);
             Imagos.getDoyers($scope.map);
+			Imagos.getEmpireState($scope.map);
 
             //Your location blue dot
             var marker = new google.maps.Marker({

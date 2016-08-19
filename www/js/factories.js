@@ -83,14 +83,52 @@ angular.module('app.factories', [])
       });
     }
 
+	function getEmpireState(map) {
+      //Empire state building
+      var contentString = '<div id="content" class="popUp">' +
+        '<div id="siteNotice">' +
+        '</div>' +
+        '<div id="bodyContent">' +
+        '<center><img class="hint" src="img/LIU.jpg"></center>' +
+        '</div>' +
+        '</div>';
+		//change image 
+	
+
+      var infoWindow = new google.maps.InfoWindow({
+        content: contentString,
+        maxWidth: 200,
+        maxHeight: 200,
+      });
+
+      var latLng = { lat: 40.748709700, lng: -73.985655600 };
+      var imago = new google.maps.Marker({
+        position: latLng,
+        map: map,
+        title: 'Empire State Building'
+      });
+
+      imago.addListener('click', function () {
+        infoWindow.open(map, imago);
+      });
+    }
+	
+	
+	
+	
 
     return {
       getLIU: getLIU,
       getMmuseum: getMmuseum,
-      getDoyers: getDoyers
+      getDoyers: getDoyers,
+	  getEmpireState: getEmpireState
     };
   })
 
+  
+  
+  
+  
   .factory('DistanceCalculations', function () {
 
     function getMilesBtwnCurrentLocationAndImago(currentLocation, imagoLocation) {
