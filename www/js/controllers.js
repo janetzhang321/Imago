@@ -221,41 +221,47 @@ angular.module('app.controllers', [])
     });
   })
 
-  .controller('compassCtrl', function($scope, $cordovaDeviceOrientation) {
+  .controller('compassCtrl', function($scope, $cordovaDeviceOrientation, $ionicPlatform) {
 
-  document.addEventListener("deviceready", function () {
+  $ionicPlatform.ready(function () {
 
     $cordovaDeviceOrientation.getCurrentHeading().then(function(result) {
        var magneticHeading = result.magneticHeading;
        var trueHeading = result.trueHeading;
        var accuracy = result.headingAccuracy;
        var timeStamp = result.timestamp;
+
+        $scope.magneticHeading = "magneticHeading: " + magneticHeading;
+        $scope.trueHeading = "trueheading: " + trueHeading;
+        $scope.accuracy = "accuracy: " + accuracy;
+        $scope.timeStamp = "timeStamp: " + timeStamp;
+
+
+        var options = {
+          frequency: 3000,
+        }
+
+        var watch = $cordovaDeviceOrientation.watchHeading(options).then(
+          null,
+          function(error) {
+            // An error occurred
+          },
+          function(result) {   // updates constantly (depending on frequency value)
+            var magneticHeading = result.magneticHeading;
+            var trueHeading = result.trueHeading;
+            var accuracy = result.headingAccuracy;
+            var timeStamp = result.timestamp;
+
+            $scope.magneticHeading = "magneticHeading: " + magneticHeading;
+            $scope.trueHeading = "trueheading: " + trueHeading;
+            $scope.accuracy = "accuracy: " + accuracy;
+            $scope.timeStamp = "timeStamp: " + timeStamp;
+          });
+
     }, function(err) {
       // An error occurred
     });
 
-
-
-    var options = {
-      frequency: 3000,
-      filter: true     // if frequency is set, filter is ignored
-    }
-
-    var watch = $cordovaDeviceOrientation.watchHeading(options).then(
-      null,
-      function(error) {
-        // An error occurred
-      },
-      function(result) {   // updates constantly (depending on frequency value)
-        var magneticHeading = result.magneticHeading;
-        var trueHeading = result.trueHeading;
-        var accuracy = result.headingAccuracy;
-        var timeStamp = result.timestamp;
-          
-        $scope.compass="trueheading: "+trueHeading;
-      });
-
-    
 //    watch.clearWatch();
 //    // OR
 //    $cordovaDeviceOrientation.clearWatch(watch)
@@ -267,7 +273,7 @@ angular.module('app.controllers', [])
 //
 //      }, false);
     })})
- 
+
 
   .controller('MapCtrl', function ($scope, $cordovaGeolocation, $ionicPlatform, Imagos) {
 

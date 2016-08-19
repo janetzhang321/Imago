@@ -187,7 +187,7 @@ angular.module('app.controllers', [])
 
 
 
-  .controller('PictureCtrl', function ($scope, $cordovaCamera, $ionicPlatform) {
+  .controller('PictureCtrl', function ($scope, $cordovaCamera, $ionicPlatform, $state, $timeout, $stateParams) {
 
     $ionicPlatform.ready(function () {
 
@@ -207,6 +207,10 @@ angular.module('app.controllers', [])
         };
 
         $cordovaCamera.getPicture(options).then(function (imageData) {
+
+          // redirects to points page
+          $state.go('points');
+
           var image = document.getElementById('myImage');
           image.src = "data:image/jpeg;base64," + imageData;
         }, function (err) {
@@ -217,7 +221,63 @@ angular.module('app.controllers', [])
     });
   })
 
-  .controller('MapCtrl', function ($scope, $cordovaGeolocation, $ionicPlatform) {
+  .controller('compassCtrl', function($scope, $cordovaDeviceOrientation, $ionicPlatform) {
+
+  $ionicPlatform.ready(function () {
+
+    $cordovaDeviceOrientation.getCurrentHeading().then(function(result) {
+       var magneticHeading = result.magneticHeading;
+       var trueHeading = result.trueHeading;
+       var accuracy = result.headingAccuracy;
+       var timeStamp = result.timestamp;
+
+        $scope.magneticHeading = "magneticHeading: " + magneticHeading;
+        $scope.trueHeading = "trueheading: " + trueHeading;
+        $scope.accuracy = "accuracy: " + accuracy;
+        $scope.timeStamp = "timeStamp: " + timeStamp;
+    }, function(err) {
+      // An error occurred
+    });
+
+
+
+    var options = {
+      frequency: 3000,
+      filter: true     // if frequency is set, filter is ignored
+    }
+
+    var watch = $cordovaDeviceOrientation.watchHeading(options).then(
+      null,
+      function(error) {
+        // An error occurred
+      },
+      function(result) {   // updates constantly (depending on frequency value)
+        var magneticHeading = result.magneticHeading;
+        var trueHeading = result.trueHeading;
+        var accuracy = result.headingAccuracy;
+        var timeStamp = result.timestamp;
+
+        $scope.magneticHeading = "magneticHeading: " + magneticHeading;
+        $scope.trueHeading = "trueheading: " + trueHeading;
+        $scope.accuracy = "accuracy: " + accuracy;
+        $scope.timeStamp = "timeStamp: " + timeStamp;
+      });
+
+
+//    watch.clearWatch();
+//    // OR
+//    $cordovaDeviceOrientation.clearWatch(watch)
+//      .then(function(result) {
+//        // Success!
+//      }, function(err) {
+//        // An error occurred
+//      });
+//
+//      }, false);
+    })})
+
+
+  .controller('MapCtrl', function ($scope, $cordovaGeolocation, $ionicPlatform, Imagos) {
 
     $scope.error = 'none';
 
@@ -235,7 +295,12 @@ angular.module('app.controllers', [])
           var mapOptions = {
             center: latLng,
             zoom: 15,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            styles: [{
+              featureType: 'poi',
+              elementType: 'labels',
+              stylers: [ { visibility: 'off' } ]
+            }]
           };
 
           $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
@@ -244,6 +309,24 @@ angular.module('app.controllers', [])
           google.maps.event.addListenerOnce($scope.map, 'idle', function () {
             console.log('map')
 
+            //Insert
+
+
+            /*
+            How to find latlng on googlemaps:
+                *when you have the place,
+                *right click
+                *choose What's here?
+                *gives exact latlng
+            */
+
+            // IMAGOS
+            Imagos.getLIU($scope.map);
+            Imagos.getMmuseum($scope.map);
+            Imagos.getDoyers($scope.map);
+			Imagos.getEmpireState($scope.map);
+
+            //Your location blue dot
             var marker = new google.maps.Marker({
               map: $scope.map,
               animation: google.maps.Animation.DROP,
@@ -251,7 +334,7 @@ angular.module('app.controllers', [])
               // overwrite icon style
               icon: {
                 url: 'https://chadkillingsworth.github.io/geolocation-marker/images/gpsloc.png',
-                'size': new google.maps.Size(34, 34),
+                //'size': new google.maps.Size(34, 34),
                 'scaledSize': new google.maps.Size(17, 17),
                 'origin': new google.maps.Point(0, 0),
                 'anchor': new google.maps.Point(8, 8)
@@ -261,6 +344,8 @@ angular.module('app.controllers', [])
               'zIndex': 2
 
             });
+
+            //init pos
 
             var circleOpts = {
               'clickable': false,
@@ -276,6 +361,8 @@ angular.module('app.controllers', [])
             };
 
             var circle = new google.maps.Circle(circleOpts);
+
+            //refresh map
 
             var watchOptions = {
               timeout: 30000,
