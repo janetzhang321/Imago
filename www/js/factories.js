@@ -1,6 +1,12 @@
 angular.module('app.factories', [])
+
+
   .factory('Imagos', function () {
 
+    function Redirect() {
+        window.location="addToBucketList.html";
+    }
+    
     function getLIU(map) {
       //LIU
       var LIUcontentString = '<div id="content" class="popUp">' +
@@ -26,6 +32,9 @@ angular.module('app.factories', [])
 
       LIU.addListener('click', function () {
         LIUInfoWindow.open(map, LIU);
+      });
+      LIU.addListener('dblclick', function () {
+        LIUInfoWindow.Redirect();
       });
     }
 

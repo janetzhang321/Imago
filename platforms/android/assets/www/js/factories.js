@@ -83,7 +83,7 @@ angular.module('app.factories', [])
       });
     }
 
-	function getEmpireState(map) {
+    function getEmpireState(map) {
       //Empire state building
       var contentString = '<div id="content" class="popUp">' +
         '<div id="siteNotice">' +
@@ -92,8 +92,8 @@ angular.module('app.factories', [])
         '<center><img class="hint" src="img/LIU.jpg"></center>' +
         '</div>' +
         '</div>';
-		//change image 
-	
+      //change image
+
 
       var infoWindow = new google.maps.InfoWindow({
         content: contentString,
@@ -112,23 +112,32 @@ angular.module('app.factories', [])
         infoWindow.open(map, imago);
       });
     }
-	
-	
-	
-	
 
     return {
       getLIU: getLIU,
       getMmuseum: getMmuseum,
       getDoyers: getDoyers,
-	  getEmpireState: getEmpireState
+      getEmpireState: getEmpireState
     };
   })
 
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   .factory('DistanceCalculations', function () {
 
     function getMilesBtwnCurrentLocationAndImago(currentLocation, imagoLocation) {
@@ -150,8 +159,30 @@ angular.module('app.factories', [])
       return d;
     }
 
+    function getBearingBtwnTwoLocations(currentLocation, imagoLocation) {
+      var lat1 = currentLocation.latitude;
+      var lat2 = imagoLocation.latitude;
+      var lon1 = currentLocation.longitude;
+      var lon2 = imagoLocation.longitude;
+
+      lat1 = lat1 * Math.PI / 180;
+      lat2 = lat2 * Math.PI / 180;
+      var dLon = (lon2 - lon1) * Math.PI / 180;
+      var y = Math.sin(dLon) * Math.cos(lat2);
+      var x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon);
+
+      var bearing = Math.atan2(y, x) * 180 / Math.PI;
+      if (bearing < 0) {
+        bearing = bearing + 360;
+      }
+
+      bearing = bearing.toFixed(0);
+      return bearing;
+    }
+
     return {
-      getMilesBtwnCurrentLocationAndImago: getMilesBtwnCurrentLocationAndImago
+      getMilesBtwnCurrentLocationAndImago: getMilesBtwnCurrentLocationAndImago,
+      getBearingBtwnTwoLocations: getBearingBtwnTwoLocations
     }
 
   });
