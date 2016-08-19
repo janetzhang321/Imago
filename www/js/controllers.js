@@ -221,6 +221,54 @@ angular.module('app.controllers', [])
     });
   })
 
+  .controller('compassCtrl', function($scope, $cordovaDeviceOrientation) {
+
+  document.addEventListener("deviceready", function () {
+
+    $cordovaDeviceOrientation.getCurrentHeading().then(function(result) {
+       var magneticHeading = result.magneticHeading;
+       var trueHeading = result.trueHeading;
+       var accuracy = result.headingAccuracy;
+       var timeStamp = result.timestamp;
+    }, function(err) {
+      // An error occurred
+    });
+
+
+
+    var options = {
+      frequency: 3000,
+      filter: true     // if frequency is set, filter is ignored
+    }
+
+    var watch = $cordovaDeviceOrientation.watchHeading(options).then(
+      null,
+      function(error) {
+        // An error occurred
+      },
+      function(result) {   // updates constantly (depending on frequency value)
+        var magneticHeading = result.magneticHeading;
+        var trueHeading = result.trueHeading;
+        var accuracy = result.headingAccuracy;
+        var timeStamp = result.timestamp;
+          
+        $scope.compass="trueheading: "+trueHeading;
+      });
+
+    
+//    watch.clearWatch();
+//    // OR
+//    $cordovaDeviceOrientation.clearWatch(watch)
+//      .then(function(result) {
+//        // Success!
+//      }, function(err) {
+//        // An error occurred
+//      });
+//
+//      }, false);
+    })})
+ 
+
   .controller('MapCtrl', function ($scope, $cordovaGeolocation, $ionicPlatform) {
 
     $scope.error = 'none';
@@ -270,21 +318,24 @@ angular.module('app.controllers', [])
               '<div id="siteNotice">'+
               '</div>'+
               '<div id="bodyContent">'+
-              '<center><img class="hint" src="img/LIU.jpg"></center>'+
+              '<center><img class="hint" src="img/LIU.jpg" style="width:100%"></center>'+
               '</div>'+
               '</div>';
 
             var LIUInfoWindow = new google.maps.InfoWindow({
                 content: LIUcontentString,
                 maxWidth: 200,
-                maxHeight: 200,
             });
             
             var LIULatLng = {lat: 40.6909652, lng: -73.9814591};
             var LIU = new google.maps.Marker({
                 position: LIULatLng,
                 map: $scope.map,
-                title: 'Long Island University'
+                title: 'Long Island University',
+                icon: {
+                    url:'../img/Imagos/Orange.png',
+                    'scaledSize': new google.maps.Size(34, 34)
+                }
             });
               
             LIU.addListener('click', function() {
@@ -296,7 +347,7 @@ angular.module('app.controllers', [])
               '<div id="siteNotice">'+
               '</div>'+
               '<div id="bodyContent">'+
-              '<center><img class="hint" src="img/mmuseumm.jpg"></center>'+
+              '<center><img class="hint" src="img/mmuseumm.jpg" style="width:100%"></center>'+
               '</div>'+
               '</div>';
 
@@ -396,7 +447,7 @@ angular.module('app.controllers', [])
               // overwrite icon style
               icon: {
                 url: 'https://chadkillingsworth.github.io/geolocation-marker/images/gpsloc.png',
-                'size': new google.maps.Size(34, 34),
+                //'size': new google.maps.Size(34, 34),
                 'scaledSize': new google.maps.Size(17, 17),
                 'origin': new google.maps.Point(0, 0),
                 'anchor': new google.maps.Point(8, 8)

@@ -221,6 +221,54 @@ angular.module('app.controllers', [])
     });
   })
 
+  .controller('compassCtrl', function($scope, $cordovaDeviceOrientation) {
+
+  document.addEventListener("deviceready", function () {
+
+    $cordovaDeviceOrientation.getCurrentHeading().then(function(result) {
+       var magneticHeading = result.magneticHeading;
+       var trueHeading = result.trueHeading;
+       var accuracy = result.headingAccuracy;
+       var timeStamp = result.timestamp;
+    }, function(err) {
+      // An error occurred
+    });
+
+
+
+    var options = {
+      frequency: 3000,
+      filter: true     // if frequency is set, filter is ignored
+    }
+
+    var watch = $cordovaDeviceOrientation.watchHeading(options).then(
+      null,
+      function(error) {
+        // An error occurred
+      },
+      function(result) {   // updates constantly (depending on frequency value)
+        var magneticHeading = result.magneticHeading;
+        var trueHeading = result.trueHeading;
+        var accuracy = result.headingAccuracy;
+        var timeStamp = result.timestamp;
+          
+        $scope.compass="trueheading: "+trueHeading;
+      });
+
+    
+//    watch.clearWatch();
+//    // OR
+//    $cordovaDeviceOrientation.clearWatch(watch)
+//      .then(function(result) {
+//        // Success!
+//      }, function(err) {
+//        // An error occurred
+//      });
+//
+//      }, false);
+    })})
+ 
+
   .controller('MapCtrl', function ($scope, $cordovaGeolocation, $ionicPlatform) {
 
     $scope.error = 'none';
@@ -239,7 +287,12 @@ angular.module('app.controllers', [])
           var mapOptions = {
             center: latLng,
             zoom: 15,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            styles: [{
+              featureType: 'poi',
+              elementType: 'labels',
+              stylers: [ { visibility: 'off' } ]
+            }]
           };
 
           $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
@@ -265,21 +318,24 @@ angular.module('app.controllers', [])
               '<div id="siteNotice">'+
               '</div>'+
               '<div id="bodyContent">'+
-              '<center><img class="hint" src="img/LIU.jpg"></center>'+
+              '<center><img class="hint" src="img/LIU.jpg" style="width:100%"></center>'+
               '</div>'+
               '</div>';
 
             var LIUInfoWindow = new google.maps.InfoWindow({
                 content: LIUcontentString,
                 maxWidth: 200,
-                maxHeight: 200,
             });
             
             var LIULatLng = {lat: 40.6909652, lng: -73.9814591};
             var LIU = new google.maps.Marker({
                 position: LIULatLng,
                 map: $scope.map,
-                title: 'Long Island University'
+                title: 'Long Island University',
+                icon: {
+                    url:'../img/Imagos/Orange.png',
+                    'scaledSize': new google.maps.Size(34, 34)
+                }
             });
               
             LIU.addListener('click', function() {
@@ -291,7 +347,7 @@ angular.module('app.controllers', [])
               '<div id="siteNotice">'+
               '</div>'+
               '<div id="bodyContent">'+
-              '<center><img class="hint" src="img/mmuseumm.jpg"></center>'+
+              '<center><img class="hint" src="img/mmuseumm.jpg" style="width:100%"></center>'+
               '</div>'+
               '</div>';
 
@@ -340,7 +396,47 @@ angular.module('app.controllers', [])
             });    
               
             
+            //Distance algo  
               
+            function getDistanceBtwnCurrentLocationAndImago(currentLocation, imagoLocation) {
+              var radiusOfEarth = 3959; // in miles
+
+              // These should be the coordinates of the current location of the user
+              var lat1 = currentLocation.latitude,
+                lang1 = currentLocation.longitude;
+
+              // These should be the coordinates of the Imago
+              var lat2 = imagoLocation.latitude,
+                lang2 = imagoLocation.longitude;
+
+              // Converts from degrees to radians.
+              Math.radians = function (degrees) {
+                return degrees * Math.PI / 180;
+              };
+
+              var dlat = Math.radians(lat1 - lat2); // lattitude diference in radians
+              var dlang = Math.radians(lang1 - lang2); //longitude diference in radian
+
+              // distance between location of user and Imago
+              var distanceInMiles = radiusOfEarth * Math.sqrt(Math.pow(dlat, 2) + Math.pow(dlang, 2));
+
+              return distanceInMiles;
+            }
+            //End Dist
+              
+            //Test cases
+
+            // Below is an example of how to use function
+            var currentLocation = { latitude: 40.760909, longitude: -73.920736 };
+            var imagoLocation = { latitude: 40.755236, longitude: -73.924856 };
+
+            var distanceInMiles = getDistanceBtwnCurrentLocationAndImago(currentLocation, imagoLocation);
+            // print distance
+            console.log(distanceInMiles);
+            //End Test
+              
+              
+            
             //End Insert
               
             //Your location blue dot  
@@ -351,7 +447,7 @@ angular.module('app.controllers', [])
               // overwrite icon style
               icon: {
                 url: 'https://chadkillingsworth.github.io/geolocation-marker/images/gpsloc.png',
-                'size': new google.maps.Size(34, 34),
+                //'size': new google.maps.Size(34, 34),
                 'scaledSize': new google.maps.Size(17, 17),
                 'origin': new google.maps.Point(0, 0),
                 'anchor': new google.maps.Point(8, 8)

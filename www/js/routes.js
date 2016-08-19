@@ -59,6 +59,12 @@ angular.module('app.routes', [])
       // templateUrl: 'templates/points.html',
       controller: 'PictureCtrl'
   })
+  
+  .state('compass', {
+    url: '/Compass',
+    templateUrl: 'templates/compass.html',
+    controller: 'compassCtrl'
+  })
 
   .state('points', {
     url: '/Points',
