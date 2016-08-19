@@ -28,6 +28,7 @@
 		290152A700C04692860633C9 /* CDVJpegHeaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = C195B930D0D5485EAD1CC1AC /* CDVJpegHeaderWriter.m */; };
 		50A513D2EFF649A38D61F4AF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E96B1C6931564D899F36AC16 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		E537831E2FF74B67B8A7B7C0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCBA9E9573A46E7A93118A1 /* AVFoundation.framework */; };
+		74129F9843A046958034C98F /* CDVCompass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF61F836DC44ABFB9253449 /* CDVCompass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,8 @@
 		E787B29F91534F86BE06A6F0 /* CDVExif.h */ = {isa = PBXFileReference; name = "CDVExif.h"; path = "cordova-plugin-camera/CDVExif.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		E96B1C6931564D899F36AC16 /* ImageIO.framework */ = {isa = PBXFileReference; name = "ImageIO.framework"; path = "System/Library/Frameworks/ImageIO.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		9FCBA9E9573A46E7A93118A1 /* AVFoundation.framework */ = {isa = PBXFileReference; name = "AVFoundation.framework"; path = "System/Library/Frameworks/AVFoundation.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		3BF61F836DC44ABFB9253449 /* CDVCompass.m */ = {isa = PBXFileReference; name = "CDVCompass.m"; path = "cordova-plugin-device-orientation/CDVCompass.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		27CCB94B9B0349968EE1B13A /* CDVCompass.h */ = {isa = PBXFileReference; name = "CDVCompass.h"; path = "cordova-plugin-device-orientation/CDVCompass.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +223,8 @@
 				0CAAB57F0B0043EF8DF0CEBF /* CDVCamera.h */,
 				28EEBF1C072E4D0D9FA93A0D /* CDVJpegHeaderWriter.h */,
 				E787B29F91534F86BE06A6F0 /* CDVExif.h */,
+				3BF61F836DC44ABFB9253449 /* CDVCompass.m */,
+				27CCB94B9B0349968EE1B13A /* CDVCompass.h */,
 			);
 			name = Plugins;
 			path = "HelloCordova/Plugins";
@@ -344,6 +349,7 @@
 				45FF44995505472CA57FE328 /* UIImage+CropScaleOrientation.m in Sources */,
 				0C01BC345AF842DE8DCA621C /* CDVCamera.m in Sources */,
 				290152A700C04692860633C9 /* CDVJpegHeaderWriter.m in Sources */,
+				74129F9843A046958034C98F /* CDVCompass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

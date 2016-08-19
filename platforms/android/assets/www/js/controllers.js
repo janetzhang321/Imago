@@ -221,41 +221,47 @@ angular.module('app.controllers', [])
     });
   })
 
-  .controller('compassCtrl', function($scope, $cordovaDeviceOrientation) {
+  .controller('compassCtrl', function($scope, $cordovaDeviceOrientation, $ionicPlatform) {
 
-  document.addEventListener("deviceready", function () {
+  $ionicPlatform.ready(function () {
 
     $cordovaDeviceOrientation.getCurrentHeading().then(function(result) {
        var magneticHeading = result.magneticHeading;
        var trueHeading = result.trueHeading;
        var accuracy = result.headingAccuracy;
        var timeStamp = result.timestamp;
+
+        $scope.magneticHeading = "magneticHeading: " + magneticHeading;
+        $scope.trueHeading = "trueheading: " + trueHeading;
+        $scope.accuracy = "accuracy: " + accuracy;
+        $scope.timeStamp = "timeStamp: " + timeStamp;
+
+
+        var options = {
+          frequency: 3000,
+        }
+
+        var watch = $cordovaDeviceOrientation.watchHeading(options).then(
+          null,
+          function(error) {
+            // An error occurred
+          },
+          function(result) {   // updates constantly (depending on frequency value)
+            var magneticHeading = result.magneticHeading;
+            var trueHeading = result.trueHeading;
+            var accuracy = result.headingAccuracy;
+            var timeStamp = result.timestamp;
+
+            $scope.magneticHeading = "magneticHeading: " + magneticHeading;
+            $scope.trueHeading = "trueheading: " + trueHeading;
+            $scope.accuracy = "accuracy: " + accuracy;
+            $scope.timeStamp = "timeStamp: " + timeStamp;
+          });
+
     }, function(err) {
       // An error occurred
     });
 
-
-
-    var options = {
-      frequency: 3000,
-      filter: true     // if frequency is set, filter is ignored
-    }
-
-    var watch = $cordovaDeviceOrientation.watchHeading(options).then(
-      null,
-      function(error) {
-        // An error occurred
-      },
-      function(result) {   // updates constantly (depending on frequency value)
-        var magneticHeading = result.magneticHeading;
-        var trueHeading = result.trueHeading;
-        var accuracy = result.headingAccuracy;
-        var timeStamp = result.timestamp;
-          
-        $scope.compass="trueheading: "+trueHeading;
-      });
-
-    
 //    watch.clearWatch();
 //    // OR
 //    $cordovaDeviceOrientation.clearWatch(watch)
@@ -267,9 +273,9 @@ angular.module('app.controllers', [])
 //
 //      }, false);
     })})
- 
 
-  .controller('MapCtrl', function ($scope, $cordovaGeolocation, $ionicPlatform) {
+
+  .controller('MapCtrl', function ($scope, $cordovaGeolocation, $ionicPlatform, Imagos) {
 
     $scope.error = 'none';
 
@@ -300,9 +306,9 @@ angular.module('app.controllers', [])
           //Wait until the map is loaded
           google.maps.event.addListenerOnce($scope.map, 'idle', function () {
             console.log('map')
-            
+
             //Insert
-            
+
 
             /*
             How to find latlng on googlemaps:
@@ -311,135 +317,14 @@ angular.module('app.controllers', [])
                 *choose What's here?
                 *gives exact latlng
             */
-            
-            
-            //LIU
-            var LIUcontentString = '<div id="content" class="popUp">'+
-              '<div id="siteNotice">'+
-              '</div>'+
-              '<div id="bodyContent">'+
-              '<center><img class="hint" src="img/LIU.jpg" style="width:100%"></center>'+
-              '</div>'+
-              '</div>';
 
-            var LIUInfoWindow = new google.maps.InfoWindow({
-                content: LIUcontentString,
-                maxWidth: 200,
-            });
-            
-            var LIULatLng = {lat: 40.6909652, lng: -73.9814591};
-            var LIU = new google.maps.Marker({
-                position: LIULatLng,
-                map: $scope.map,
-                title: 'Long Island University',
-                icon: {
-                    url:'../img/Imagos/Orange.png',
-                    'scaledSize': new google.maps.Size(34, 34)
-                }
-            });
-              
-            LIU.addListener('click', function() {
-                LIUInfoWindow.open($scope.map, LIU);
-            });
-            
-            //mmuseumm
-            var mmuseummContentString = '<div id="content" class="popUp">'+
-              '<div id="siteNotice">'+
-              '</div>'+
-              '<div id="bodyContent">'+
-              '<center><img class="hint" src="img/mmuseumm.jpg" style="width:100%"></center>'+
-              '</div>'+
-              '</div>';
+            // IMAGOS
+            Imagos.getLIU($scope.map);
+            Imagos.getMmuseum($scope.map);
+            Imagos.getDoyers($scope.map);
+			Imagos.getEmpireState($scope.map);
 
-            var mmuseummInfoWindow = new google.maps.InfoWindow({
-                content: mmuseummContentString,
-                maxWidth: 200,
-                maxHeight: 200,
-            });
-            
-            var mmuseummLatLng = {lat: 40.717366, lng: -74.002747};
-            var mmuseumm = new google.maps.Marker({
-                position: mmuseummLatLng,
-                map: $scope.map,
-                title: 'Mmuseumm'
-            });
-              
-            mmuseumm.addListener('click', function() {
-                mmuseummInfoWindow.open($scope.map, mmuseumm);
-            });  
-              
-            //90 degree angle on doyer st
-              
-            var doyersContentString = '<div id="content" class="popUp">'+
-              '<div id="siteNotice">'+
-              '</div>'+
-              '<div id="bodyContent">'+
-              '<center><img class="hint" src="img/doyers.jpg"></center>'+
-              '</div>'+
-              '</div>';
-
-            var doyersInfoWindow = new google.maps.InfoWindow({
-                content: doyersContentString,
-                maxWidth: 200,
-                maxHeight: 200,
-            });
-            
-            var doyersLatLng = {lat: 40.714428, lng: -73.998113};
-            var doyers = new google.maps.Marker({
-                position: doyersLatLng,
-                map: $scope.map,
-                title: 'Doyers'
-            });
-              
-            doyers.addListener('click', function() {
-                doyersInfoWindow.open($scope.map, doyers);
-            });    
-              
-            
-            //Distance algo  
-              
-            function getDistanceBtwnCurrentLocationAndImago(currentLocation, imagoLocation) {
-              var radiusOfEarth = 3959; // in miles
-
-              // These should be the coordinates of the current location of the user
-              var lat1 = currentLocation.latitude,
-                lang1 = currentLocation.longitude;
-
-              // These should be the coordinates of the Imago
-              var lat2 = imagoLocation.latitude,
-                lang2 = imagoLocation.longitude;
-
-              // Converts from degrees to radians.
-              Math.radians = function (degrees) {
-                return degrees * Math.PI / 180;
-              };
-
-              var dlat = Math.radians(lat1 - lat2); // lattitude diference in radians
-              var dlang = Math.radians(lang1 - lang2); //longitude diference in radian
-
-              // distance between location of user and Imago
-              var distanceInMiles = radiusOfEarth * Math.sqrt(Math.pow(dlat, 2) + Math.pow(dlang, 2));
-
-              return distanceInMiles;
-            }
-            //End Dist
-              
-            //Test cases
-
-            // Below is an example of how to use function
-            var currentLocation = { latitude: 40.760909, longitude: -73.920736 };
-            var imagoLocation = { latitude: 40.755236, longitude: -73.924856 };
-
-            var distanceInMiles = getDistanceBtwnCurrentLocationAndImago(currentLocation, imagoLocation);
-            // print distance
-            console.log(distanceInMiles);
-            //End Test
-              
-              
-            
-            //End Insert
-              
-            //Your location blue dot  
+            //Your location blue dot
             var marker = new google.maps.Marker({
               map: $scope.map,
               animation: google.maps.Animation.DROP,
@@ -458,8 +343,8 @@ angular.module('app.controllers', [])
 
             });
 
-            //init pos  
-              
+            //init pos
+
             var circleOpts = {
               'clickable': false,
               'radius': 100,
@@ -475,8 +360,8 @@ angular.module('app.controllers', [])
 
             var circle = new google.maps.Circle(circleOpts);
 
-            //refresh map  
-              
+            //refresh map
+
             var watchOptions = {
               timeout: 30000,
               enableHighAccuracy: true // may cause errors if true
