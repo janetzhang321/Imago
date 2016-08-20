@@ -50,6 +50,7 @@ angular.module('app.factories', [])
       lat: 40.717366,
       lng: -74.002747,
       imageSrc: 'img/mmuseumm.jpg',
+      redirectTmplUrl: 'templates/addToBucketList.html'
     });
 
     var createDoyers = configureImago({
@@ -57,6 +58,7 @@ angular.module('app.factories', [])
       lat: 40.714428,
       lng: -73.998113,
       imageSrc: 'img/doyers.jpg',
+      redirectTmplUrl: 'templates/addToBucketList.html'
     });
 
     var createEmpireState = configureImago({
@@ -64,6 +66,7 @@ angular.module('app.factories', [])
       lat: 40.748709700,
       lng: -73.985655600,
       imageSrc: '', // NEEDS IMAGE
+      redirectTmplUrl: 'templates/addToBucketList.html'
     });
 
     // ADD ALL IMAGO TO THIS ARRAY
