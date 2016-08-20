@@ -275,7 +275,7 @@ angular.module('app.controllers', [])
     })})
 
 
-  .controller('MapCtrl', function ($scope, $cordovaGeolocation, $ionicPlatform, Imagos) {
+  .controller('MapCtrl', function ($scope, $cordovaGeolocation, $ionicPlatform, ImagoFactory) {
 
     $scope.error = 'none';
 
@@ -319,10 +319,7 @@ angular.module('app.controllers', [])
             */
 
             // IMAGOS
-            Imagos.getLIU($scope.map);
-            Imagos.getMmuseum($scope.map);
-            Imagos.getDoyers($scope.map);
-			Imagos.getEmpireState($scope.map);
+            ImagoFactory.getAllImagos($scope.map);
 
             //Your location blue dot
             var marker = new google.maps.Marker({

@@ -1,132 +1,85 @@
 angular.module('app.factories', [])
 
+  .factory('ImagoFactory', function () {
 
-  .factory('Imagos', function () {
+    function configureImago(configs) {
+      return function (map) {
+        var marker = new google.maps.Marker({
+          position: { lat: configs.lat, lng: configs.lng },
+          map: map,
+          title: configs.title
+        });
 
-    function Redirect() {
-        window.location="addToBucketList.html";
-    }
-    
-    function getLIU(map) {
-      //LIU
-      var LIUcontentString = '<div id="content" class="popUp">' +
-        '<div id="siteNotice">' +
-        '</div>' +
-        '<div id="bodyContent">' +
-        '<center><img class="hint" src="img/LIU.jpg"></center>' +
-        '</div>' +
-        '</div>';
+        var contentString = '<div id="content" class="popUp">' +
+          '<div id="siteNotice">' +
+          '</div>' +
+          '<div id="bodyContent">' +
+          '<center><img class="hint" src=' + configs.imageSrc + '></center>' +
+          '</div>' +
+          '</div>';
 
-      var LIUInfoWindow = new google.maps.InfoWindow({
-        content: LIUcontentString,
-        maxWidth: 200,
-        maxHeight: 200,
-      });
+        var infoWindow = new google.maps.InfoWindow({
+          content: contentString,
+          maxWidth: 200,
+          maxHeight: 200,
+        })
 
-      var LIULatLng = { lat: 40.6909652, lng: -73.9814591 };
-      var LIU = new google.maps.Marker({
-        position: LIULatLng,
-        map: map,
-        title: 'Long Island University'
-      });
+        infoWindow.Redirect = function () {
+          window.location = configs.redirectTmplUrl;
+        }
 
-      LIU.addListener('click', function () {
-        LIUInfoWindow.open(map, LIU);
-      });
-      LIU.addListener('dblclick', function () {
-        LIUInfoWindow.Redirect();
-      });
-    }
-
-    function getMmuseum(map) {
-      var mmuseummContentString = '<div id="content" class="popUp">' +
-        '<div id="siteNotice">' +
-        '</div>' +
-        '<div id="bodyContent">' +
-        '<center><img class="hint" src="img/mmuseumm.jpg"></center>' +
-        '</div>' +
-        '</div>';
-
-      var mmuseummInfoWindow = new google.maps.InfoWindow({
-        content: mmuseummContentString,
-        maxWidth: 200,
-        maxHeight: 200,
-      });
-
-      var mmuseummLatLng = { lat: 40.717366, lng: -74.002747 };
-      var mmuseumm = new google.maps.Marker({
-        position: mmuseummLatLng,
-        map: map,
-        title: 'Mmuseumm'
-      });
-
-      mmuseumm.addListener('click', function () {
-        mmuseummInfoWindow.open(map, mmuseumm);
-      });
+        marker.addListener('click', function () {
+          infoWindow.open(map, marker);
+        });
+        marker.addListener('dblclick', function () {
+          infoWindow.Redirect();
+        });
+      }
     }
 
-    function getDoyers(map) {
-      var doyersContentString = '<div id="content" class="popUp">' +
-        '<div id="siteNotice">' +
-        '</div>' +
-        '<div id="bodyContent">' +
-        '<center><img class="hint" src="img/doyers.jpg"></center>' +
-        '</div>' +
-        '</div>';
+    var createLiu = configureImago({
+      title: 'Long Island University',
+      lat: 40.6909652,
+      lng: -73.9814591,
+      imageSrc: 'img/LIU.jpg',
+      redirectTmplUrl: 'templates/addToBucketList.html'
+    });
 
-      var doyersInfoWindow = new google.maps.InfoWindow({
-        content: doyersContentString,
-        maxWidth: 200,
-        maxHeight: 200,
-      });
+    var createMmuseum = configureImago({
+      title: 'Mmuseumm',
+      lat: 40.717366,
+      lng: -74.002747,
+      imageSrc: 'img/mmuseumm.jpg',
+    });
 
-      var doyersLatLng = { lat: 40.714428, lng: -73.998113 };
-      var doyers = new google.maps.Marker({
-        position: doyersLatLng,
-        map: map,
-        title: 'Doyers'
-      });
+    var createDoyers = configureImago({
+      title: 'Doyers',
+      lat: 40.714428,
+      lng: -73.998113,
+      imageSrc: 'img/doyers.jpg',
+    });
 
-      doyers.addListener('click', function () {
-        doyersInfoWindow.open(map, doyers);
-      });
-    }
+    var createEmpireState = configureImago({
+      title: 'Empire State Building',
+      lat: 40.748709700,
+      lng: -73.985655600,
+      imageSrc: '', // NEEDS IMAGE
+    });
 
-    function getEmpireState(map) {
-      //Empire state building
-      var contentString = '<div id="content" class="popUp">' +
-        '<div id="siteNotice">' +
-        '</div>' +
-        '<div id="bodyContent">' +
-        '<center><img class="hint" src="img/LIU.jpg"></center>' +
-        '</div>' +
-        '</div>';
-      //change image
-
-
-      var infoWindow = new google.maps.InfoWindow({
-        content: contentString,
-        maxWidth: 200,
-        maxHeight: 200,
-      });
-
-      var latLng = { lat: 40.748709700, lng: -73.985655600 };
-      var imago = new google.maps.Marker({
-        position: latLng,
-        map: map,
-        title: 'Empire State Building'
-      });
-
-      imago.addListener('click', function () {
-        infoWindow.open(map, imago);
-      });
-    }
+    // ADD ALL IMAGO TO THIS ARRAY
+    var imagos = [
+      createLiu,
+      createMmuseum,
+      createDoyers,
+      createEmpireState
+    ]
 
     return {
-      getLIU: getLIU,
-      getMmuseum: getMmuseum,
-      getDoyers: getDoyers,
-      getEmpireState: getEmpireState
+      getAllImagos: function (map) {
+        imagos.forEach(function (initiateImagoFn) {
+          return initiateImagoFn(map);
+        })
+      }
     };
   })
 
@@ -147,7 +100,7 @@ angular.module('app.factories', [])
 
 
 
-  .factory('DistanceCalculations', function () {
+  .factory('DistanceCalculationsFactory', function () {
 
     function getMilesBtwnCurrentLocationAndImago(currentLocation, imagoLocation) {
       var lat1 = currentLocation.latitude;
