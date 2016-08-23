@@ -38,6 +38,7 @@ angular.module('app.factories', [])
     }
 
     var createLiu = configureImago({
+		//LIU
       title: 'Long Island University',
       lat: 40.6909652,
       lng: -73.9814591,
@@ -46,6 +47,7 @@ angular.module('app.factories', [])
     });
 
     var createMmuseum = configureImago({
+		//Mmusem 
       title: 'Mmuseumm',
       lat: 40.717366,
       lng: -74.002747,
@@ -54,6 +56,7 @@ angular.module('app.factories', [])
     });
 
     var createDoyers = configureImago({
+		//Doyers 
       title: 'Doyers',
       lat: 40.714428,
       lng: -73.998113,
@@ -62,19 +65,99 @@ angular.module('app.factories', [])
     });
 
     var createEmpireState = configureImago({
+		//EmpireState Original 
       title: 'Empire State Building',
       lat: 40.748709700,
       lng: -73.985655600,
-      imageSrc: '', // NEEDS IMAGE
+      imageSrc: 'img/EmpireState.jpg', 
       redirectTmplUrl: 'templates/addToBucketList.html'
     });
 
+	var createFlatironBuilding = configureImago({
+		//Flatiron Building
+      title: 'Flatiron Building',
+      lat: 40.740992800,
+      lng: -73.989658700,
+      imageSrc: 'img/', // NEEDS IMAGE
+      redirectTmplUrl: 'templates/addToBucketList.html'
+    });
+	var createMuseumFIT = configureImago({
+		//The Museum at FIT
+      title: 'The Museum at FIT',
+      lat: 40.746828200,
+      lng: -73.993936600,
+      imageSrc: 'img/EmpireState.jpg', // NEEDS IMAGE
+      redirectTmplUrl: 'templates/addToBucketList.html'
+    });
+	var createGilseyHouse = configureImago({
+		//Gilsey House
+      title: 'Gilsey House',
+      lat: 40.746166600,
+      lng: -73.988395000,
+      imageSrc: 'img/EmpireState.jpg', // NEEDS IMAGE
+      redirectTmplUrl: 'templates/addToBucketList.html'
+    });
+	
+	var createMuseumPR = configureImago({
+		//Museum of Public Relations
+      title: 'Museum of Public Relations',
+      lat: 40.740766800,
+      lng: -73.982789300,
+      imageSrc: 'img/EmpireState.jpg', // NEEDS IMAGE
+      redirectTmplUrl: 'templates/addToBucketList.html'
+    });
+	
+	var createGrandCentralterminal  = configureImago({
+		//Grand Central terminal 
+      title: 'Grand Central terminal ',
+      lat: 40.752496100,
+      lng: -73.977302200,
+      imageSrc: 'img/EmpireState.jpg', // NEEDS IMAGE
+      redirectTmplUrl: 'templates/addToBucketList.html'
+    });
+	
+	var create33ThomasST = configureImago({
+		//33 thomas street
+      title: '33 thomas street',
+      lat: 40.716551100,
+      lng: -74.005794700,
+      imageSrc: 'img/EmpireState.jpg', // NEEDS IMAGE
+      redirectTmplUrl: 'templates/addToBucketList.html'
+    });
+	
+	var createTheplazaHotel = configureImago({
+		//The plaza Hotel
+      title: 'The plaza Hotel',
+      lat: 40.764609500,
+      lng: -73.974354700,
+      imageSrc: 'img/EmpireState.jpg', // NEEDS IMAGE
+      redirectTmplUrl: 'templates/addToBucketList.html'
+    });
+	
+	var createTheMET = configureImago({
+		//The Metropolitan Museum of Art
+      title: 'The Metropolitan Museum of Art',
+      lat: 40.779165500,
+      lng: -73.962927800,
+      imageSrc: 'img/EmpireState.jpg', // NEEDS IMAGE
+      redirectTmplUrl: 'templates/addToBucketList.html'
+    });
+	
+	
     // ADD ALL IMAGO TO THIS ARRAY
     var imagos = [
       createLiu,
       createMmuseum,
       createDoyers,
-      createEmpireState
+      createEmpireState,
+	  createFlatironBuilding,
+	  createMuseumFIT,
+	  createGilseyHouse,
+	  createMuseumPR,
+	  createGrandCentralterminal,
+	  create33ThomasST,
+	  createTheplazaHotel,
+	  createTheMET, 
     ]
 
     return {
