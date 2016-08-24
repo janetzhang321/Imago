@@ -275,9 +275,9 @@ angular.module('app.controllers', [])
     })})
 
 
-  .controller('MapCtrl', function ($scope, $cordovaGeolocation, $ionicPlatform, ImagoFactory) {
+  .controller('MapCtrl', function ($scope, $cordovaGeolocation, $ionicPlatform, ImagoFactory, DistanceCalculationsFactory) {
 
-    $scope.error = 'none';
+	$scope.showCamera = false;
 
     $ionicPlatform.ready(function () {
 
@@ -356,9 +356,21 @@ angular.module('app.controllers', [])
             };
 
             var circle = new google.maps.Circle(circleOpts);
-
+			
+			// CHECK NEARBY IMAGOS
+			var currentLocation = {
+				latitude: position.coords.latitude,
+				longitude: position.coords.longitude
+			}
+			
+			// IMAGOS NEARBY
+            if(DistanceCalculationsFactory.isAnImagoNearby(currentLocation)) {
+				$scope.showCamera = true;
+			} else {
+				$scope.showCamera = false;
+			}
+			
             //refresh map
-
             var watchOptions = {
               timeout: 30000,
               enableHighAccuracy: true // may cause errors if true
@@ -380,6 +392,14 @@ angular.module('app.controllers', [])
                 }
 
                 redraw();
+				
+				// IMAGOS NEARBY
+				if(DistanceCalculationsFactory.isAnImagoNearby(currentLocation)) {
+					$scope.showCamera = true;
+				} else {
+					$scope.showCamera = false;
+				}
+				
               });
 
           });

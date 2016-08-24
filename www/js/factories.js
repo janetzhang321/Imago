@@ -36,6 +36,13 @@ angular.module('app.factories', [])
         });
       }
     }
+	
+	var imagosCoordinates = {
+		rockefellerCenter: {
+			lat: 40.759088400,
+			lng: -73.977599500
+		}
+	}
 
     var createLiu = configureImago({
 		//LIU
@@ -182,8 +189,8 @@ angular.module('app.factories', [])
 	var createRockefellerCenter  = configureImago({
 		//Rockefeller center 
       title: 'Rockefeller Center ',
-      lat: 40.759088400,
-      lng: -73.977599500,
+      lat: imagosCoordinates.rockefellerCenter.lat,
+      lng: imagosCoordinates.rockefellerCenter.lng,
       imageSrc: 'img/EmpireState.jpg', // NEEDS IMAGE
       redirectTmplUrl: 'templates/addToBucketList.html'
     });
@@ -256,13 +263,15 @@ angular.module('app.factories', [])
 	  createGrandCentralterminal,
 	  create33ThomasST,
 	  createTheplazaHotel,
-	  createTheMET, 
+	  createTheMET,
+	  createRockefellerCenter	  
     ]
 
     return {
-      getAllImagos: function (map) {
-        imagos.forEach(function (initiateImagoFn) {
-          return initiateImagoFn(map);
+		imagosCoordinates: imagosCoordinates,
+		getAllImagos: function (map) {
+			imagos.forEach(function (initiateImagoFn) {
+			return initiateImagoFn(map);
         })
       }
     };
@@ -285,7 +294,7 @@ angular.module('app.factories', [])
 
 
 
-  .factory('DistanceCalculationsFactory', function () {
+  .factory('DistanceCalculationsFactory', function (ImagoFactory) {
 
     function getMilesBtwnCurrentLocationAndImago(currentLocation, imagoLocation) {
       var lat1 = currentLocation.latitude;
@@ -305,6 +314,11 @@ angular.module('app.factories', [])
       var d = R * c; // Distance in km
       return d;
     }
+	
+	function deg2rad(deg) {
+		return deg * (Math.PI / 180)
+	}
+
 
     function getBearingBtwnTwoLocations(currentLocation, imagoLocation) {
       var lat1 = currentLocation.latitude;
@@ -326,10 +340,44 @@ angular.module('app.factories', [])
       bearing = bearing.toFixed(0);
       return bearing;
     }
+	
+	function displayCamera(distanceInMiles){
+		var MIN_RADIUS_IN_MILES = 0.1;
+		
+	    if(distanceInMiles <= MIN_RADIUS_IN_MILES) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	function isAnImagoNearby(currentLocation) {
+		var distanceInMilesCache = 0;
+		
+		for(var imagoName in ImagoFactory.imagosCoordinates) {
+			var coordinates = {
+				latitude: ImagoFactory.imagosCoordinates[imagoName].lat,
+				longitude: ImagoFactory.imagosCoordinates[imagoName].lng
+			};
+			
+			var distanceInMiles = getMilesBtwnCurrentLocationAndImago(currentLocation, coordinates);
+			if(!distanceInMilesCache || distanceInMiles < distanceInMilesCache) {
+				distanceInMilesCache = distanceInMiles;
+			}
+		}
+		
+		if(distanceInMilesCache !== 0 && distanceInMilesCache <= .25) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
     return {
       getMilesBtwnCurrentLocationAndImago: getMilesBtwnCurrentLocationAndImago,
-      getBearingBtwnTwoLocations: getBearingBtwnTwoLocations
+      getBearingBtwnTwoLocations: getBearingBtwnTwoLocations,
+	  displayCamera: displayCamera,
+	  isAnImagoNearby: isAnImagoNearby
     }
 
   });
