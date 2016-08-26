@@ -26,6 +26,9 @@ angular.module('app.controllers', [])
       };
 
       $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+	    
+		// IMAGOS
+         ImagoFactory.getAllImagos($scope.map);
 
 
       var posOptions = { timeout: 10000, enableHighAccuracy: true };
@@ -54,8 +57,7 @@ angular.module('app.controllers', [])
                 *gives exact latlng
             */
 
-            // IMAGOS
-            ImagoFactory.getAllImagos($scope.map);
+        
 
             //Your location blue dot
             var marker = new google.maps.Marker({
@@ -187,6 +189,18 @@ angular.module('app.controllers', [])
 
 
     }])
+	
+	
+	.controller('pointsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+    // You can include any angular dependencies as parameters for this function
+    // TIP: Access Route Parameters for your page via $stateParams.parameterName
+    function ($scope, $stateParams) {
+
+
+    }])
+	
+	
+	
 
   .controller('rewardsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function

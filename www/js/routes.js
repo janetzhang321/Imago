@@ -75,6 +75,13 @@ angular.module('app.routes', [])
         controller: 'pictureCtrl'
       })
 
+	  .state('points', {
+        url: '/points',
+        templateUrl: 'templates/points.html',
+        controller: 'pointsCtrl'
+      })
+	  
+	  
     $urlRouterProvider.otherwise('/')
 
 
