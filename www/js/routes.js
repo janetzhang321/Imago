@@ -8,7 +8,18 @@ angular.module('app.routes', [])
     // Each state's controller can be found in controllers.js
     $stateProvider
 
+      .state('index', {
+        abstract: true,
+        templateUrl: 'templates/sideNav.html',
+        controller: 'sideNavCtrl'
+      })
 
+      .state('tabsController', {
+        parent: 'index',
+        url: '/tabs',
+        templateUrl: 'templates/tabsController.html',
+        abstract: true
+      })
 
       .state('tabsController.imagoMap', {
         url: '/map',
@@ -40,48 +51,46 @@ angular.module('app.routes', [])
         }
       })
 
-      .state('tabsController', {
-        url: '/tabs',
-        templateUrl: 'templates/tabsController.html',
-        abstract: true
-      })
-
       .state('login', {
+        parent: 'index',
         url: '/',
         templateUrl: 'templates/login.html',
         controller: 'loginCtrl'
       })
 
       .state('profile', {
+        parent: 'index',
         url: '/profile',
         templateUrl: 'templates/profile.html',
         controller: 'profileCtrl'
       })
 
       .state('about', {
+        parent: 'index',
         url: '/about',
         templateUrl: 'templates/about.html',
         controller: 'aboutCtrl'
       })
 
       .state('rewards', {
+        parent: 'index',
         url: '/rewards',
         templateUrl: 'templates/rewards.html',
         controller: 'rewardsCtrl'
       })
 
-      .state('camera', {
-        url: '/Camera',
-        controller: 'pictureCtrl'
-      })
-
-	  .state('points', {
+      .state('points', {
+        parent: 'index',
         url: '/points',
         templateUrl: 'templates/points.html',
         controller: 'pointsCtrl'
       })
-	  
-	  
+
+      .state('camera', {
+        url: '/camera',
+        controller: 'pictureCtrl'
+      })
+
     $urlRouterProvider.otherwise('/')
 
 

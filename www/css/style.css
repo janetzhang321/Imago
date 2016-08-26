@@ -38,4 +38,9 @@
 
 .hint{
     width: 100% !important;
-}   
+}
+
+/* PREVENTS ng-show from flashing because of ng-animate */
+.ng-hide.ng-hide-animate{
+     display: none !important;
+}
