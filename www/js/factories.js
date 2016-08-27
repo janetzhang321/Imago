@@ -7,7 +7,8 @@ angular.module('app.factories', [])
         var marker = new google.maps.Marker({
           position: { lat: configs.lat, lng: configs.lng },
           map: map,
-          title: configs.title
+          title: configs.title,
+          icon: configs.icon
         });
 
         var contentString = '<div id="content" class="popUp">' +
@@ -138,7 +139,11 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.LIU.lat,
       lng: imagosCoordinates.LIU.lng,
       imageSrc: 'img/LIU.jpg',
-      redirectTmplUrl: 'templates/addToBucketList.html'
+      redirectTmplUrl: 'templates/addToBucketList.html',
+      icon: {
+          url: 'img/Imagos/Blue.png',
+          'scaledSize': new google.maps.Size(30, 30)
+      }
     });
 
     var createMmuseumm = configureImago({
