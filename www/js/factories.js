@@ -37,7 +37,7 @@ angular.module('app.factories', [])
         });
       }
     }
-	
+
 	var imagosCoordinates = {
         LIU: {
             lat:40.6903991,
@@ -65,42 +65,42 @@ angular.module('app.factories', [])
         },
         gilsey:{
             lat:40.746166600,
-            lng:-73.988395000 
+            lng:-73.988395000
         },
         museumPR:{
             lat:40.740766800,
             lng:-73.982789300
         },
         grandCentral:{
-            lat:40.752496100, 
+            lat:40.752496100,
             lng:-73.977302200
         },
         thomasSt:{
-            lat:40.716551100, 
+            lat:40.716551100,
             lng:-74.005794700
         },
         plazaHotel:{
-            lat:40.764609500, 
+            lat:40.764609500,
             lng:-73.974354700
         },
         met:{
-            lat:40.779165500, 
+            lat:40.779165500,
             lng:-73.962927800
         },
         museumNYC:{
-            lat:40.792567500, 
+            lat:40.792567500,
             lng:-73.951999400
         },
         MoMA:{
-            lat:40.761417000, 
+            lat:40.761417000,
             lng:-73.977120300
         },
         guggenheim:{
-            lat:40.783001000, 
+            lat:40.783001000,
             lng:-73.958881600
         },
         waldorfAstoria:{
-            lat:40.756571200, 
+            lat:40.756571200,
             lng:-73.973642100
         },
 		rockefellerCenter: {
@@ -116,19 +116,19 @@ angular.module('app.factories', [])
 			lng: -74.011318900
 		},
 		fedHall: {
-			lat: 40.707258000, 
+			lat: 40.707258000,
 			lng: -74.010356400
 		},
 		intrepid: {
-			lat: 40.763726600, 
+			lat: 40.763726600,
 			lng: -73.999178900
 		},
 		fedReserve: {
-			lat: 40.708366300, 
+			lat: 40.708366300,
 			lng: -74.008653000
 		},
 		empireState: {
-			lat: 40.748709700, 
+			lat: 40.748709700,
 			lng: -73.985655600
 		},
 	}
@@ -139,7 +139,7 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.LIU.lat,
       lng: imagosCoordinates.LIU.lng,
       imageSrc: 'img/LIU.jpg',
-      redirectTmplUrl: 'templates/bucketList.html',
+      redirectTmplUrl: '/#/tabs/bucketList',
       icon: {
           url: 'img/Imagos/Blue.png',
           'scaledSize': new google.maps.Size(30, 30)
@@ -147,30 +147,30 @@ angular.module('app.factories', [])
     });
 
     var createMmuseumm = configureImago({
-		//Mmusem 
+		//Mmusem
       title: 'Mmuseumm',
       lat: imagosCoordinates.mmuseumm.lat,
       lng: imagosCoordinates.mmuseumm.lng,
       imageSrc: 'img/mmuseumm.jpg',
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createDoyers = configureImago({
-		//Doyers 
+		//Doyers
       title: 'Doyers',
       lat: imagosCoordinates.doyers.lat,
       lng: imagosCoordinates.doyers.lng,
       imageSrc: 'img/doyers.jpg',
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createEmpireState = configureImago({
-		//EmpireState Original 
+		//EmpireState Original
       title: 'Empire State Building',
       lat: imagosCoordinates.empirestate.lat,
       lng: imagosCoordinates.empirestate.lng,
-      imageSrc: 'img/EmpireState.jpg', 
-      redirectTmplUrl: 'templates/bucketList.html'
+      imageSrc: 'img/EmpireState.jpg',
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
 	var createFlatironBuilding = configureImago({
@@ -178,171 +178,171 @@ angular.module('app.factories', [])
       title: 'Flatiron Building',
       lat: imagosCoordinates.flatiron.lat,
       lng: imagosCoordinates.flatiron.lng,
-      imageSrc: 'img/flatironbuilding.jpg', 
-      redirectTmplUrl: 'templates/bucketList.html'
+      imageSrc: 'img/flatironbuilding.jpg',
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 	var createMuseumFIT = configureImago({
 		//The Museum at FIT
       title: 'The Museum at FIT',
       lat: imagosCoordinates.fit.lat,
       lng: imagosCoordinates.fit.lng,
-      imageSrc: 'img/FIT.jpg', 
-      redirectTmplUrl: 'templates/bucketList.html'
+      imageSrc: 'img/FIT.jpg',
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 	var createGilseyHouse = configureImago({
 		//Gilsey House
       title: 'Gilsey House',
       lat: imagosCoordinates.gilsey.lat,
       lng: imagosCoordinates.gilsey.lng,
-      imageSrc: 'img/GilseyHouse.jpg', 
-      redirectTmplUrl: 'templates/bucketList.html'
+      imageSrc: 'img/GilseyHouse.jpg',
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
-	
+
 	var createMuseumPR = configureImago({
 		//Museum of Public Relations
       title: 'Museum of Public Relations',
       lat: imagosCoordinates.museumPR.lat,
       lng: imagosCoordinates.museumPR.lng,
-      imageSrc: 'img/MoPR.png', 
-      redirectTmplUrl: 'templates/bucketList.html'
+      imageSrc: 'img/MoPR.png',
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
-	
+
 	var createGrandCentralterminal  = configureImago({
-		//Grand Central terminal 
+		//Grand Central terminal
       title: 'Grand Central terminal',
       lat: imagosCoordinates.grandCentral.lat,
       lng: imagosCoordinates.grandCentral.lng,
-      imageSrc: 'img/GrandCentral.jpg', 
-      redirectTmplUrl: 'templates/bucketList.html'
+      imageSrc: 'img/GrandCentral.jpg',
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
-	
+
 	var create33ThomasST = configureImago({
 		//33 thomas street
-      title: '33 Thomas Street', 
+      title: '33 Thomas Street',
       lat: imagosCoordinates.thomasSt.lat,
       lng: imagosCoordinates.thomasSt.lng,
-      imageSrc: 'img/33thomas.jpg', 
-      redirectTmplUrl: 'templates/bucketList.html'
+      imageSrc: 'img/33thomas.jpg',
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
-	
+
 	var createTheplazaHotel = configureImago({
 		//The plaza Hotel
       title: 'The Plaza Hotel',
       lat: imagosCoordinates.plazaHotel.lat,
       lng: imagosCoordinates.plazaHotel.lng,
       imageSrc: 'img/PlazaHotel.JPG',
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
-	
+
 	var createTheMET = configureImago({
 		//The Metropolitan Museum of Art
       title: 'The Metropolitan Museum of Art',
       lat: imagosCoordinates.met.lat,
       lng: imagosCoordinates.met.lng,
       imageSrc: 'img/Met.jpg',
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
-	
+
 	var createMuseumNYC = configureImago({
-		//Museum of the City of New York 
+		//Museum of the City of New York
       title: 'Museum of the City of New York',
       lat: imagosCoordinates.museumNYC.lat,
       lng: imagosCoordinates.museumNYC.lng,
       imageSrc: 'img/MoCityofNY.jpg',
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
-	
+
 	var createMoMa = configureImago({
 		//Museum of Modern Art
       title: 'Museum of Modern Art',
       lat: imagosCoordinates.MoMA.lat,
       lng: imagosCoordinates.MoMA.lng,
-      imageSrc: 'img/MOMA.jpg', 
-      redirectTmplUrl: 'templates/bucketList.html'
+      imageSrc: 'img/MOMA.jpg',
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
-	
+
 	var createGuggenheimMuseum = configureImago({
-		//Guggenheim Museum 
+		//Guggenheim Museum
       title: 'Guggenheim Museum',
       lat: imagosCoordinates.guggenheim.lat,
       lng: imagosCoordinates.guggenheim.lng,
       imageSrc: 'img/Guggenheim.jpg',
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
-	
+
 	var createWaldorfAstoria = configureImago({
-		//Waldorf Astoria 
+		//Waldorf Astoria
       title: 'Waldorf Astoria',
       lat: imagosCoordinates.waldorfAstoria.lat,
       lng: imagosCoordinates.waldorfAstoria.lng,
       imageSrc: 'img/WaldorfAstoria.jpg',
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
-	
+
 	var createRockefellerCenter  = configureImago({
-		//Rockefeller center 
+		//Rockefeller center
       title: 'Rockefeller Center',
       lat: imagosCoordinates.rockefellerCenter.lat,
       lng: imagosCoordinates.rockefellerCenter.lng,
       imageSrc: 'img/RockefellerCenter.jpg',
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
-	
+
 	var createCityHall = configureImago({
-		//New York City Hall 
+		//New York City Hall
       title: 'New York City Hall',
       lat: imagosCoordinates.cityHall.lat,
       lng: imagosCoordinates.cityHall.lng,
       imageSrc: 'img/NYCHall.jpg',
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
-	
+
 	var createNYSE = configureImago({
 		//New York Stock Exchange
-      title: 'New York Stock Exchange', 
+      title: 'New York Stock Exchange',
       lat: imagosCoordinates.NYSE.lat,
       lng: imagosCoordinates.NYSE.lng,
       imageSrc: 'img/NYSE.jpg',
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
-	
+
 	var createFederalHall = configureImago({
 		//Federal Hall
-      title: 'Federal Hall', 
+      title: 'Federal Hall',
       lat: imagosCoordinates.fedHall.lat,
       lng: imagosCoordinates.fedHall.lng,
       imageSrc: 'img/FederalHall.jpg',
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
-	
+
 	var createIntrepid = configureImago({
-		//Intrepid Sea, Air & Space Museum 
+		//Intrepid Sea, Air & Space Museum
       title: 'Intrepid Sea, Air & Space Museum',
       lat: imagosCoordinates.intrepid.lat,
       lng: imagosCoordinates.intrepid.lng,
       imageSrc: 'img/Intrepid.jpg',
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
-	
+
 	var createFederalReserve = configureImago({
 		//Federal Reserve
       title: 'Federal Reserve',
       lat: imagosCoordinates.fedReserve.lat,
       lng: imagosCoordinates.fedReserve.lng,
       imageSrc: 'img/NYCFedReserve.jpg',
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
-	
+
 	var createEmpireState = configureImago({
-		//EmpireState Original 
+		//EmpireState Original
       title: 'Empire State Building',
       lat: 40.748709700,
       lng: -73.985655600,
       imageSrc: 'img/EmpireState.jpg',
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
-	
-	
+
+
     // ADD ALL IMAGO TO THIS ARRAY
     var imagos = [
         createLiu,
@@ -417,7 +417,7 @@ angular.module('app.factories', [])
       var d = R * c; // Distance in km
       return d;
     }
-	
+
 	function deg2rad(deg) {
 		return deg * (Math.PI / 180)
 	}
@@ -443,32 +443,32 @@ angular.module('app.factories', [])
       bearing = bearing.toFixed(0);
       return bearing;
     }
-	
+
 	function displayCamera(distanceInMiles){
 		var MIN_RADIUS_IN_MILES = 0.1;
-		
+
 	    if(distanceInMiles <= MIN_RADIUS_IN_MILES) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
 	function isAnImagoNearby(currentLocation) {
 		var distanceInMilesCache = 0;
-		
+
 		for(var imagoName in ImagoFactory.imagosCoordinates) {
 			var coordinates = {
 				latitude: ImagoFactory.imagosCoordinates[imagoName].lat,
 				longitude: ImagoFactory.imagosCoordinates[imagoName].lng
 			};
-			
+
 			var distanceInMiles = getMilesBtwnCurrentLocationAndImago(currentLocation, coordinates);
 			if(!distanceInMilesCache || distanceInMiles < distanceInMilesCache) {
 				distanceInMilesCache = distanceInMiles;
 			}
 		}
-		
+
 		if(distanceInMilesCache !== 0 && distanceInMilesCache <= .25) {
 			return true;
 		} else {
