@@ -39,3 +39,22 @@
 .hint{
     width: 100% !important;
 }   
+.item-avatar{
+	padding-left:5px !important;
+}
+.rank{
+	display:inline;
+	padding-left:10px;
+	padding-right:65px;
+}
+.name{
+	display:inline;
+	position:relative;
+	top:-10px;
+}
+.score{
+	padding-left:98px;
+	position:relative;
+	top:-10px;
+}
+
