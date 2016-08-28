@@ -44,3 +44,14 @@
 .ng-hide.ng-hide-animate{
      display: none !important;
 }
+
+#login-button3{
+  background-color: white;
+  width:65%;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+  vertical-align: middle;
+  color: black !important;
+  padding: 0 0 0 0 !important;
+}
