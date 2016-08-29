@@ -53,6 +53,15 @@
     <feature name="Compass">
         <param name="ios-package" value="CDVCompass" />
     </feature>
+    <feature name="GoogleMaps">
+        <param name="ios-package" value="GoogleMaps" />
+    </feature>
+    <feature name="External">
+        <param name="ios-package" value="External" />
+    </feature>
+    <feature name="Geocoder">
+        <param name="ios-package" value="Geocoder" />
+    </feature>
     <name>Imago</name>
     <description>
         An Ionic Framework and Cordova project.

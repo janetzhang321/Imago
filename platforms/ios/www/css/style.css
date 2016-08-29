@@ -7,6 +7,22 @@
     width: 100%;
     height: 100%;
 }
+
+#camera-button-map {
+  position: absolute;
+  width: 100%;
+  bottom: 20px;
+}
+
+#camera-button-map > span {
+  display: flex;
+  justify-content: center;
+}
+
+#camera-button-map > span > a > i {
+  font-size: 80px;
+  color: black;
+}
 /*
 
 .popUp{
@@ -22,4 +38,9 @@
 
 .hint{
     width: 100% !important;
-}   
+}
+
+/* PREVENTS ng-show from flashing because of ng-animate */
+.ng-hide.ng-hide-animate{
+     display: none !important;
+}

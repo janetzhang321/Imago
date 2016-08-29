@@ -33,11 +33,18 @@
         },
         "cordova-plugin-device-orientation": {
             "PACKAGE_NAME": "com.ionicframework.imago196429"
+        },
+        "plugin.google.maps": {
+            "API_KEY_FOR_IOS": "",
+            "PACKAGE_NAME": "com.ionicframework.imago196429"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
             "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "com.googlemaps.ios": {
+            "PACKAGE_NAME": "com.ionicframework.imago196429"
         }
     }
 }
