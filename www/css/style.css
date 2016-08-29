@@ -73,3 +73,23 @@
   color: black !important;
   padding: 0 0 0 0 !important;
 }
+.item-avatar{
+	padding-left:0px !important;
+}
+
+.bucket-list-category{
+	font-size: 22px;
+	font-weight:300;
+	display:inline;
+}
+.ion-android-map{
+	display:inline;
+	padding-left:30px;
+	padding-right:30px;
+}
+.bucket-list-link{
+	text-decoration:none;
+}
+.bucket-list:hover{
+	background-color:#f2f2f2;
+}
