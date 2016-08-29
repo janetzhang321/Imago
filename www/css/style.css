@@ -40,22 +40,27 @@
     width: 100% !important;
 }   
 .item-avatar{
-	padding-left:5px !important;
+	padding-left:0px !important;
+	padding-bottom:10px !important;
+	padding-top:19px !important;
 }
 .rank{
 	display:inline;
-	padding-left:10px;
-	padding-right:65px;
+	position:relative;
+	padding-left:30px;
+	padding-right:30px;
+	margin-bottom:0px;
 }
 .name{
 	display:inline;
 	position:relative;
-	top:-10px;
+	top:-15px;
+	padding-left:5px;
 }
 .score{
-	padding-left:98px;
+	padding-left:90px;
 	position:relative;
-	top:-10px;
+	top:-15px;
 }
 
 /* PREVENTS ng-show from flashing because of ng-animate */
