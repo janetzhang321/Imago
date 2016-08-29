@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'ngCordova', 'app.controllers', 'app.routes', 'app.directives', 'app.services'])
+angular.module('app', ['ionic', 'ngCordova', 'app.controllers', 'app.routes', 'app.directives', 'app.services', 'app.factories'])
 
   .run(function ($ionicPlatform, $rootScope, $ionicSideMenuDelegate, $cordovaGeolocation) {
     $ionicPlatform.ready(function () {
@@ -28,6 +28,6 @@ angular.module('app', ['ionic', 'ngCordova', 'app.controllers', 'app.routes', 'a
         timeout : 10000,
         enableHighAccuracy: true // may cause errors if true
       };
-      $rootScope.watchPosition = $cordovaGeolocation.watchPosition(posOptions);
+      $rootScope.watchPosition = $cordovaGeolocation.watchPosition(watchOptions);
     });
   })

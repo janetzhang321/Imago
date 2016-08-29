@@ -1,6 +1,6 @@
 angular.module('app.controllers', [])
 
-  .controller('imagoMapCtrl', function ($scope, $cordovaGeolocation, $ionicPlatform, $rootScope) {
+  .controller('imagoMapCtrl', function ($scope, $cordovaGeolocation, $ionicPlatform, $rootScope, ImagoFactory) {
     var div, map;
 
     // INITIATE MAP RIGHT AWAY WITH NYC COORDINATES
@@ -84,6 +84,8 @@ angular.module('app.controllers', [])
               'title': canvas.toDataURL()
             }, function (marker) {
 
+              ImagoFactory.getAllImagos(map);
+
               // circle
               map.addCircle({
                 'center': currentPosition,
@@ -99,7 +101,6 @@ angular.module('app.controllers', [])
                   circle.setCenter(latestPosition);
 
                 });
-                // WATCH
 
               });
 

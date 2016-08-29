@@ -4,37 +4,43 @@ angular.module('app.factories', [])
 
     function configureImago(configs) {
       return function (map) {
-        var marker = new google.maps.Marker({
-          position: { lat: configs.lat, lng: configs.lng },
-          map: map,
-          title: configs.title,
-          icon: configs.icon
+        var latLng = new plugin.google.maps.LatLng(configs.lat, configs.lng);
+        return map.addMarker({
+          position: latLng,
+          title: configs.title
         });
 
-        var contentString = '<div id="content" class="popUp">' +
-          '<div id="siteNotice">' +
-          '</div>' +
-          '<div id="bodyContent">' +
-          '<center><img class="hint" src=' + configs.imageSrc + '></center>' +
-          '</div>' +
-          '</div>';
+        // var marker = new google.maps.Marker({
+        //   position: { lat: configs.lat, lng: configs.lng },
+        //   map: map,
+        //   title: configs.title,
+        //   icon: configs.icon
+        // });
 
-        var infoWindow = new google.maps.InfoWindow({
-          content: contentString,
-          maxWidth: 200,
-          maxHeight: 200,
-        })
+        // var contentString = '<div id="content" class="popUp">' +
+        //   '<div id="siteNotice">' +
+        //   '</div>' +
+        //   '<div id="bodyContent">' +
+        //   '<center><img class="hint" src=' + configs.imageSrc + '></center>' +
+        //   '</div>' +
+        //   '</div>';
 
-        infoWindow.Redirect = function () {
-          window.location = configs.redirectTmplUrl;
-        }
+        // var infoWindow = new google.maps.InfoWindow({
+        //   content: contentString,
+        //   maxWidth: 200,
+        //   maxHeight: 200,
+        // })
 
-        marker.addListener('click', function () {
-          infoWindow.open(map, marker);
-        });
-        marker.addListener('dblclick', function () {
-          infoWindow.Redirect();
-        });
+        // infoWindow.Redirect = function () {
+        //   window.location = configs.redirectTmplUrl;
+        // }
+
+        // marker.addListener('click', function () {
+        //   infoWindow.open(map, marker);
+        // });
+        // marker.addListener('dblclick', function () {
+        //   infoWindow.Redirect();
+        // });
       }
     }
 
@@ -140,10 +146,10 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.LIU.lng,
       imageSrc: 'img/LIU.jpg',
       redirectTmplUrl: 'templates/bucketList.html',
-      icon: {
-        url: 'img/Imagos/Blue.png',
-        'scaledSize': new google.maps.Size(30, 30)
-      }
+      // icon: {
+      //   url: 'img/Imagos/Blue.png',
+      //   'scaledSize': new google.maps.Size(30, 30)
+      // }
     });
 
     var createMmuseumm = configureImago({
@@ -366,8 +372,8 @@ angular.module('app.factories', [])
       createNYSE,
       createFederalHall,
       createIntrepid,
-      createFederalReserve,
-      createEmpireState
+      createFederalReserve
+      // createEmpireState
     ]
 
     return {
@@ -376,7 +382,7 @@ angular.module('app.factories', [])
         imagos.forEach(function (initiateImagoFn) {
           return initiateImagoFn(map);
         })
-      }
+      },
     };
   })
 
