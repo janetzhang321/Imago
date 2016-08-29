@@ -26,7 +26,7 @@ angular.module('app.controllers', [])
       };
 
       $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
-	    
+
 		// IMAGOS
          ImagoFactory.getAllImagos($scope.map);
 
@@ -57,7 +57,7 @@ angular.module('app.controllers', [])
                 *gives exact latlng
             */
 
-        
+
 
             //Your location blue dot
             var marker = new google.maps.Marker({
@@ -150,6 +150,39 @@ angular.module('app.controllers', [])
     });
   })
 
+  .controller('sideNavCtrl', ['$scope', '$stateParams',  '$ionicHistory', '$state', '$rootScope',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+    // You can include any angular dependencies as parameters for this function
+    // TIP: Access Route Parameters for your page via $stateParams.parameterName
+    function ($scope, $stateParams, $ionicHistory, $state, $rootScope) {
+
+
+      if ($state.current.name.indexOf('tabsController') !== -1) {
+              $scope.showBackButton = false;
+              $scope.showHamburgerMenu = true;
+            } else {
+              $scope.showHamburgerMenu = false;
+              $scope.showBackButton = true;
+            }
+
+      $rootScope.$on('$stateChangeStart',
+        function (event, toState, toParams, fromState, fromParams, options) {
+          console.log('toState', toState)
+            if (toState.name.indexOf('tabsController') !== -1) {
+              $scope.showBackButton = false;
+              $scope.showHamburgerMenu = true;
+            } else {
+              $scope.showHamburgerMenu = false;
+              $scope.showBackButton = true;
+            }
+        })
+
+      $scope.goBack = function () {
+        $state.go('tabsController.imagoMap');
+      }
+
+
+    }])
+
   .controller('leaderboardCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
@@ -182,15 +215,19 @@ angular.module('app.controllers', [])
 
     }])
 
-  .controller('aboutCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('aboutCtrl', ['$scope', '$stateParams', '$ionicHistory', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams) {
+    function ($scope, $stateParams, $ionicHistory) {
+
+      $scope.goBack = function(){
+        $ionicHistory.goBack();
+      }
 
 
     }])
-	
-	
+
+
 	.controller('pointsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
@@ -198,9 +235,9 @@ angular.module('app.controllers', [])
 
 
     }])
-	
-	
-	
+
+
+
 
   .controller('rewardsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
