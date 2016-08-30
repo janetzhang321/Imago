@@ -33,10 +33,6 @@
         },
         "cordova-plugin-device-orientation": {
             "PACKAGE_NAME": "com.ionicframework.imago196429"
-        },
-        "plugin.google.maps": {
-            "API_KEY_FOR_ANDROID": "AIzaSyCc-MVvwsO8lwRqRP9Bm18nKB0vWxJLKnI",
-            "PACKAGE_NAME": "com.ionicframework.imago196429"
         }
     },
     "dependent_plugins": {

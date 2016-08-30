@@ -1,184 +1,168 @@
 angular.module('app.controllers', [])
 
-  .controller('imagoMapCtrl', function ($scope, $cordovaGeolocation, $ionicPlatform, ImagoFactory, DistanceCalculationsFactory) {
+  .controller('imagoMapCtrl', function ($scope, $cordovaGeolocation, $ionicPlatform, $rootScope, ImagoFactory) {
+    var div, map;
 
-    $scope.showCamera = false;
+    // INITIATE MAP RIGHT AWAY WITH NYC COORDINATES
+    // var nycCoordinates = {
+    //   lat: 40.7128,
+    //   lng: -74.0059
+    // };
+
+    // var nyc = new plugin.google.maps.LatLng(nycCoordinates.lat, nycCoordinates.lng);
+
+    // var mapOptions = {
+    //   center: latLng,
+    //   zoom: 15,
+    //   mapTypeId: google.maps.MapTypeId.ROADMAP,
+    //   styles: [{
+    //     featureType: 'poi',
+    //     elementType: 'labels',
+    //     stylers: [{ visibility: 'off' }]
+    //   }]
+    // };
+
+    // $rootScope.side_menu.style.visibility = "hidden";
 
     $ionicPlatform.ready(function () {
+      div = document.getElementById("map_canvas");
+      // Initialize the map view
+      map = plugin.google.maps.Map.getMap(div, {
+        controls: {
+          compass: true,
+          myLocationButton: true,
+          // zoom: true
+        }
+        // camera: {
+        //   latLng: currentPosition,
+        //   zoom: 15
+        // }
+      });
 
-      // INITIATE MAP RIGHT AWAY WITH NYC COORDINATES
-      var nycCoordinates = {
-        lat: 40.7128,
-        lng: -74.0059
-      };
+      map.addEventListener(plugin.google.maps.event.MAP_READY, function () {
+        //$rootScope.currentPosition.then(
+        map.getMyLocation({ enableHighAccuracy: true }, function (position) {
+          var currentPosition = new plugin.google.maps.LatLng(position.latLng.lat, position.latLng.lng);
 
-      var latLng = new google.maps.LatLng(nycCoordinates.lat, nycCoordinates.lng);
-
-      var mapOptions = {
-        center: latLng,
-        zoom: 15,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        styles: [{
-          featureType: 'poi',
-          elementType: 'labels',
-          stylers: [{ visibility: 'off' }]
-        }]
-      };
-
-      $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-		// IMAGOS
-         ImagoFactory.getAllImagos($scope.map);
-
-
-      var posOptions = { timeout: 10000, enableHighAccuracy: true };
-
-      $cordovaGeolocation
-        .getCurrentPosition(posOptions)
-        .then(function (position) {
-          // google maps configuration
-          $scope.lat = position.coords.latitude;
-          latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
-
-          //Wait until the map is loaded
-          google.maps.event.addListenerOnce($scope.map, 'idle', function () {
-            $scope.map.setCenter({ lat: position.coords.latitude, lng: position.coords.longitude, alt: 0 })
-            console.log('map')
-
-            //Insert
-
-
-            /*
-            How to find latlng on googlemaps:
-                *when you have the place,
-                *right click
-                *choose What's here?
-                *gives exact latlng
-            */
+          // camera view and zoom
+          map.animateCamera({
+            'target': currentPosition,
+            // 'tilt': 60,
+            'zoom': 15,
+            // 'bearing': 140
+          });
 
 
 
-            //Your location blue dot
-            var marker = new google.maps.Marker({
-              map: $scope.map,
-              animation: google.maps.Animation.DROP,
-              position: latLng,
-              // overwrite icon style
-              icon: {
-                url: 'https://chadkillingsworth.github.io/geolocation-marker/images/gpsloc.png',
-                //'size': new google.maps.Size(34, 34),
-                'scaledSize': new google.maps.Size(17, 17),
-                'origin': new google.maps.Point(0, 0),
-                'anchor': new google.maps.Point(8, 8)
-              },
-              // This marker may move frequently - don't force canvas tile redraw
-              'optimized': false,
-              'zIndex': 2
 
-            });
 
-            //init pos
+          var empirestateCoordinates = {
+            lat: 40.748709700,
+            lng: -73.985655600
+          };
 
-            var circleOpts = {
-              'clickable': false,
-              'radius': 100,
-              'strokeColor': '1bb6ff',
-              'strokeOpacity': .4,
-              'fillColor': '61a0bf',
-              'fillOpacity': .4,
-              'strokeWeight': 1,
-              'zIndex': 1,
-              map: $scope.map,
-              center: latLng
-            };
+          // add marker
+          var empireState = new plugin.google.maps.LatLng(empirestateCoordinates.lat, empirestateCoordinates.lng);
 
-            var circle = new google.maps.Circle(circleOpts);
+          var canvas = document.createElement('canvas');
+          canvas.width = 120;
+          canvas.height = 120;
+          var context = canvas.getContext('2d');
 
-            // CHECK NEARBY IMAGOS
-            var currentLocation = {
-              latitude: position.coords.latitude,
-              longitude: position.coords.longitude
-            }
+          var img = new Image();
+          img.src = "img/EmpireState.jpg";
+          img.onload = function () {
+            context.drawImage(img, 0, 0);
 
-            // IMAGOS NEARBY
-            if (DistanceCalculationsFactory.isAnImagoNearby(currentLocation)) {
-              $scope.showCamera = true;
-            } else {
-              $scope.showCamera = false;
-            }
+            context.font = '15pt Calibri';
+            context.fillStyle = 'blue';
+            context.fillText('Empire', 40, 15);
+            context.fillText('State', 60, 35);
 
-            //refresh map
-            var watchOptions = {
-              timeout: 30000,
-              enableHighAccuracy: true // may cause errors if true
-            };
+            map.addMarker({
+              'position': empireState,
+              'title': canvas.toDataURL()
+            }, function (marker) {
 
-            var watch = $cordovaGeolocation.watchPosition(watchOptions);
-            watch.then(
-              null,
-              function (err) {
-                // error
-                $scope.error = err.message;
-              },
-              function (position) {
-                console.log('new position')
-                function redraw() {
-                  $scope.map.setCenter({ lat: position.coords.latitude, lng: position.coords.longitude, alt: 0 })
-                  marker.setPosition({ lat: position.coords.latitude, lng: position.coords.longitude, alt: 0 });
-                  circle.bindTo('$scope.map', marker);
-                }
+              ImagoFactory.getAllImagos(map);
 
-                redraw();
+              // circle
+              map.addCircle({
+                'center': currentPosition,
+                'radius': 300,
+                'strokeColor' : '#AA00FF',
+                'strokeWidth': 5,
+                'fillColor' : '#880000'
+              }, function (circle) {
 
-                // IMAGOS NEARBY
-                if (DistanceCalculationsFactory.isAnImagoNearby(currentLocation)) {
-                  $scope.showCamera = true;
-                } else {
-                  $scope.showCamera = false;
-                }
+                $rootScope.watchPosition.then(function (position) {
+                  var latestPosition = new plugin.google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+                  circle.setCenter(latestPosition);
+
+                });
 
               });
 
-          });
+              // marker.showInfoWindow();
 
-        }, function (err) {
-          // error
-          $scope.error = err.message;
+
+
+            });
+
+          };
         });
-
+      });
     });
   })
 
-  .controller('sideNavCtrl', ['$scope', '$stateParams',  '$ionicHistory', '$state', '$rootScope',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('sideNavCtrl', ['$scope', '$stateParams', '$ionicHistory', '$state', '$rootScope', '$ionicSideMenuDelegate',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, $ionicHistory, $state, $rootScope) {
-
+    function ($scope, $stateParams, $ionicHistory, $state, $rootScope, $ionicSideMenuDelegate) {
 
       if ($state.current.name.indexOf('tabsController') !== -1) {
-              $scope.showBackButton = false;
-              $scope.showHamburgerMenu = true;
-            } else {
-              $scope.showHamburgerMenu = false;
-              $scope.showBackButton = true;
-            }
+        $scope.showBackButton = false;
+        $scope.showHamburgerMenu = true;
+      } else {
+        $scope.showHamburgerMenu = false;
+        $scope.showBackButton = true;
+      }
 
       $rootScope.$on('$stateChangeStart',
         function (event, toState, toParams, fromState, fromParams, options) {
           console.log('toState', toState)
-            if (toState.name.indexOf('tabsController') !== -1) {
-              $scope.showBackButton = false;
-              $scope.showHamburgerMenu = true;
-            } else {
-              $scope.showHamburgerMenu = false;
-              $scope.showBackButton = true;
-            }
+          if (toState.name.indexOf('tabsController') !== -1) {
+            $scope.showBackButton = false;
+            $scope.showHamburgerMenu = true;
+          } else {
+            $scope.showHamburgerMenu = false;
+            $scope.showBackButton = true;
+          }
         })
 
       $scope.goBack = function () {
         $state.go('tabsController.imagoMap');
       }
+
+      $scope.$watch(function () {
+        return $ionicSideMenuDelegate.getOpenRatio();
+      }, function (newValue, oldValue) {
+
+        console.log('new', newValue)
+        console.log('old', oldValue)
+
+        if (newValue == 0) {
+          $scope.hideLeft = true;
+          $scope.hideRight = true;
+        } else {
+          if (newValue == 1) {
+            $scope.hideLeft = false;
+          } else {
+            $scope.hideRight = false;
+          }
+        }
+      });
 
 
     }])
@@ -220,7 +204,7 @@ angular.module('app.controllers', [])
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams, $ionicHistory) {
 
-      $scope.goBack = function(){
+      $scope.goBack = function () {
         $ionicHistory.goBack();
       }
 
@@ -228,7 +212,7 @@ angular.module('app.controllers', [])
     }])
 
 
-	.controller('pointsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('pointsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams) {
@@ -336,3 +320,154 @@ angular.module('app.controllers', [])
   });
 
 
+
+
+  // .controller('imagoMapCtrl', function ($scope, $cordovaGeolocation, $ionicPlatform, ImagoFactory, DistanceCalculationsFactory) {
+
+  //   $scope.showCamera = false;
+
+  //   $ionicPlatform.ready(function () {
+
+  //     // INITIATE MAP RIGHT AWAY WITH NYC COORDINATES
+  //     var nycCoordinates = {
+  //       lat: 40.7128,
+  //       lng: -74.0059
+  //     };
+
+  //     var latLng = new google.maps.LatLng(nycCoordinates.lat, nycCoordinates.lng);
+
+  //     var mapOptions = {
+  //       center: latLng,
+  //       zoom: 15,
+  //       mapTypeId: google.maps.MapTypeId.ROADMAP,
+  //       styles: [{
+  //         featureType: 'poi',
+  //         elementType: 'labels',
+  //         stylers: [{ visibility: 'off' }]
+  //       }]
+  //     };
+
+  //     $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+	// 	// IMAGOS
+  //        ImagoFactory.getAllImagos($scope.map);
+
+
+  //     var posOptions = { timeout: 10000, enableHighAccuracy: true };
+
+  //     $cordovaGeolocation
+  //       .getCurrentPosition(posOptions)
+  //       .then(function (position) {
+  //         // google maps configuration
+  //         $scope.lat = position.coords.latitude;
+  //         latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+
+  //         //Wait until the map is loaded
+  //         google.maps.event.addListenerOnce($scope.map, 'idle', function () {
+  //           $scope.map.setCenter({ lat: position.coords.latitude, lng: position.coords.longitude, alt: 0 })
+  //           console.log('map')
+
+  //           //Insert
+
+
+  //           /*
+  //           How to find latlng on googlemaps:
+  //               *when you have the place,
+  //               *right click
+  //               *choose What's here?
+  //               *gives exact latlng
+  //           */
+
+
+
+  //           //Your location blue dot
+  //           var marker = new google.maps.Marker({
+  //             map: $scope.map,
+  //             animation: google.maps.Animation.DROP,
+  //             position: latLng,
+  //             // overwrite icon style
+  //             icon: {
+  //               url: 'https://chadkillingsworth.github.io/geolocation-marker/images/gpsloc.png',
+  //               //'size': new google.maps.Size(34, 34),
+  //               'scaledSize': new google.maps.Size(17, 17),
+  //               'origin': new google.maps.Point(0, 0),
+  //               'anchor': new google.maps.Point(8, 8)
+  //             },
+  //             // This marker may move frequently - don't force canvas tile redraw
+  //             'optimized': false,
+  //             'zIndex': 2
+
+  //           });
+
+  //           //init pos
+
+  //           var circleOpts = {
+  //             'clickable': false,
+  //             'radius': 100,
+  //             'strokeColor': '1bb6ff',
+  //             'strokeOpacity': .4,
+  //             'fillColor': '61a0bf',
+  //             'fillOpacity': .4,
+  //             'strokeWeight': 1,
+  //             'zIndex': 1,
+  //             map: $scope.map,
+  //             center: latLng
+  //           };
+
+  //           var circle = new google.maps.Circle(circleOpts);
+
+  //           // CHECK NEARBY IMAGOS
+  //           var currentLocation = {
+  //             latitude: position.coords.latitude,
+  //             longitude: position.coords.longitude
+  //           }
+
+  //           // IMAGOS NEARBY
+  //           if (DistanceCalculationsFactory.isAnImagoNearby(currentLocation)) {
+  //             $scope.showCamera = true;
+  //           } else {
+  //             $scope.showCamera = false;
+  //           }
+
+  //           //refresh map
+  //           var watchOptions = {
+  //             timeout: 30000,
+  //             enableHighAccuracy: true // may cause errors if true
+  //           };
+
+  //           var watch = $cordovaGeolocation.watchPosition(watchOptions);
+  //           watch.then(
+  //             null,
+  //             function (err) {
+  //               // error
+  //               $scope.error = err.message;
+  //             },
+  //             function (position) {
+  //               console.log('new position')
+  //               function redraw() {
+  //                 $scope.map.setCenter({ lat: position.coords.latitude, lng: position.coords.longitude, alt: 0 })
+  //                 marker.setPosition({ lat: position.coords.latitude, lng: position.coords.longitude, alt: 0 });
+  //                 circle.bindTo('$scope.map', marker);
+  //               }
+
+  //               redraw();
+
+  //               // IMAGOS NEARBY
+  //               if (DistanceCalculationsFactory.isAnImagoNearby(currentLocation)) {
+  //                 $scope.showCamera = true;
+  //               } else {
+  //                 $scope.showCamera = false;
+  //               }
+
+  //             });
+
+  //         });
+
+  //       }, function (err) {
+  //         // error
+  //         $scope.error = err.message;
+  //       });
+
+  //   });
+  // })
