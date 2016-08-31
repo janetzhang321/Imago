@@ -148,7 +148,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/blue.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html',
+      redirectTmplUrl: '/#/tabs/bucketList',
     });
 
     var createMmuseumm = configureImago({
@@ -160,7 +160,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/green.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createDoyers = configureImago({
@@ -172,7 +172,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/green.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createEmpireState = configureImago({
@@ -184,7 +184,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/orange.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createFlatironBuilding = configureImago({
@@ -196,7 +196,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/orange.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
     var createMuseumFIT = configureImago({
       //The Museum at FIT
@@ -207,7 +207,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/purple.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
     var createGilseyHouse = configureImago({
       //Gilsey House
@@ -218,7 +218,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/purple.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createMuseumPR = configureImago({
@@ -230,7 +230,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/red.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createGrandCentralterminal = configureImago({
@@ -242,7 +242,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/red.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var create33ThomasST = configureImago({
@@ -254,7 +254,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/yellow.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createTheplazaHotel = configureImago({
@@ -266,7 +266,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/yellow.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createTheMET = configureImago({
@@ -278,7 +278,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/gold.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createMuseumNYC = configureImago({
@@ -290,7 +290,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/gold.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createMoMa = configureImago({
@@ -302,7 +302,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/special.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createGuggenheimMuseum = configureImago({
@@ -314,7 +314,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/special.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createWaldorfAstoria = configureImago({
@@ -326,7 +326,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/blue.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createRockefellerCenter = configureImago({
@@ -338,7 +338,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/red.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createCityHall = configureImago({
@@ -350,7 +350,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/yellow.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createNYSE = configureImago({
@@ -362,7 +362,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/blue.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createFederalHall = configureImago({
@@ -374,7 +374,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/blue.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createIntrepid = configureImago({
@@ -386,7 +386,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/blue.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createFederalReserve = configureImago({
@@ -398,7 +398,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/blue.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
     var createEmpireState = configureImago({
@@ -410,7 +410,7 @@ angular.module('app.factories', [])
       icon: {
         url: 'www/img/thumbnails/markers/blue.png'
       },
-      redirectTmplUrl: 'templates/bucketList.html'
+      redirectTmplUrl: '/#/tabs/bucketList'
     });
 
 
