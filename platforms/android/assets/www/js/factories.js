@@ -439,7 +439,7 @@ angular.module('app.factories', [])
       title: 'La Bella Ferrara',
       lat: imagosCoordinates.laBellaFerrara.lat,
       lng: imagosCoordinates.laBellaFerrara.lng,
-      imgSrc: 'img/thumbnails/LaBellaFerrara.jpg', // TODO: NEED TO REPLACE WITH IMG OF LaBellaFerrara
+      imgSrc: 'img/thumbnails/LaBellaFerrara.jpg', 
       redirectTmplUrl: '/#/tabs/bucketList',
       icon: {
         url: 'www/img/thumbnails/markers/yellow1.png'
