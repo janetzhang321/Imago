@@ -40,6 +40,23 @@
       <true/>
     </dict>
     <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Show your location on the map</string>
+    <key>Google Maps API Key</key>
     <string/>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Trace your location on the map</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>com.ionicframework.imago196429</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>com.ionicframework.imago196429</string>
+        </array>
+      </dict>
+    </array>
   </dict>
 </plist>

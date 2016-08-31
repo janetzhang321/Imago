@@ -4,43 +4,43 @@ angular.module('app.factories', [])
 
     function configureImago(configs) {
       return function (map) {
+        var canvas = document.createElement('canvas');
+        var context = canvas.getContext('2d');
+        var img = new Image();
         var latLng = new plugin.google.maps.LatLng(configs.lat, configs.lng);
-        return map.addMarker({
-          position: latLng,
-          title: configs.title
-        });
 
-        // var marker = new google.maps.Marker({
-        //   position: { lat: configs.lat, lng: configs.lng },
-        //   map: map,
-        //   title: configs.title,
-        //   icon: configs.icon
-        // });
+        // size of marker info window
+        canvas.width = 120;
+        canvas.height = 120;
 
-        // var contentString = '<div id="content" class="popUp">' +
-        //   '<div id="siteNotice">' +
-        //   '</div>' +
-        //   '<div id="bodyContent">' +
-        //   '<center><img class="hint" src=' + configs.imageSrc + '></center>' +
-        //   '</div>' +
-        //   '</div>';
+        img.src = configs.imgSrc;
 
-        // var infoWindow = new google.maps.InfoWindow({
-        //   content: contentString,
-        //   maxWidth: 200,
-        //   maxHeight: 200,
-        // })
+        function getMarkerConfigs() {
+          if (configs.icon) {
+            return {
+              position: latLng,
+              title: canvas.toDataURL(),
+              icon: {
+                url: configs.icon.url,
+                size: {
+                  width: 32,
+                  height: 32
+                }
+              }
+            }
+          } else {
+            return {
+              position: latLng,
+              title: canvas.toDataURL()
+            }
+          }
+        }
 
-        // infoWindow.Redirect = function () {
-        //   window.location = configs.redirectTmplUrl;
-        // }
+        return img.onload = function () {
+          context.drawImage(img, 0, 0, 120, 90); // 120 * 90, size of imgSrc
 
-        // marker.addListener('click', function () {
-        //   infoWindow.open(map, marker);
-        // });
-        // marker.addListener('dblclick', function () {
-        //   infoWindow.Redirect();
-        // });
+          return map.addMarker(getMarkerConfigs());
+        }
       }
     }
 
@@ -144,12 +144,11 @@ angular.module('app.factories', [])
       title: 'Long Island University',
       lat: imagosCoordinates.LIU.lat,
       lng: imagosCoordinates.LIU.lng,
-      imageSrc: 'img/LIU.jpg',
+      imgSrc: 'img/thumbnails/LIU.jpg',
       redirectTmplUrl: 'templates/bucketList.html',
-      // icon: {
-      //   url: 'img/Imagos/Blue.png',
-      //   'scaledSize': new google.maps.Size(30, 30)
-      // }
+      icon: {
+        url: 'www/img/thumbnails/LIU.jpg'
+      }
     });
 
     var createMmuseumm = configureImago({
@@ -157,7 +156,7 @@ angular.module('app.factories', [])
       title: 'Mmuseumm',
       lat: imagosCoordinates.mmuseumm.lat,
       lng: imagosCoordinates.mmuseumm.lng,
-      imageSrc: 'img/mmuseumm.jpg',
+      imgSrc: 'img/thumbnails/mmuseumm.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -166,7 +165,7 @@ angular.module('app.factories', [])
       title: 'Doyers',
       lat: imagosCoordinates.doyers.lat,
       lng: imagosCoordinates.doyers.lng,
-      imageSrc: 'img/doyers.jpg',
+      imgSrc: 'img/thumbnails/doyers.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -175,7 +174,7 @@ angular.module('app.factories', [])
       title: 'Empire State Building',
       lat: imagosCoordinates.empirestate.lat,
       lng: imagosCoordinates.empirestate.lng,
-      imageSrc: 'img/EmpireState.jpg',
+      imgSrc: 'img/thumbnails/EmpireState.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -184,7 +183,7 @@ angular.module('app.factories', [])
       title: 'Flatiron Building',
       lat: imagosCoordinates.flatiron.lat,
       lng: imagosCoordinates.flatiron.lng,
-      imageSrc: 'img/flatironbuilding.jpg',
+      imgSrc: 'img/thumbnails/flatironbuilding.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
     var createMuseumFIT = configureImago({
@@ -192,7 +191,7 @@ angular.module('app.factories', [])
       title: 'The Museum at FIT',
       lat: imagosCoordinates.fit.lat,
       lng: imagosCoordinates.fit.lng,
-      imageSrc: 'img/FIT.jpg',
+      imgSrc: 'img/thumbnails/FIT.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
     var createGilseyHouse = configureImago({
@@ -200,7 +199,7 @@ angular.module('app.factories', [])
       title: 'Gilsey House',
       lat: imagosCoordinates.gilsey.lat,
       lng: imagosCoordinates.gilsey.lng,
-      imageSrc: 'img/GilseyHouse.jpg',
+      imgSrc: 'img/thumbnails/GilseyHouse.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -209,7 +208,7 @@ angular.module('app.factories', [])
       title: 'Museum of Public Relations',
       lat: imagosCoordinates.museumPR.lat,
       lng: imagosCoordinates.museumPR.lng,
-      imageSrc: 'img/MoPR.png',
+      imgSrc: 'img/thumbnails/MoPR.png',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -218,7 +217,7 @@ angular.module('app.factories', [])
       title: 'Grand Central terminal',
       lat: imagosCoordinates.grandCentral.lat,
       lng: imagosCoordinates.grandCentral.lng,
-      imageSrc: 'img/GrandCentral.jpg',
+      imgSrc: 'img/thumbnails/GrandCentral.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -227,7 +226,7 @@ angular.module('app.factories', [])
       title: '33 Thomas Street',
       lat: imagosCoordinates.thomasSt.lat,
       lng: imagosCoordinates.thomasSt.lng,
-      imageSrc: 'img/33thomas.jpg',
+      imgSrc: 'img/thumbnails/33thomas.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -236,7 +235,7 @@ angular.module('app.factories', [])
       title: 'The Plaza Hotel',
       lat: imagosCoordinates.plazaHotel.lat,
       lng: imagosCoordinates.plazaHotel.lng,
-      imageSrc: 'img/PlazaHotel.JPG',
+      imgSrc: 'img/thumbnails/PlazaHotel.JPG',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -245,7 +244,7 @@ angular.module('app.factories', [])
       title: 'The Metropolitan Museum of Art',
       lat: imagosCoordinates.met.lat,
       lng: imagosCoordinates.met.lng,
-      imageSrc: 'img/Met.jpg',
+      imgSrc: 'img/thumbnails/Met.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -254,7 +253,7 @@ angular.module('app.factories', [])
       title: 'Museum of the City of New York',
       lat: imagosCoordinates.museumNYC.lat,
       lng: imagosCoordinates.museumNYC.lng,
-      imageSrc: 'img/MoCityofNY.jpg',
+      imgSrc: 'img/thumbnails/MoCityofNY.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -263,7 +262,7 @@ angular.module('app.factories', [])
       title: 'Museum of Modern Art',
       lat: imagosCoordinates.MoMA.lat,
       lng: imagosCoordinates.MoMA.lng,
-      imageSrc: 'img/MOMA.jpg',
+      imgSrc: 'img/thumbnails/MOMA.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -272,7 +271,7 @@ angular.module('app.factories', [])
       title: 'Guggenheim Museum',
       lat: imagosCoordinates.guggenheim.lat,
       lng: imagosCoordinates.guggenheim.lng,
-      imageSrc: 'img/Guggenheim.jpg',
+      imgSrc: 'img/thumbnails/Guggenheim.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -281,7 +280,7 @@ angular.module('app.factories', [])
       title: 'Waldorf Astoria',
       lat: imagosCoordinates.waldorfAstoria.lat,
       lng: imagosCoordinates.waldorfAstoria.lng,
-      imageSrc: 'img/WaldorfAstoria.jpg',
+      imgSrc: 'img/thumbnails/WaldorfAstoria.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -290,7 +289,7 @@ angular.module('app.factories', [])
       title: 'Rockefeller Center',
       lat: imagosCoordinates.rockefellerCenter.lat,
       lng: imagosCoordinates.rockefellerCenter.lng,
-      imageSrc: 'img/RockefellerCenter.jpg',
+      imgSrc: 'img/thumbnails/RockefellerCenter.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -299,7 +298,7 @@ angular.module('app.factories', [])
       title: 'New York City Hall',
       lat: imagosCoordinates.cityHall.lat,
       lng: imagosCoordinates.cityHall.lng,
-      imageSrc: 'img/NYCHall.jpg',
+      imgSrc: 'img/thumbnails/NYCHall.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -308,7 +307,7 @@ angular.module('app.factories', [])
       title: 'New York Stock Exchange',
       lat: imagosCoordinates.NYSE.lat,
       lng: imagosCoordinates.NYSE.lng,
-      imageSrc: 'img/NYSE.jpg',
+      imgSrc: 'img/thumbnails/NYSE.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -317,7 +316,7 @@ angular.module('app.factories', [])
       title: 'Federal Hall',
       lat: imagosCoordinates.fedHall.lat,
       lng: imagosCoordinates.fedHall.lng,
-      imageSrc: 'img/FederalHall.jpg',
+      imgSrc: 'img/thumbnails/FederalHall.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -326,7 +325,7 @@ angular.module('app.factories', [])
       title: 'Intrepid Sea, Air & Space Museum',
       lat: imagosCoordinates.intrepid.lat,
       lng: imagosCoordinates.intrepid.lng,
-      imageSrc: 'img/Intrepid.jpg',
+      imgSrc: 'img/thumbnails/Intrepid.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -335,7 +334,7 @@ angular.module('app.factories', [])
       title: 'Federal Reserve',
       lat: imagosCoordinates.fedReserve.lat,
       lng: imagosCoordinates.fedReserve.lng,
-      imageSrc: 'img/NYCFedReserve.jpg',
+      imgSrc: 'img/thumbnails/NYCFedReserve.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -344,7 +343,7 @@ angular.module('app.factories', [])
       title: 'Empire State Building',
       lat: 40.748709700,
       lng: -73.985655600,
-      imageSrc: 'img/EmpireState.jpg',
+      imgSrc: 'img/thumbnails/EmpireState.jpg',
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -372,8 +371,8 @@ angular.module('app.factories', [])
       createNYSE,
       createFederalHall,
       createIntrepid,
-      createFederalReserve
-      // createEmpireState
+      createFederalReserve,
+      createEmpireState
     ]
 
     return {
@@ -475,7 +474,8 @@ angular.module('app.factories', [])
         }
       }
 
-      if (distanceInMilesCache !== 0 && distanceInMilesCache <= .25) {
+      if (distanceInMilesCache !== 0 && distanceInMilesCache <= .04734848) {
+        // .04734848 miles is 250 feet
         return true;
       } else {
         return false;

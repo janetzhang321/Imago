@@ -102,6 +102,14 @@ module.exports = [
         "clobbers": [
             "navigator.compass"
         ]
+    },
+    {
+        "id": "plugin.google.maps.phonegap-googlemaps-plugin",
+        "file": "plugins/plugin.google.maps/www/googlemaps-cdv-plugin.js",
+        "pluginId": "plugin.google.maps",
+        "clobbers": [
+            "plugin.google.maps"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -116,7 +124,8 @@ module.exports.metadata =
     "cordova-plugin-compat": "1.0.0",
     "cordova-plugin-geolocation": "2.2.0",
     "cordova-plugin-camera": "2.2.0",
-    "cordova-plugin-device-orientation": "1.0.3"
+    "cordova-plugin-device-orientation": "1.0.3",
+    "plugin.google.maps": "1.3.9"
 };
 // BOTTOM OF METADATA
 });
