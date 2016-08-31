@@ -10,3 +10,4 @@ platforms/ios/platform_www/plugins/plugin.google.maps/
 platforms/ios/www/plugins/plugin.google.maps/
 plugins/com.googlemaps.ios/
 plugins/plugin.google.maps/
+platforms/android/src/plugin/google/maps

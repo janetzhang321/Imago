@@ -89,15 +89,5 @@
             "API_KEY_FOR_ANDROID": "AIzaSyCc-MVvwsO8lwRqRP9Bm18nKB0vWxJLKnI",
             "API_KEY_FOR_IOS": ""
         }
-    },
-    "com.googlemaps.ios": {
-        "source": {
-            "type": "git",
-            "url": "https://bitbucket.org/nightstomp/cordova-plugin-googlemaps-sdk.git",
-            "subdir": ".",
-            "ref": "master"
-        },
-        "is_top_level": false,
-        "variables": {}
     }
 }
