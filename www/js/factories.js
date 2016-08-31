@@ -430,7 +430,7 @@ angular.module('app.factories', [])
       redirectTmplUrl: '/#/tabs/bucketList',
       icon: {
         url: 'www/img/thumbnails/markers/gold1.png',
-        'scaledSize': (50,50)
+        'scaledSize': new google.maps.Size(50, 50)
       }
     });
 
