@@ -90,6 +90,13 @@ angular.module('app.routes', [])
         url: '/camera',
         controller: 'pictureCtrl'
       })
+    
+      .state('mmuseumm', {
+        parent: 'index',
+        url: '/mmuseumm',
+        templateUrl: 'templates/MmuseummDet.html',
+        controller: 'detailCtrl'
+      })
 
     $urlRouterProvider.otherwise('/')
 

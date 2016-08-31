@@ -137,6 +137,14 @@ angular.module('app.factories', [])
         lat: 40.748709700,
         lng: -73.985655600
       },
+      chipilo: {
+        lat: 40.715154200,
+        lng: -73.999525400
+      },
+      laBellaFerrara: {
+        lat: 40.717359500,
+        lng: -73.998299400
+      }
     }
 
     var createLiu = configureImago({
