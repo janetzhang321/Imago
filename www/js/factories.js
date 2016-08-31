@@ -454,7 +454,7 @@ angular.module('app.factories', [])
       }
     });
 
-	    var createNFTEhq = configureImago({
+    var createNFTEhq = configureImago({
       //NFTEhq
       title: 'NFTEhq',
       lat: imagosCoordinates.NFTEhq.lat,
