@@ -4,10 +4,8 @@
 # cordova-plugin-googlemaps
 platforms/android/assets/www/plugins/plugin.google.maps/
 platforms/android/platform_www/plugins/plugin.google.maps/
-platforms/android/src/plugin/
 platforms/ios/Imago/Plugins/com.googlemaps.ios/
 platforms/ios/Imago/Plugins/plugin.google.maps/
-platforms/ios/Imago/Resources/
 platforms/ios/platform_www/plugins/plugin.google.maps/
 platforms/ios/www/plugins/plugin.google.maps/
 plugins/com.googlemaps.ios/
