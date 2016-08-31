@@ -4,14 +4,15 @@ angular.module('app.controllers', [])
     var div, map;
 
     $ionicPlatform.ready(function () {
-      $scope.showCamera = false;
+      $scope.showCamera = true;
 
       div = document.getElementById("map_canvas");
       // Initialize the map view
       map = plugin.google.maps.Map.getMap(div, {
         controls: {
           compass: true,
-          myLocationButton: true
+          myLocationButton: true,
+          zoom: true
         }
       });
 
@@ -26,8 +27,6 @@ angular.module('app.controllers', [])
             tilt: 30,
             zoom: 12,
           });
-
-          map.setIndoorEnabled(true);
 
           // place all Imagos/Markers on map
           ImagoFactory.getAllImagos(map);
@@ -60,7 +59,7 @@ angular.module('app.controllers', [])
                 if (DistanceCalculationsFactory.isAnImagoNearby(currentLocation)) {
                   $scope.showCamera = true;
                 } else {
-                  $scope.showCamera = false;
+                  $scope.showCamera = true;
                 }
               });
 

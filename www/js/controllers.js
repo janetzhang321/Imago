@@ -11,7 +11,8 @@ angular.module('app.controllers', [])
       map = plugin.google.maps.Map.getMap(div, {
         controls: {
           compass: true,
-          myLocationButton: true
+          myLocationButton: true,
+          zoom: true
         }
       });
 
@@ -26,8 +27,6 @@ angular.module('app.controllers', [])
             tilt: 30,
             zoom: 12,
           });
-
-          map.setIndoorEnabled(true);
 
           // place all Imagos/Markers on map
           ImagoFactory.getAllImagos(map);
