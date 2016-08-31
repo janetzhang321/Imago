@@ -23,8 +23,8 @@ angular.module('app.factories', [])
               icon: {
                 url: configs.icon.url,
                 size: {
-                  width: 32,
-                  height: 32
+                  width: 24,
+                  height: 24
                 }
               }
             }
@@ -145,10 +145,10 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.LIU.lat,
       lng: imagosCoordinates.LIU.lng,
       imgSrc: 'img/thumbnails/LIU.jpg',
-      redirectTmplUrl: 'templates/bucketList.html',
       icon: {
-        url: 'www/img/thumbnails/LIU.jpg'
-      }
+        url: 'www/img/thumbnails/markers/blue.png'
+      },
+      redirectTmplUrl: 'templates/bucketList.html',
     });
 
     var createMmuseumm = configureImago({
@@ -157,6 +157,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.mmuseumm.lat,
       lng: imagosCoordinates.mmuseumm.lng,
       imgSrc: 'img/thumbnails/mmuseumm.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/green.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -166,6 +169,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.doyers.lat,
       lng: imagosCoordinates.doyers.lng,
       imgSrc: 'img/thumbnails/doyers.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/green.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -175,6 +181,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.empirestate.lat,
       lng: imagosCoordinates.empirestate.lng,
       imgSrc: 'img/thumbnails/EmpireState.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/orange.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -184,6 +193,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.flatiron.lat,
       lng: imagosCoordinates.flatiron.lng,
       imgSrc: 'img/thumbnails/flatironbuilding.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/orange.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
     var createMuseumFIT = configureImago({
@@ -192,6 +204,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.fit.lat,
       lng: imagosCoordinates.fit.lng,
       imgSrc: 'img/thumbnails/FIT.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/purple.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
     var createGilseyHouse = configureImago({
@@ -200,6 +215,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.gilsey.lat,
       lng: imagosCoordinates.gilsey.lng,
       imgSrc: 'img/thumbnails/GilseyHouse.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/purple.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -209,6 +227,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.museumPR.lat,
       lng: imagosCoordinates.museumPR.lng,
       imgSrc: 'img/thumbnails/MoPR.png',
+      icon: {
+        url: 'www/img/thumbnails/markers/red.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -218,6 +239,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.grandCentral.lat,
       lng: imagosCoordinates.grandCentral.lng,
       imgSrc: 'img/thumbnails/GrandCentral.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/red.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -227,6 +251,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.thomasSt.lat,
       lng: imagosCoordinates.thomasSt.lng,
       imgSrc: 'img/thumbnails/33thomas.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/yellow.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -236,6 +263,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.plazaHotel.lat,
       lng: imagosCoordinates.plazaHotel.lng,
       imgSrc: 'img/thumbnails/PlazaHotel.JPG',
+      icon: {
+        url: 'www/img/thumbnails/markers/yellow.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -245,6 +275,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.met.lat,
       lng: imagosCoordinates.met.lng,
       imgSrc: 'img/thumbnails/Met.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/gold.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -254,6 +287,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.museumNYC.lat,
       lng: imagosCoordinates.museumNYC.lng,
       imgSrc: 'img/thumbnails/MoCityofNY.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/gold.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -263,6 +299,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.MoMA.lat,
       lng: imagosCoordinates.MoMA.lng,
       imgSrc: 'img/thumbnails/MOMA.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/special.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -272,6 +311,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.guggenheim.lat,
       lng: imagosCoordinates.guggenheim.lng,
       imgSrc: 'img/thumbnails/Guggenheim.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/special.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -281,6 +323,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.waldorfAstoria.lat,
       lng: imagosCoordinates.waldorfAstoria.lng,
       imgSrc: 'img/thumbnails/WaldorfAstoria.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/blue.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -290,6 +335,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.rockefellerCenter.lat,
       lng: imagosCoordinates.rockefellerCenter.lng,
       imgSrc: 'img/thumbnails/RockefellerCenter.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/red.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -299,6 +347,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.cityHall.lat,
       lng: imagosCoordinates.cityHall.lng,
       imgSrc: 'img/thumbnails/NYCHall.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/yellow.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -308,6 +359,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.NYSE.lat,
       lng: imagosCoordinates.NYSE.lng,
       imgSrc: 'img/thumbnails/NYSE.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/blue.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -317,6 +371,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.fedHall.lat,
       lng: imagosCoordinates.fedHall.lng,
       imgSrc: 'img/thumbnails/FederalHall.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/blue.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -326,6 +383,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.intrepid.lat,
       lng: imagosCoordinates.intrepid.lng,
       imgSrc: 'img/thumbnails/Intrepid.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/blue.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -335,6 +395,9 @@ angular.module('app.factories', [])
       lat: imagosCoordinates.fedReserve.lat,
       lng: imagosCoordinates.fedReserve.lng,
       imgSrc: 'img/thumbnails/NYCFedReserve.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/blue.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 
@@ -344,6 +407,9 @@ angular.module('app.factories', [])
       lat: 40.748709700,
       lng: -73.985655600,
       imgSrc: 'img/thumbnails/EmpireState.jpg',
+      icon: {
+        url: 'www/img/thumbnails/markers/blue.png'
+      },
       redirectTmplUrl: 'templates/bucketList.html'
     });
 

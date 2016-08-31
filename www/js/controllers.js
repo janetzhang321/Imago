@@ -23,9 +23,11 @@ angular.module('app.controllers', [])
           // camera view, zoom, and tilt
           map.animateCamera({
             target: currentPosition,
-            tilt: 60,
-            zoom: 16,
+            tilt: 30,
+            zoom: 12,
           });
+
+          map.setIndoorEnabled(true);
 
           // place all Imagos/Markers on map
           ImagoFactory.getAllImagos(map);
