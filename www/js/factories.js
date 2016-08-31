@@ -479,8 +479,8 @@ angular.module('app.factories', [])
         createIntrepid,
         createFederalReserve,
         createEmpireState,
-        createChipilo,
-        createLaBellaFerrara
+        createLaBellaFerrara,
+        createChipilo
     ]
 
     return {
