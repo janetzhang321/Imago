@@ -426,7 +426,7 @@ angular.module('app.factories', [])
       title: 'Chipilo',
       lat: imagosCoordinates.chipilo.lat,
       lng: imagosCoordinates.chipilo.lng,
-      imageSrc: 'img/thumbnails/chipilo.jpg',
+      imgSrc: 'img/thumbnails/chipilo.jpg',
       redirectTmplUrl: '/#/tabs/bucketList',
       icon: {
         url: 'www/img/thumbnails/markers/gold1.png',
@@ -438,7 +438,7 @@ angular.module('app.factories', [])
       title: 'La Bella Ferrara',
       lat: imagosCoordinates.laBellaFerrara.lat,
       lng: imagosCoordinates.laBellaFerrara.lng,
-      imageSrc: 'img/thumbnails/chipilo.jpg', // TODO: NEED TO REPLACE WITH IMG OF LaBellaFerrara
+      imgSrc: 'img/thumbnails/chipilo.jpg', // TODO: NEED TO REPLACE WITH IMG OF LaBellaFerrara
       redirectTmplUrl: '/#/tabs/bucketList',
       icon: {
         url: 'www/img/thumbnails/markers/yellow1.png'
