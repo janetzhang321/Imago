@@ -84,7 +84,6 @@ angular.module('app.controllers', [])
 
       $rootScope.$on('$stateChangeStart',
         function (event, toState, toParams, fromState, fromParams, options) {
-          console.log('toState', toState)
           if (toState.name.indexOf('tabsController') !== -1) {
             $scope.showBackButton = false;
             $scope.showHamburgerMenu = true;
@@ -101,9 +100,6 @@ angular.module('app.controllers', [])
       $scope.$watch(function () {
         return $ionicSideMenuDelegate.getOpenRatio();
       }, function (newValue, oldValue) {
-
-        console.log('new', newValue)
-        console.log('old', oldValue)
 
         if (newValue == 0) {
           $scope.hideLeft = true;

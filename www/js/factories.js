@@ -154,7 +154,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.LIU.lng,
       imgSrc: 'img/thumbnails/LIU.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/blue.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList',
     });
@@ -166,7 +166,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.mmuseumm.lng,
       imgSrc: 'img/thumbnails/mmuseumm.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/green.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -178,7 +178,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.doyers.lng,
       imgSrc: 'img/thumbnails/doyers.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/green.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -190,7 +190,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.empirestate.lng,
       imgSrc: 'img/thumbnails/EmpireState.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/orange.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -202,7 +202,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.flatiron.lng,
       imgSrc: 'img/thumbnails/flatironbuilding.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/orange.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -213,7 +213,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.fit.lng,
       imgSrc: 'img/thumbnails/FIT.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/purple.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -224,7 +224,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.gilsey.lng,
       imgSrc: 'img/thumbnails/GilseyHouse.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/purple.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -236,7 +236,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.museumPR.lng,
       imgSrc: 'img/thumbnails/MoPR.png',
       icon: {
-        url: 'www/img/thumbnails/markers/red.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -248,7 +248,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.grandCentral.lng,
       imgSrc: 'img/thumbnails/GrandCentral.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/red.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -260,7 +260,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.thomasSt.lng,
       imgSrc: 'img/thumbnails/33thomas.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/yellow.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -272,7 +272,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.plazaHotel.lng,
       imgSrc: 'img/thumbnails/PlazaHotel.JPG',
       icon: {
-        url: 'www/img/thumbnails/markers/yellow.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -284,7 +284,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.met.lng,
       imgSrc: 'img/thumbnails/Met.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/gold.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -296,7 +296,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.museumNYC.lng,
       imgSrc: 'img/thumbnails/MoCityofNY.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/gold.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -308,7 +308,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.MoMA.lng,
       imgSrc: 'img/thumbnails/MOMA.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/special.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -320,7 +320,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.guggenheim.lng,
       imgSrc: 'img/thumbnails/Guggenheim.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/special.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -332,7 +332,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.waldorfAstoria.lng,
       imgSrc: 'img/thumbnails/WaldorfAstoria.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/blue.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -344,7 +344,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.rockefellerCenter.lng,
       imgSrc: 'img/thumbnails/RockefellerCenter.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/red.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -356,7 +356,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.cityHall.lng,
       imgSrc: 'img/thumbnails/NYCHall.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/yellow.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -368,7 +368,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.NYSE.lng,
       imgSrc: 'img/thumbnails/NYSE.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/blue.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -380,7 +380,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.fedHall.lng,
       imgSrc: 'img/thumbnails/FederalHall.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/blue.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -392,7 +392,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.intrepid.lng,
       imgSrc: 'img/thumbnails/Intrepid.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/blue.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -404,7 +404,7 @@ angular.module('app.factories', [])
       lng: imagosCoordinates.fedReserve.lng,
       imgSrc: 'img/thumbnails/NYCFedReserve.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/blue.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
@@ -412,15 +412,38 @@ angular.module('app.factories', [])
     var createEmpireState = configureImago({
       //EmpireState Original
       title: 'Empire State Building',
-      lat: 40.748709700,
-      lng: -73.985655600,
+      lat: imagosCoordinates.empireState.lat,
+      lng: imagosCoordinates.empireState.lng,
       imgSrc: 'img/thumbnails/EmpireState.jpg',
       icon: {
-        url: 'www/img/thumbnails/markers/blue.png'
+        url: 'www/img/thumbnails/markers/blue1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList'
     });
 
+    var createChipilo = configureImago({
+      //Chipilo
+      title: 'Chipilo',
+      lat: imagosCoordinates.chipilo.lat,
+      lng: imagosCoordinates.chipilo.lng,
+      imageSrc: 'img/thumbnails/chipilo.jpg',
+      redirectTmplUrl: '/#/tabs/bucketList',
+      icon: {
+        url: 'www/img/thumbnails/markers/gold1.png',
+      }
+    });
+
+    var createLaBellaFerrara = configureImago({
+      //LaBellaFerrara
+      title: 'La Bella Ferrara',
+      lat: imagosCoordinates.laBellaFerrara.lat,
+      lng: imagosCoordinates.laBellaFerrara.lng,
+      imageSrc: 'img/thumbnails/chipilo.jpg', // TODO: NEED TO REPLACE WITH IMG OF LaBellaFerrara
+      redirectTmplUrl: '/#/tabs/bucketList',
+      icon: {
+        url: 'www/img/thumbnails/markers/yellow1.png'
+      }
+    });
 
     // ADD ALL IMAGO TO THIS ARRAY
     var imagos = [
@@ -446,15 +469,17 @@ angular.module('app.factories', [])
       createFederalHall,
       createIntrepid,
       createFederalReserve,
-      createEmpireState
-    ]
+      createEmpireState,
+      createLaBellaFerrara,
+      createChipilo
+    ];
 
     return {
       imagosCoordinates: imagosCoordinates,
       getAllImagos: function (map) {
         imagos.forEach(function (initiateImagoFn) {
           return initiateImagoFn(map);
-        })
+        });
       },
     };
   })
