@@ -119,9 +119,11 @@ angular.module('app.controllers', [])
       };
 
       var user = Auth.$getAuth();
-      console.log('this is the user');
-      $scope.profile = {
 
+      $scope.user = {
+        displayName: user.displayName,
+        email: user.email,
+        photoURL: user.photoURL
       }
 
     }])
@@ -142,27 +144,32 @@ angular.module('app.controllers', [])
 
     }])
 
-  .controller('loginCtrl', ['$scope', '$stateParams', '$state', '$cordovaOauth', 'Auth', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('loginCtrl', ['$scope', '$stateParams', '$state', '$cordovaOauth', 'Auth', 'GOOGLE_LOGIN_KEY', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, $state, $cordovaOauth, Auth) {
+    function ($scope, $stateParams, $state, $cordovaOauth, Auth, GOOGLE_LOGIN_KEY) {
       var self = this,
         user = Auth.$getAuth();
 
       if (!user) {
         $scope.signIn = function () {
-          $cordovaOauth.google('996767526232-rnatv3p3tfgkc8vrnhffjgag6laavs0b.apps.googleusercontent.com', ['profile'])
-            .then(function (result) {
-              console.log("Response Object -> " + JSON.stringify(result));
-              Auth.$signInWithCredential(firebase.auth.GoogleAuthProvider.credential(result.id_token))
-                .then(function (firebaseUser) {
-                  console.log("Signed in as:", firebaseUser);
-                }).catch(function (error) {
-                  console.error("Authentication failed:", error);
-                });
-            }, function (error) {
-              console.log("Error -> " + error);
-            });
+          Auth.$signInWithPopup('google').then(function () { // for browser
+            // Never called because of page redirect
+          }).catch(function (error) {
+            console.error("Authentication failed:", error);
+            $cordovaOauth.google(GOOGLE_LOGIN_KEY)
+              .then(function (result) {
+                console.log("Response Object -> " + JSON.stringify(result));
+                Auth.$signInWithCredential(firebase.auth.GoogleAuthProvider.credential(result.id_token)) // for mobile
+                  .then(function (firebaseUser) {
+                    console.log("Signed in as:", firebaseUser);
+                  }).catch(function (error) {
+                    console.error("Authentication failed:", error);
+                  });
+              }, function (error) {
+                console.log("Error -> " + error);
+              });
+          });
         }
       } else {
         $state.go('tabsController.imagoMap');
