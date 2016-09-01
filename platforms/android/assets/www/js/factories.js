@@ -518,22 +518,12 @@ angular.module('app.factories', [])
     };
   })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  // $firebaseAuth instance
+  .factory('Auth', ['$firebaseAuth',
+    function ($firebaseAuth) {
+      return $firebaseAuth();
+    }
+  ])
 
   .factory('DistanceCalculationsFactory', function (ImagoFactory) {
 
