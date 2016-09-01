@@ -143,29 +143,37 @@ angular.module('app.controllers', [])
       var self = this,
         user = Auth.$getAuth();
 
-      $scope.signIn = function () {
 
-        $cordovaOauth.google("996767526232-rnatv3p3tfgkc8vrnhffjgag6laavs0b.apps.googleusercontent.com", ["email"]).then(function (result) {
-          console.log("Response Object -> " + JSON.stringify(result));
-        }, function (error) {
-          console.log("Error -> " + error);
-        });
+
+
+      if (!user) {
+        $scope.signIn = function () {
+          $cordovaOauth.google('996767526232-rnatv3p3tfgkc8vrnhffjgag6laavs0b.apps.googleusercontent.com', ['profile'])
+            .then(function (result) {
+              console.log("Response Object -> " + JSON.stringify(result));
+              Auth.$signInWithCredential(firebase.auth.GoogleAuthProvider.credential(result.id_token))
+                .then(function (firebaseUser) {
+                  console.log("Signed in as:", firebaseUser);
+                }).catch(function (error) {
+                  console.error("Authentication failed:", error);
+                });
+            }, function (error) {
+              console.log("Error -> " + error);
+            });
+        }
+        // $scope.signIn = function () {
+        //   // login with Google
+        //   $state.go('tabsController.imagoMap');
+        //   Auth.$signInWithRedirect('google').then(function () {
+        //     console.log('donde')
+        //     // Never called because of page redirect
+        //   }).catch(function (error) {
+        //     console.error("Authentication failed:", error);
+        //   });
+        // };
+      } else {
+        $state.go('tabsController.imagoMap');
       }
-
-      // if (!user) {
-      //   $scope.signIn = function () {
-      //     // login with Google
-      //     $state.go('tabsController.imagoMap');
-      //     Auth.$signInWithRedirect('google').then(function () {
-      //       console.log('donde')
-      //       // Never called because of page redirect
-      //     }).catch(function (error) {
-      //       console.error("Authentication failed:", error);
-      //     });
-      //   };
-      // } else {
-      //   $state.go('tabsController.imagoMap');
-      // }
 
       Auth.$onAuthStateChanged(function (firebaseUser) {
         if (firebaseUser) {
