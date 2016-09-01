@@ -437,9 +437,12 @@ angular.module('app.factories', [])
       imgSrc: 'img/thumbnails/chipilo.jpg',
       redirectTmplUrl: '/#/tabs/bucketList',
       icon: {
-        url: 'www/img/thumbnails/markers/gold1.png',
-        // 'scaledSize': new google.maps.Size(50, 50) -> this will cause an error with new maps plugin
+        url: 'www/img/thumbnails/markers/gold1.png'
       }
+      // icon: {
+      //   url: 'www/img/thumbnails/markers/gold1.png',
+      //   'scaledSize': new google.maps.Size(50, 50)
+      // }
     });
 
     var createLaBellaFerrara = configureImago({
