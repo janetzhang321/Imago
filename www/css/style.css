@@ -23,6 +23,15 @@
   font-size: 80px;
   color: black;
 }
+
+.sideMenu-user-photo {
+  width: 22%;
+  height: auto;
+  display: block;
+  margin: 5px auto 5px auto;
+  border-radius: 50%;
+}
+
 /*
 
 .popUp{
@@ -38,7 +47,7 @@
 
 .hint{
     width: 100% !important;
-}   
+}
 .item-avatar{
 	padding-left:0px !important;
 	padding-bottom:10px !important;
@@ -106,21 +115,21 @@
 }
 
 #funfact{
-    width: 200px !important;   
+    width: 200px !important;
     overflow: scroll !important;
-    display:inline;   
+    display:inline;
 }
 
 #funfactp{
-    width: 200px !important;   
+    width: 200px !important;
     overflow: scroll !important;
-    display:inline;   
+    display:inline;
 }
 
 .p{
     overflow: auto !important;
-    display: inline;   
-    max-width: 400px !important;  
+    display: inline;
+    max-width: 400px !important;
 }
 
 #rcorners2 {

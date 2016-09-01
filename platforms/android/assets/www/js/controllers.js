@@ -118,6 +118,12 @@ angular.module('app.controllers', [])
         Auth.$signOut();
       };
 
+      var user = Auth.$getAuth();
+      console.log('this is the user');
+      $scope.profile = {
+
+      }
+
     }])
 
   .controller('leaderboardCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -143,9 +149,6 @@ angular.module('app.controllers', [])
       var self = this,
         user = Auth.$getAuth();
 
-
-
-
       if (!user) {
         $scope.signIn = function () {
           $cordovaOauth.google('996767526232-rnatv3p3tfgkc8vrnhffjgag6laavs0b.apps.googleusercontent.com', ['profile'])
@@ -161,16 +164,6 @@ angular.module('app.controllers', [])
               console.log("Error -> " + error);
             });
         }
-        // $scope.signIn = function () {
-        //   // login with Google
-        //   $state.go('tabsController.imagoMap');
-        //   Auth.$signInWithRedirect('google').then(function () {
-        //     console.log('donde')
-        //     // Never called because of page redirect
-        //   }).catch(function (error) {
-        //     console.error("Authentication failed:", error);
-        //   });
-        // };
       } else {
         $state.go('tabsController.imagoMap');
       }

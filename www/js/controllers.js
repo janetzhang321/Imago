@@ -118,6 +118,14 @@ angular.module('app.controllers', [])
         Auth.$signOut();
       };
 
+      var user = Auth.$getAuth();
+
+      $scope.user = {
+        displayName: user.displayName,
+        email: user.email,
+        photoURL: user.photoURL
+      }
+
     }])
 
   .controller('leaderboardCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -145,18 +153,23 @@ angular.module('app.controllers', [])
 
       if (!user) {
         $scope.signIn = function () {
-          $cordovaOauth.google('996767526232-rnatv3p3tfgkc8vrnhffjgag6laavs0b.apps.googleusercontent.com', ['profile'])
-            .then(function (result) {
-              console.log("Response Object -> " + JSON.stringify(result));
-              Auth.$signInWithCredential(firebase.auth.GoogleAuthProvider.credential(result.id_token))
-                .then(function (firebaseUser) {
-                  console.log("Signed in as:", firebaseUser);
-                }).catch(function (error) {
-                  console.error("Authentication failed:", error);
-                });
-            }, function (error) {
-              console.log("Error -> " + error);
-            });
+          Auth.$signInWithPopup('google').then(function () { // for browser
+            // Never called because of page redirect
+          }).catch(function (error) {
+            console.error("Authentication failed:", error);
+            $cordovaOauth.google('996767526232-rnatv3p3tfgkc8vrnhffjgag6laavs0b.apps.googleusercontent.com')
+              .then(function (result) {
+                console.log("Response Object -> " + JSON.stringify(result));
+                Auth.$signInWithCredential(firebase.auth.GoogleAuthProvider.credential(result.id_token)) // for mobile
+                  .then(function (firebaseUser) {
+                    console.log("Signed in as:", firebaseUser);
+                  }).catch(function (error) {
+                    console.error("Authentication failed:", error);
+                  });
+              }, function (error) {
+                console.log("Error -> " + error);
+              });
+          });
         }
       } else {
         $state.go('tabsController.imagoMap');
