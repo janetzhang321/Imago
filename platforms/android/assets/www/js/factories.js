@@ -144,6 +144,14 @@ angular.module('app.factories', [])
       laBellaFerrara: {
         lat: 40.717359500,
         lng: -73.998299400
+      },
+	  NFTEhq: {
+        lat: 40.704299600,
+        lng: -74.006329900
+      },
+	  AppNexus: {
+        lat: 40.741624300,
+        lng: -73.990991300
       }
     }
 
@@ -430,6 +438,7 @@ angular.module('app.factories', [])
       redirectTmplUrl: '/#/tabs/bucketList',
       icon: {
         url: 'www/img/thumbnails/markers/gold1.png',
+        'scaledSize': new google.maps.Size(50, 50)
       }
     });
 
@@ -438,13 +447,36 @@ angular.module('app.factories', [])
       title: 'La Bella Ferrara',
       lat: imagosCoordinates.laBellaFerrara.lat,
       lng: imagosCoordinates.laBellaFerrara.lng,
-      imgSrc: 'img/thumbnails/chipilo.jpg', // TODO: NEED TO REPLACE WITH IMG OF LaBellaFerrara
+      imgSrc: 'img/thumbnails/LaBellaFerrara.jpg', 
       redirectTmplUrl: '/#/tabs/bucketList',
       icon: {
         url: 'www/img/thumbnails/markers/yellow1.png'
       }
     });
 
+    var createNFTEhq = configureImago({
+      //NFTEhq
+      title: 'NFTEhq',
+      lat: imagosCoordinates.NFTEhq.lat,
+      lng: imagosCoordinates.NFTEhq.lng,
+      imgSrc: 'img/thumbnails/LaBellaFerrara.jpg', // TODO: NEED TO REPLACE WITH IMG OF NFTEhq
+      redirectTmplUrl: '/#/tabs/bucketList',
+      icon: {
+        url: 'www/img/thumbnails/markers/yellow1.png'
+      }
+    });
+	
+	    var createAppNexus = configureImago({
+      //AppNexus
+      title: 'App Nexus',
+      lat: imagosCoordinates.AppNexus.lat,
+      lng: imagosCoordinates.AppNexus.lng,
+      imgSrc: 'img/thumbnails/LaBellaFerrara.jpg', // TODO: NEED TO REPLACE WITH IMG OF AppNexus
+      redirectTmplUrl: '/#/tabs/bucketList',
+      icon: {
+        url: 'www/img/thumbnails/markers/yellow1.png'
+      }
+    });
     // ADD ALL IMAGO TO THIS ARRAY
     var imagos = [
       createLiu,
@@ -471,7 +503,9 @@ angular.module('app.factories', [])
       createFederalReserve,
       createEmpireState,
       createLaBellaFerrara,
-      createChipilo
+      createChipilo,
+	  createNFTEhq,
+	  createAppNexus
     ];
 
     return {
