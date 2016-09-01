@@ -17,7 +17,7 @@
         </ion-header-bar>
         <ion-content padding="false" class="side-menu-left has-header">
             <div data-componentid="image3">
-                <img src="img/QBCuGXRQFyIYgpRNUrNx_smile-512.png" width="25%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
+                <img ng-src="{{user.photoURL}}" class="sideMenu-user-photo">
             </div>
             <ion-list id="menu-list4" data-componentid="list4">
                 <ion-item class="item-icon-left" id="menu-list-item12" ui-sref="profile" menu-close="" data-componentid="list-item12">
@@ -32,7 +32,7 @@
                     <i class="icon ion-information-circled"></i>About</ion-item>
                 <ion-item class="item-icon-left" id="menu-list-item16" data-componentid="list-item16">
                     <i class="icon ion-android-settings"></i>Settings</ion-item>
-                <ion-item class="item-icon-left assertive" id="menu-list-item17" ui-sref="login" menu-close="" data-componentid="list-item17">
+                <ion-item class="item-icon-left assertive" id="menu-list-item17" ng-click="signOut()" menu-close="" data-componentid="list-item17">
                     <i class="icon ion-log-out"></i>Sign Out</ion-item>
             </ion-list>
         </ion-content>

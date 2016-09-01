@@ -8,10 +8,21 @@ angular.module('app.routes', [])
     // Each state's controller can be found in controllers.js
     $stateProvider
 
+      .state('login', {
+        url: '/',
+        templateUrl: 'templates/login.html',
+        controller: 'loginCtrl'
+      })
+
       .state('index', {
         abstract: true,
         templateUrl: 'templates/sideNav.html',
-        controller: 'sideNavCtrl'
+        controller: 'sideNavCtrl',
+        resolve: {
+          currentAuth: ['Auth', function (Auth) {
+            return Auth.$requireSignIn();
+          }]
+        }
       })
 
       .state('tabsController', {
@@ -51,13 +62,6 @@ angular.module('app.routes', [])
         }
       })
 
-      .state('login', {
-        parent: 'index',
-        url: '/',
-        templateUrl: 'templates/login.html',
-        controller: 'loginCtrl'
-      })
-
       .state('profile', {
         parent: 'index',
         url: '/profile',
@@ -87,10 +91,11 @@ angular.module('app.routes', [])
       })
 
       .state('camera', {
+        parent: 'index',
         url: '/camera',
         controller: 'pictureCtrl'
       })
-    
+
       .state('mmuseumm', {
         parent: 'index',
         url: '/mmuseumm',

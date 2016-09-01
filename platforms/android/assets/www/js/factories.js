@@ -144,11 +144,11 @@ angular.module('app.factories', [])
       laBellaFerrara: {
         lat: 40.717359500,
         lng: -73.998299400
-      }
+      },
 	  NFTEhq: {
         lat: 40.704299600,
         lng: -74.006329900
-      }
+      },
 	  AppNexus: {
         lat: 40.741624300,
         lng: -73.990991300
@@ -518,22 +518,12 @@ angular.module('app.factories', [])
     };
   })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  // $firebaseAuth instance
+  .factory('Auth', ['$firebaseAuth',
+    function ($firebaseAuth) {
+      return $firebaseAuth();
+    }
+  ])
 
   .factory('DistanceCalculationsFactory', function (ImagoFactory) {
 

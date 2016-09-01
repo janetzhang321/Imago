@@ -145,11 +145,11 @@ angular.module('app.factories', [])
         lat: 40.717359500,
         lng: -73.998299400
       },
-	  NFTEhq: {
+      NFTEhq: {
         lat: 40.704299600,
         lng: -74.006329900
       },
-	  AppNexus: {
+      AppNexus: {
         lat: 40.741624300,
         lng: -73.990991300
       }
@@ -438,7 +438,7 @@ angular.module('app.factories', [])
       redirectTmplUrl: '/#/tabs/bucketList',
       icon: {
         url: 'www/img/thumbnails/markers/gold1.png',
-        'scaledSize': new google.maps.Size(50, 50)
+        // 'scaledSize': new google.maps.Size(50, 50) -> this will cause an error with new maps plugin
       }
     });
 
@@ -447,7 +447,7 @@ angular.module('app.factories', [])
       title: 'La Bella Ferrara',
       lat: imagosCoordinates.laBellaFerrara.lat,
       lng: imagosCoordinates.laBellaFerrara.lng,
-      imgSrc: 'img/thumbnails/LaBellaFerrara.jpg', 
+      imgSrc: 'img/thumbnails/LaBellaFerrara.jpg',
       redirectTmplUrl: '/#/tabs/bucketList',
       icon: {
         url: 'www/img/thumbnails/markers/yellow1.png'
@@ -465,8 +465,8 @@ angular.module('app.factories', [])
         url: 'www/img/thumbnails/markers/yellow1.png'
       }
     });
-	
-	    var createAppNexus = configureImago({
+
+    var createAppNexus = configureImago({
       //AppNexus
       title: 'App Nexus',
       lat: imagosCoordinates.AppNexus.lat,
@@ -504,8 +504,8 @@ angular.module('app.factories', [])
       createEmpireState,
       createLaBellaFerrara,
       createChipilo,
-	  createNFTEhq,
-	  createAppNexus
+      createNFTEhq,
+      createAppNexus
     ];
 
     return {
@@ -518,22 +518,12 @@ angular.module('app.factories', [])
     };
   })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  // $firebaseAuth instance
+  .factory('Auth', ['$firebaseAuth',
+    function ($firebaseAuth) {
+      return $firebaseAuth();
+    }
+  ])
 
   .factory('DistanceCalculationsFactory', function (ImagoFactory) {
 
