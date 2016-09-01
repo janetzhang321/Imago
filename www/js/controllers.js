@@ -153,23 +153,18 @@ angular.module('app.controllers', [])
 
       if (!user) {
         $scope.signIn = function () {
-          Auth.$signInWithPopup('google').then(function () { // for browser
-            // Never called because of page redirect
-          }).catch(function (error) {
-            console.error("Authentication failed:", error);
-            $cordovaOauth.google(GOOGLE_LOGIN_KEY)
-              .then(function (result) {
-                console.log("Response Object -> " + JSON.stringify(result));
-                Auth.$signInWithCredential(firebase.auth.GoogleAuthProvider.credential(result.id_token)) // for mobile
-                  .then(function (firebaseUser) {
-                    console.log("Signed in as:", firebaseUser);
-                  }).catch(function (error) {
-                    console.error("Authentication failed:", error);
-                  });
-              }, function (error) {
-                console.log("Error -> " + error);
-              });
-          });
+          $cordovaOauth.google(GOOGLE_LOGIN_KEY, ['profile'])
+            .then(function (result) {
+              console.log("Response Object -> " + JSON.stringify(result));
+              Auth.$signInWithCredential(firebase.auth.GoogleAuthProvider.credential(result.id_token))
+                .then(function (firebaseUser) {
+                  console.log("Signed in as:", firebaseUser);
+                }).catch(function (error) {
+                  console.error("Authentication failed:", error);
+                });
+            }, function (error) {
+              console.log("Error -> " + error);
+            });
         }
       } else {
         $state.go('tabsController.imagoMap');
