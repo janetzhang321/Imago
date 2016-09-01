@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'ngCordova', 'firebase', 'app.controllers', 'app.routes', 'app.directives', 'app.services', 'app.factories'])
+angular.module('app', ['ionic', 'ngCordova', 'ngCordovaOauth', 'firebase', 'app.controllers', 'app.routes', 'app.directives', 'app.services', 'app.factories'])
 
   .run(function ($ionicPlatform, $rootScope, $state, $ionicSideMenuDelegate, $cordovaGeolocation) {
     $ionicPlatform.ready(function () {

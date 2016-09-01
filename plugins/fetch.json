@@ -89,5 +89,13 @@
             "API_KEY_FOR_ANDROID": "AIzaSyCc-MVvwsO8lwRqRP9Bm18nKB0vWxJLKnI",
             "API_KEY_FOR_IOS": ""
         }
+    },
+    "cordova-plugin-inappbrowser": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-inappbrowser"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

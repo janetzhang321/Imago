@@ -5,10 +5,11 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'ngCordova', 'app.controllers', 'app.routes', 'app.directives', 'app.services', 'app.factories'])
+angular.module('app', ['ionic', 'ngCordova', 'ngCordovaOauth', 'firebase', 'app.controllers', 'app.routes', 'app.directives', 'app.services', 'app.factories'])
 
-  .run(function ($ionicPlatform, $rootScope, $ionicSideMenuDelegate, $cordovaGeolocation) {
+  .run(function ($ionicPlatform, $rootScope, $state, $ionicSideMenuDelegate, $cordovaGeolocation) {
     $ionicPlatform.ready(function () {
+      // for side menu
       $rootScope.isMenuOpen = $ionicSideMenuDelegate.isOpen.bind($ionicSideMenuDelegate);
 
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -25,9 +26,19 @@ angular.module('app', ['ionic', 'ngCordova', 'app.controllers', 'app.routes', 'a
       // get location of device on app.run
       // returns a promise
       var watchOptions = {
-        timeout : 10000,
+        timeout: 10000,
         enableHighAccuracy: true // may cause errors if true
       };
+
       $rootScope.watchPosition = $cordovaGeolocation.watchPosition(watchOptions);
+
+      // State change errors
+      $rootScope.$on("$stateChangeError", function (event, toState, toParams, fromState, fromParams, error) {
+        // AUTH - We can catch the error thrown when the $requireSignIn promise is rejected
+        // and redirect the user back to the home page
+        if (error === "AUTH_REQUIRED") {
+          $state.go('login');
+        }
+      });
     });
-  })
+  });

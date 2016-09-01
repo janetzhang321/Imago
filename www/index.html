@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <!-- whitelist domains -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://www.googleapis.com https://www.gstatic.com">-->
+    <allow-navigation href="*" />
     <title></title>
 
 
@@ -14,6 +17,9 @@
 
     <!-- Cordova - (this will be a 404 during development) -->
     <script src="cordova.js"></script>
+
+    <!-- OAuth -->
+    <script src="lib/ng-cordova-oauth/dist/ng-cordova-oauth.min.js"></script>
 
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>

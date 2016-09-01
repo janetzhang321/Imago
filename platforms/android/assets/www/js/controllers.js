@@ -69,10 +69,10 @@ angular.module('app.controllers', [])
     });
   })
 
-  .controller('sideNavCtrl', ['$scope', '$stateParams', '$ionicHistory', '$state', '$rootScope', '$ionicSideMenuDelegate',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('sideNavCtrl', ['$scope', '$stateParams', '$ionicHistory', '$state', '$rootScope', '$ionicSideMenuDelegate', 'Auth',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, $ionicHistory, $state, $rootScope, $ionicSideMenuDelegate) {
+    function ($scope, $stateParams, $ionicHistory, $state, $rootScope, $ionicSideMenuDelegate, Auth) {
 
       if ($state.current.name.indexOf('tabsController') !== -1) {
         $scope.showBackButton = false;
@@ -113,6 +113,10 @@ angular.module('app.controllers', [])
         }
       });
 
+      $scope.signOut = function () {
+        $state.go('login');
+        Auth.$signOut();
+      };
 
     }])
 
@@ -132,12 +136,46 @@ angular.module('app.controllers', [])
 
     }])
 
-  .controller('loginCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('loginCtrl', ['$scope', '$stateParams', '$state', '$cordovaOauth', 'Auth', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams) {
+    function ($scope, $stateParams, $state, $cordovaOauth, Auth) {
+      var self = this,
+        user = Auth.$getAuth();
 
+      $scope.signIn = function () {
 
+        $cordovaOauth.google("996767526232-rnatv3p3tfgkc8vrnhffjgag6laavs0b.apps.googleusercontent.com", ["email"]).then(function (result) {
+          console.log("Response Object -> " + JSON.stringify(result));
+        }, function (error) {
+          console.log("Error -> " + error);
+        });
+      }
+
+      // if (!user) {
+      //   $scope.signIn = function () {
+      //     // login with Google
+      //     $state.go('tabsController.imagoMap');
+      //     Auth.$signInWithRedirect('google').then(function () {
+      //       console.log('donde')
+      //       // Never called because of page redirect
+      //     }).catch(function (error) {
+      //       console.error("Authentication failed:", error);
+      //     });
+      //   };
+      // } else {
+      //   $state.go('tabsController.imagoMap');
+      // }
+
+      Auth.$onAuthStateChanged(function (firebaseUser) {
+        if (firebaseUser) {
+          console.log("Signed in as:", firebaseUser.uid);
+          $state.go('tabsController.imagoMap');
+        } else {
+          console.log("Signed out");
+          $state.go('login');
+        }
+      }, self);
     }])
 
   .controller('profileCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller

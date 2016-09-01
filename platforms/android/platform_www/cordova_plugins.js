@@ -110,6 +110,15 @@ module.exports = [
         "clobbers": [
             "plugin.google.maps"
         ]
+    },
+    {
+        "id": "cordova-plugin-inappbrowser.inappbrowser",
+        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+        "pluginId": "cordova-plugin-inappbrowser",
+        "clobbers": [
+            "cordova.InAppBrowser.open",
+            "window.open"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -125,7 +134,8 @@ module.exports.metadata =
     "cordova-plugin-geolocation": "2.2.0",
     "cordova-plugin-camera": "2.2.0",
     "cordova-plugin-device-orientation": "1.0.3",
-    "plugin.google.maps": "1.3.9"
+    "plugin.google.maps": "1.3.9",
+    "cordova-plugin-inappbrowser": "1.4.0"
 };
 // BOTTOM OF METADATA
 });

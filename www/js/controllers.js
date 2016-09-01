@@ -136,27 +136,36 @@ angular.module('app.controllers', [])
 
     }])
 
-  .controller('loginCtrl', ['$scope', '$stateParams', '$state', 'Auth', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('loginCtrl', ['$scope', '$stateParams', '$state', '$cordovaOauth', 'Auth', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, $state, Auth) {
+    function ($scope, $stateParams, $state, $cordovaOauth, Auth) {
       var self = this,
         user = Auth.$getAuth();
 
-      if (!user) {
-        $scope.signIn = function () {
-          // login with Google
-            $state.go('tabsController.imagoMap');
-          Auth.$signInWithRedirect('google').then(function () {
-            console.log('donde')
-            // Never called because of page redirect
-          }).catch(function (error) {
-            console.error("Authentication failed:", error);
-          });
-        };
-      } else {
-        $state.go('tabsController.imagoMap');
+      $scope.signIn = function () {
+
+        $cordovaOauth.google("996767526232-rnatv3p3tfgkc8vrnhffjgag6laavs0b.apps.googleusercontent.com", ["email"]).then(function (result) {
+          console.log("Response Object -> " + JSON.stringify(result));
+        }, function (error) {
+          console.log("Error -> " + error);
+        });
       }
+
+      // if (!user) {
+      //   $scope.signIn = function () {
+      //     // login with Google
+      //     $state.go('tabsController.imagoMap');
+      //     Auth.$signInWithRedirect('google').then(function () {
+      //       console.log('donde')
+      //       // Never called because of page redirect
+      //     }).catch(function (error) {
+      //       console.error("Authentication failed:", error);
+      //     });
+      //   };
+      // } else {
+      //   $state.go('tabsController.imagoMap');
+      // }
 
       Auth.$onAuthStateChanged(function (firebaseUser) {
         if (firebaseUser) {
