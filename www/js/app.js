@@ -5,8 +5,11 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'ngCordova', 'ngCordovaOauth', 'firebase', 'app.controllers', 'app.routes', 'app.directives', 'app.services', 'app.factories'])
-
+angular.module('app', ['ionic', 'ngCordova', 'ngCordovaOauth', 'firebase', 'app.controllers', 'app.routes', 'app.directives', 'app.services', 'app.factories', 'app.constants'])
+  .config(function (FIREBASE_CONFIG) {
+    // initialize firebase
+    firebase.initializeApp(FIREBASE_CONFIG);
+  })
   .run(function ($ionicPlatform, $rootScope, $state, $ionicSideMenuDelegate, $cordovaGeolocation) {
     $ionicPlatform.ready(function () {
       // for side menu

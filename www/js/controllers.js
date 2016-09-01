@@ -144,10 +144,10 @@ angular.module('app.controllers', [])
 
     }])
 
-  .controller('loginCtrl', ['$scope', '$stateParams', '$state', '$cordovaOauth', 'Auth', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('loginCtrl', ['$scope', '$stateParams', '$state', '$cordovaOauth', 'Auth', 'GOOGLE_LOGIN_KEY', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, $state, $cordovaOauth, Auth) {
+    function ($scope, $stateParams, $state, $cordovaOauth, Auth, GOOGLE_LOGIN_KEY) {
       var self = this,
         user = Auth.$getAuth();
 
@@ -157,7 +157,7 @@ angular.module('app.controllers', [])
             // Never called because of page redirect
           }).catch(function (error) {
             console.error("Authentication failed:", error);
-            $cordovaOauth.google('996767526232-rnatv3p3tfgkc8vrnhffjgag6laavs0b.apps.googleusercontent.com')
+            $cordovaOauth.google(GOOGLE_LOGIN_KEY)
               .then(function (result) {
                 console.log("Response Object -> " + JSON.stringify(result));
                 Auth.$signInWithCredential(firebase.auth.GoogleAuthProvider.credential(result.id_token)) // for mobile
