@@ -559,7 +559,7 @@ angular.module('app.factories', [])
       var STEPS_IN_A_MILE = 2200;
       var milesBtwn = getMilesBtwnTwoLocations(coordsA, coordsB);
 
-      return milesBtwn *  STEPS_IN_A_MILE;
+      return milesBtwn * STEPS_IN_A_MILE;
     }
 
     function getBearingBtwnTwoLocations(currentLocation, imagoLocation) {
@@ -627,10 +627,11 @@ angular.module('app.factories', [])
   })
 
   .factory('StepsFactory', function (DistanceCalculationsFactory, $window) {
-    var numOfSteps = getStepsCount();
+    var steps = { total: getStepsCount() };
     var coordsCache;
 
     function registerSteps(coords) {
+      console.log('coordsCache', coordsCache)
       // steps are stored in window.localStorage
 
       if (!coordsCache) {
@@ -639,11 +640,11 @@ angular.module('app.factories', [])
       }
 
       var numOfCurrentSteps = $window.localStorage.getItem('imagoStepCount') ? parseInt($window.localStorage.getItem('imagoStepCount')) : 0,
-        numOfNewSteps = DistanceCalculationsFactory.getStepsBtwnTwoLocations(coordsCache, coords),
+        numOfNewSteps = DistanceCalculationsFactory.getStepsBtwnTwoLocations(coordsCache, coords);
 
       coordsCache = coords;
-      numOfSteps = $window.localStorage.setItem('imagoStepCount', numOfCurrentSteps + numOfNewSteps);
-      return;
+      steps.total = numOfCurrentSteps + numOfNewSteps;
+      return $window.localStorage.setItem('imagoStepCount', steps.total);
     }
 
     function getStepsCount() {
@@ -653,7 +654,7 @@ angular.module('app.factories', [])
     return {
       registerSteps: registerSteps,
       getStepsCount: getStepsCount,
-      numOfSteps: numOfSteps
+      steps: steps
     }
   });
 

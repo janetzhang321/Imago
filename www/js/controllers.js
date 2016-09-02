@@ -61,8 +61,13 @@ angular.module('app.controllers', [])
                   $scope.showCamera = false;
                 }
 
-                // REGISTER STEPS
-                StepsFactory.registerSteps(currentLocation);
+                try {
+                  // REGISTER STEPS
+                  StepsFactory.registerSteps(currentLocation);
+
+                } catch (err) {
+                  console.log('steps err', err)
+                }
 
               });
 
@@ -132,13 +137,12 @@ angular.module('app.controllers', [])
       }
 
       // Steps Count
-      $scope.steps = StepsFactory.numOfSteps;
+      $scope.steps = StepsFactory.steps.total;
       $scope.$watch(function () {
-        return StepsFactory.numOfSteps;
+        return StepsFactory;
       }, function (newVal, oldVal) {
-        $scope.steps = newVal;
-      });
-
+        $scope.steps = parseInt(newVal.steps.total);
+      }, true);
     }])
 
   .controller('leaderboardCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller

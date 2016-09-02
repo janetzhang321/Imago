@@ -61,8 +61,13 @@ angular.module('app.controllers', [])
                   $scope.showCamera = false;
                 }
 
-                // REGISTER STEPS
-                StepsFactory.registerSteps(currentLocation);
+                try {
+                  // REGISTER STEPS
+                  StepsFactory.registerSteps(currentLocation);
+
+                } catch (err) {
+                  console.log('steps err', err)
+                }
 
               });
 
@@ -132,12 +137,20 @@ angular.module('app.controllers', [])
       }
 
       // Steps Count
-      $scope.steps = StepsFactory.numOfSteps;
+      $scope.steps = StepsFactory.steps.total;
       $scope.$watch(function () {
-        return StepsFactory.numOfSteps;
+        return StepsFactory;
       }, function (newVal, oldVal) {
-        $scope.steps = newVal;
-      });
+        debugger;
+        $scope.steps = parseInt(newVal.steps.total);
+      }, true);
+
+      // $scope.$watch(function () {
+      //   return StepsFactory;
+      // }, function (newVal, oldVal) {
+      //   console.log('deepwatch', newVal)
+      //   // $scope.steps = newVal;
+      // });
 
     }])
 
