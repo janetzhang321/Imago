@@ -215,11 +215,12 @@ angular.module('app.controllers', [])
     }])
 
 
-  .controller('pointsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('pointsCtrl', ['$scope', '$stateParams', 'ImagoFactory',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams) {
-
+    function ($scope, $stateParams, ImagoFactory) {
+        var currentImago = 'LIU';//changes based on which imago is close to you
+        $scope.points=ImagoFactory.imagoDetails[currentImago].points;
 
     }])
 
@@ -320,4 +321,21 @@ angular.module('app.controllers', [])
       //
       //      }, false);
     })
-  });
+  })
+
+
+
+  .controller('detailCtrl', ['$scope', '$stateParams', 'ImagoFactory',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+    // You can include any angular dependencies as parameters for this function
+    // TIP: Access Route Parameters for your page via $stateParams.parameterName
+    function ($scope, $stateParams, ImagoFactory) {
+        var currentImago = 'LIU';//changes based on which imago is close to you
+        $scope.funFact=ImagoFactory.imagoDetails[currentImago].funFact;
+        $scope.imgSrc=ImagoFactory.imagoDetails[currentImago].imgSrc;
+        $scope.title=ImagoFactory.imagoDetails[currentImago].title;
+        $scope.originDate=ImagoFactory.imagoDetails[currentImago].originDate;
+        $scope.description=ImagoFactory.imagoDetails[currentImago].description;
+        $scope.learnMore=ImagoFactory.imagoDetails[currentImago].learnMore;
+        $scope.address=ImagoFactory.imagoDetails[currentImago].address;
+
+    }]);

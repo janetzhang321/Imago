@@ -2,9 +2,9 @@
     <ion-content padding="true" class="manual-ios-statusbar-padding">
         <h3 id="points-heading5" style="color:#FFFFFF;text-align:center;" class=" ">Keep Working!</h3>
         <h5 id="points-heading6" style="color:#FFFFFF;font-weight:300;text-align:center;" class=" ">You've earned</h5>
-        <center><div id=rcorners2>60</div></center>
+        <center><div id=rcorners2>{{points}}</div></center>
         
-        <h5 id="points-heading7" style="color:#FFFFFF;font-weight:300;text-align:center;" class=" ">+60 Points</h5>
+        <h5 id="points-heading7" style="color:#FFFFFF;font-weight:300;text-align:center;" class=" ">+{{points}} Points</h5>
         <h2 id="points-heading8" style="color:#FFFFFF;" class=" ">Badges:</h2>
         <ion-list id="points-list8" class=" ">
             <ion-item class="item-icon-left item-icon-right  " id="points-list-item8">
@@ -14,6 +14,6 @@
             <ion-item class="item-icon-left  " id="points-list-item7">
                 <i class="icon ion-thumbsup"></i>Novice</ion-item>
         </ion-list>
-        <a ui-sref="details" id="points-button22" style="font-weight:500;" class=" button button-energized  button-block " href="/MmuseummDet.html">Continue</a>
+        <a ui-sref="detail" id="points-button22" style="font-weight:500;" class=" button button-energized  button-block " >Continue</a>
     </ion-content>
 </ion-view>

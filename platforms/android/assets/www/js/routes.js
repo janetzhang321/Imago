@@ -96,10 +96,10 @@ angular.module('app.routes', [])
         controller: 'pictureCtrl'
       })
 
-      .state('mmuseumm', {
+      .state('detail', {
         parent: 'index',
-        url: '/mmuseumm',
-        templateUrl: 'templates/MmuseummDet.html',
+        url: '/detail',
+        templateUrl: 'templates/detail.html',
         controller: 'detailCtrl'
       })
 
