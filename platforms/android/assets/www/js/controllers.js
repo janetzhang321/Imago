@@ -1,6 +1,6 @@
 angular.module('app.controllers', [])
 
-  .controller('imagoMapCtrl', function ($scope, $cordovaGeolocation, $ionicPlatform, $rootScope, ImagoFactory, DistanceCalculationsFactory) {
+  .controller('imagoMapCtrl', function ($scope, $cordovaGeolocation, $ionicPlatform, $rootScope, ImagoFactory, DistanceCalculationsFactory, StepsFactory) {
     var div, map;
 
     $ionicPlatform.ready(function () {
@@ -49,7 +49,6 @@ angular.module('app.controllers', [])
                 var latestPosition = new plugin.google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                 circle.setCenter(latestPosition);
 
-                // CHECK NEARBY IMAGOS
                 var currentLocation = {
                   latitude: position.coords.latitude,
                   longitude: position.coords.longitude
@@ -61,6 +60,15 @@ angular.module('app.controllers', [])
                 } else {
                   $scope.showCamera = false;
                 }
+
+                try {
+                  // REGISTER STEPS
+                  StepsFactory.registerSteps(currentLocation);
+
+                } catch (err) {
+                  console.log('steps err', err)
+                }
+
               });
 
           });
@@ -69,11 +77,12 @@ angular.module('app.controllers', [])
     });
   })
 
-  .controller('sideNavCtrl', ['$scope', '$stateParams', '$ionicHistory', '$state', '$rootScope', '$ionicSideMenuDelegate', 'Auth',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('sideNavCtrl', ['$scope', '$stateParams', '$ionicHistory', '$state', '$rootScope', '$ionicSideMenuDelegate', 'Auth', 'StepsFactory',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, $ionicHistory, $state, $rootScope, $ionicSideMenuDelegate, Auth) {
+    function ($scope, $stateParams, $ionicHistory, $state, $rootScope, $ionicSideMenuDelegate, Auth, StepsFactory) {
 
+      // Hamburger or Back Button Icon
       if ($state.current.name.indexOf('tabsController') !== -1) {
         $scope.showBackButton = false;
         $scope.showHamburgerMenu = true;
@@ -93,6 +102,7 @@ angular.module('app.controllers', [])
           }
         })
 
+      // Back button
       $scope.goBack = function () {
         $state.go('tabsController.imagoMap');
       }
@@ -113,18 +123,34 @@ angular.module('app.controllers', [])
         }
       });
 
+      // Sign Out
       $scope.signOut = function () {
         $state.go('login');
         Auth.$signOut();
       };
 
       var user = Auth.$getAuth();
-
       $scope.user = {
         displayName: user.displayName,
         email: user.email,
         photoURL: user.photoURL
       }
+
+      // Steps Count
+      $scope.steps = StepsFactory.steps.total;
+      $scope.$watch(function () {
+        return StepsFactory;
+      }, function (newVal, oldVal) {
+        debugger;
+        $scope.steps = parseInt(newVal.steps.total);
+      }, true);
+
+      // $scope.$watch(function () {
+      //   return StepsFactory;
+      // }, function (newVal, oldVal) {
+      //   console.log('deepwatch', newVal)
+      //   // $scope.steps = newVal;
+      // });
 
     }])
 
