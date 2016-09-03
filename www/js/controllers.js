@@ -216,7 +216,8 @@ angular.module('app.controllers', [])
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams, Auth) {
         Auth.user=this;
-            getDisplayName();
+        //getDisplayName();
+        console.log(Auth.$getAuth());
 
     }])
 
