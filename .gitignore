@@ -12,3 +12,4 @@ plugins/com.googlemaps.ios/
 plugins/plugin.google.maps/
 platforms/android/src/plugin/google/maps
 env.constants.js
+.brackets.json
