@@ -530,13 +530,13 @@ angular.module('app.factories', [])
 
   .factory('DistanceCalculationsFactory', function (ImagoFactory) {
 
-    function getMilesBtwnCurrentLocationAndImago(currentLocation, imagoLocation) {
-      var lat1 = currentLocation.latitude;
-      var lat2 = imagoLocation.latitude;
-      var lon1 = currentLocation.longitude;
-      var lon2 = imagoLocation.longitude;
+    function getMilesBtwnTwoLocations(coordsA, coordsB) {
+      var lat1 = coordsA.latitude;
+      var lat2 = coordsB.latitude;
+      var lon1 = coordsA.longitude;
+      var lon2 = coordsB.longitude;
 
-      var R = 3959; // Radius of the earth in km
+      var R = 3959; // Radius of the earth in miles
       var dLat = deg2rad(lat2 - lat1);  // deg2rad below
       var dLon = deg2rad(lon2 - lon1);
       var a =
@@ -545,7 +545,7 @@ angular.module('app.factories', [])
         Math.sin(dLon / 2) * Math.sin(dLon / 2)
         ;
       var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      var d = R * c; // Distance in km
+      var d = R * c; // Distance in miles
       return d;
     }
 
@@ -553,6 +553,14 @@ angular.module('app.factories', [])
       return deg * (Math.PI / 180)
     }
 
+    function getStepsBtwnTwoLocations(coordsA, coordsB) {
+      // rought estimate
+      // actual range is 1900-25000 steps per mile, depending on height
+      var STEPS_IN_A_MILE = 2200;
+      var milesBtwn = getMilesBtwnTwoLocations(coordsA, coordsB);
+
+      return milesBtwn * STEPS_IN_A_MILE;
+    }
 
     function getBearingBtwnTwoLocations(currentLocation, imagoLocation) {
       var lat1 = currentLocation.latitude;
@@ -594,7 +602,7 @@ angular.module('app.factories', [])
           longitude: ImagoFactory.imagosCoordinates[imagoName].lng
         };
 
-        var distanceInMiles = getMilesBtwnCurrentLocationAndImago(currentLocation, coordinates);
+        var distanceInMiles = getMilesBtwnTwoLocations(currentLocation, coordinates);
         if (!distanceInMilesCache || distanceInMiles < distanceInMilesCache) {
           distanceInMilesCache = distanceInMiles;
         }
@@ -609,11 +617,44 @@ angular.module('app.factories', [])
     }
 
     return {
-      getMilesBtwnCurrentLocationAndImago: getMilesBtwnCurrentLocationAndImago,
+      getMilesBtwnTwoLocations: getMilesBtwnTwoLocations,
       getBearingBtwnTwoLocations: getBearingBtwnTwoLocations,
       displayCamera: displayCamera,
-      isAnImagoNearby: isAnImagoNearby
+      isAnImagoNearby: isAnImagoNearby,
+      getStepsBtwnTwoLocations: getStepsBtwnTwoLocations
     }
 
+  })
+
+  .factory('StepsFactory', function (DistanceCalculationsFactory, $window) {
+    var steps = { total: getStepsCount() };
+    var coordsCache;
+
+    function registerSteps(coords) {
+      console.log('coordsCache', coordsCache)
+      // steps are stored in window.localStorage
+
+      if (!coordsCache) {
+        coordsCache = coords;
+        return;
+      }
+
+      var numOfCurrentSteps = $window.localStorage.getItem('imagoStepCount') ? parseInt($window.localStorage.getItem('imagoStepCount')) : 0,
+        numOfNewSteps = DistanceCalculationsFactory.getStepsBtwnTwoLocations(coordsCache, coords);
+
+      coordsCache = coords;
+      steps.total = numOfCurrentSteps + numOfNewSteps;
+      return $window.localStorage.setItem('imagoStepCount', steps.total);
+    }
+
+    function getStepsCount() {
+      return $window.localStorage.getItem('imagoStepCount') ? parseInt($window.localStorage.getItem('imagoStepCount')) : 0;
+    }
+
+    return {
+      registerSteps: registerSteps,
+      getStepsCount: getStepsCount,
+      steps: steps
+    }
   });
 
