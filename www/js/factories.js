@@ -705,7 +705,7 @@ angular.module('app.factories', [])
         learnMore: 'https://www.nps.gov/gegr/index.htm',
         points: ' ',
         category: 'landmark'
-<<<<<<< HEAD
+
       },
 
         /*
@@ -1166,12 +1166,7 @@ angular.module('app.factories', [])
   // $firebaseAuth instance
   .factory('Auth', ['$firebaseAuth', 
                     
-<<<<<<< HEAD
-    function ($firebaseAuth) {
-        return $firebaseAuth();
-    }
-    
-=======
+
     function ($firebaseAuth) {
         return $firebaseAuth();
     }
@@ -1222,60 +1217,7 @@ angular.module('app.factories', [])
     }
     
     
->>>>>>> master
   ])
-
-
-
-
-<<<<<<< HEAD
-  // $firebaseUser instance
-  .factory('User', ['$firebaseAuth',
-                    /*
-                    , '$firebaseUser',
-                    */
-    function ($firebaseAuth) {
-        /*
-        mAuthListener = new firebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-                }
-                // ...
-            }
-        }
-                    
-        FirebaseUser user = firebaseAuth.getInstance().getCurrentUser();
-            if (user != null) {
-                // Name, email address, and profile photo Url
-                String name = user.getDisplayName();
-                String email = user.getEmail();
-                Uri photoUrl = user.getPhotoUrl();
-
-                // The user's ID, unique to the Firebase project. Do NOT use this value to
-                // authenticate with your backend server, if you have one. Use
-                // FirebaseUser.getToken() instead.
-                String uid = user.getUid();
-            }
-
-        */
-
-        return $firebaseAuth();
-    }
-    
-  ])
-
-
-
-
-=======
->>>>>>> master
 
 
   .factory('DistanceCalculationsFactory', function (ImagoFactory) {
