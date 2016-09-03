@@ -705,7 +705,7 @@ angular.module('app.factories', [])
         learnMore: 'https://www.nps.gov/gegr/index.htm',
         points: ' ',
         category: 'landmark'
-      },
+      }
 
         /*
       greenWoodCemetery: {		
@@ -828,8 +828,9 @@ angular.module('app.factories', [])
         points: ' ',
         category: 'landmark'
       }
+    
+*/      
     }
-*/        
     
     var imagosCoordinates = {
       LIU: {
