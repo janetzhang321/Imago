@@ -490,7 +490,7 @@ angular.module('app.factories', [])
         lat: 40.761058000,	
         lng: -73.833175000,	
         title: '520 Desserts',	
-        imgSrc: 'link image here',	
+        imgSrc: 'img/thumbnails/520Desserts.jpg',	
         icon: {	
             url: 'www/img/thumbnails/markers/yellow1.png'
         },	
@@ -499,7 +499,7 @@ angular.module('app.factories', [])
         originDate:'',
         address:'133-53 37th Avenue #101, Flushing, NY 11354',	
         learnMore: 'http://520desserts.com/',
-        points: 'put points here',
+        points: ' ',
         category: 'restaurant'
       },	
 	
@@ -507,16 +507,16 @@ angular.module('app.factories', [])
         lat: 40.719423100,	
         lng: -73.995634300,	
         title: '123 Aquarium Inc',	
-        imgSrc: 'link image here',	
+        imgSrc: 'img/thumbnails/123Aquarium.jpg',	
         icon: {	
             url: 'www/img/thumbnails/markers/yellow1.png'
         },	
         redirectTmplUrl: '/#/tabs/bucketList',	
         description:'put description here',
-        originDate:'Date place opened',
+        originDate:' ',
         address:'123 Elizabeth St, New York, NY 10013',		
         learnMore: 'put web link here',
-        points: 'put points here',
+        points: ' ',
         category: 'restaurant'
       },
 
@@ -524,16 +524,16 @@ angular.module('app.factories', [])
         lat: 40.716358300,	
         lng: -73.995086500,	
         title: 'Yaya Tea Garden',	
-        imgSrc: 'link image here',	
+        imgSrc: 'img/thumbnails/yaya.jpg',	
         icon: {	
             url: 'www/img/thumbnails/markers/yellow1.png'
         },	
         redirectTmplUrl: '/#/tabs/bucketList',	
         description:'put description here',
-        originDate:'Date place opened',
+        originDate:' ',
         address:'51 Chrystie St, New York, NY 10002',		
         learnMore: 'http://yayatea.com/',
-        points: 'put points here',
+        points: ' ',
         category: 'restaurant'
       },
 
@@ -541,16 +541,16 @@ angular.module('app.factories', [])
         lat: 40.719453500,	
         lng: -73.996539600,	
         title: 'Cultura Pizza e Vita',	
-        imgSrc: 'link image here',	
+        imgSrc: 'img/thumbnails/cultura.jpg',	
         icon: {	
             url: 'www/img/thumbnails/markers/yellow1.png'
         },	
         redirectTmplUrl: '/#/tabs/bucketList',	
         description:'put description here',
-        originDate:'Date place opened',
+        originDate:' ',
         address:'151 Mott St, New York, NY 10013',		
         learnMore: 'http://culturapizzaevita.com/',
-        points: 'put points here',
+        points: ' ',
         category: 'restaurant'
       },
 
@@ -558,16 +558,16 @@ angular.module('app.factories', [])
         lat: 40.718528900,	
         lng: -73.996898900,	
         title: 'Patea Bubble Tea',	
-        imgSrc: 'link image here',	
+        imgSrc: 'img/thumbnails/patea.jpg',	
         icon: {	
             url: 'www/img/thumbnails/markers/yellow1.png'
         },	
         redirectTmplUrl: '/#/tabs/bucketList',	
         description:'put description here',
-        originDate:'Date place opened',
+        originDate:' ',
         address:'135 Mott St, New York, NY 10013',		
         learnMore: 'http://www.pateabubbletea.com/',
-        points: 'put points here',
+        points: ' ',
         category: 'restaurant'
       },
 
@@ -575,33 +575,33 @@ angular.module('app.factories', [])
         lat: 40.719935300,	
         lng: -73.995866200,	
         title: 'Saigon Vietnamese Sandwich Deli',	
-        imgSrc: 'link image here',	
+        imgSrc: 'img/thumbnails/Saigon.jpeg',	
         icon: {	
             url: 'www/img/thumbnails/markers/yellow1.png'
         },	
         redirectTmplUrl: '/#/tabs/bucketList',	
         description:'put description here',
-        originDate:'Date place opened',
+        originDate:' ',
         address:'369 Broome St, New York, NY 10013',		
         learnMore: 'http://www.banhmi.nyc/',
-        points: 'put points here',
+        points: ' ',
         category: 'restaurant'
       },
 
       stPartricksCathedral : {		
         lat: 40.761667000,	
         lng: -73.974913600,	
-        title: 'St. Partrick s Cathedral ',	
-        imgSrc: 'link image here',	
+        title: 'St. Partrick\'s Cathedral ',	
+        imgSrc: 'img/thumbnails/stPatrick.jpg',	
         icon: {	
             url: 'www/img/thumbnails/markers/blue1.png'
         },	
         redirectTmplUrl: '/#/tabs/bucketList',	
         description:'put description here',
-        originDate:'Date place opened',
+        originDate:' ',
         address:'5th Ave, New York, NY 10022',		
         learnMore: 'http://saintpatrickscathedral.org/',
-        points: 'put points here',
+        points: ' ',
         category: 'landmark'
       },
 
@@ -609,16 +609,16 @@ angular.module('app.factories', [])
         lat: 40.764938000,	
         lng: -73.833175000,	
         title: 'Carnegie Hall',	
-        imgSrc: 'link image here',	
+        imgSrc: 'img/thumbnails/carnegieHall.jpg',	
         icon: {	
             url: 'www/img/thumbnails/markers/blue1.png'
         },	
         redirectTmplUrl: '/#/tabs/bucketList',	
         description:'put description here',
-        originDate:'Date place opened',
+        originDate:' ',
         address:'881 7th Ave, New York, NY 10019',		
         learnMore: 'https://www.carnegiehall.org/Information/About-the-Building/',
-        points: 'put points here',
+        points: ' ',
         category: 'landmark'
       },
 
@@ -626,16 +626,16 @@ angular.module('app.factories', [])
         lat: 40.753487700,	
         lng: -73.980894400,	
         title: 'New York Public Library',	
-        imgSrc: 'link image here',	
+        imgSrc: 'img/thumbnails/NYPL.jpg',	
         icon: {	
             url: 'www/img/thumbnails/markers/blue1.png'
         },	
         redirectTmplUrl: '/#/tabs/bucketList',	
         description:'put description here',
-        originDate:'Date place opened',
+        originDate:' ',
         address:' 5th Ave at 42nd St, New York, NY 10018',		
         learnMore: 'https://www.nypl.org/locations/schwarzman',
-        points: 'put points here',
+        points: ' ',
         category: 'landmark'
       },
 
@@ -643,16 +643,16 @@ angular.module('app.factories', [])
         lat: 40.707087700,	
         lng: -74.003546000,	
         title: 'Put name here',	
-        imgSrc: 'link image here',	
+        imgSrc: 'img/thumbnails/SSSP.jpg',	
         icon: {	
             url: 'www/img/thumbnails/markers/blue1.png'
         },	
         redirectTmplUrl: '/#/tabs/bucketList',	
         description:'put description here',
-        originDate:'Date place opened',
+        originDate:' ',
         address:'19 Fulton Street, New York, NY 10038',		
         learnMore: 'http://www.southstreetseaport.com/',
-        points: 'put points here',
+        points: ' ',
         category: 'landmark'
       },
 
@@ -660,67 +660,68 @@ angular.module('app.factories', [])
         lat: 40.712449100,	
         lng: -74.008292500,	
         title: 'Woolworth Building ',	
-        imgSrc: 'link image here',	
+        imgSrc: 'img/thumbnails/.jpg',	
         icon: {	
             url: 'www/img/thumbnails/markers/blue1.png'
         },	
         redirectTmplUrl: '/#/tabs/bucketList',	
         description:'put description here',
-        originDate:'Date place opened',
+        originDate:' ',
         address:'233 Broadway, New York, NY 10007',		
         learnMore: 'https://en.wikipedia.org/wiki/Woolworth_Building',
-        points: 'put points here',
+        points: ' ',
         category: 'landmark'
       },
         
-      africanBurialGroundNationalMonument: {		
+      africanBurialGround: {		
         lat: 40.714722500,	
         lng: -74.005142500,	
         title: 'African Burial Ground National Monument',	
-        imgSrc: 'link image here',	
+        imgSrc: 'img/thumbnails/africanBurialGround.jpg',	
         icon: {	
             url: 'www/img/thumbnails/markers/blue1.png'
         },	
         redirectTmplUrl: '/#/tabs/bucketList',	
         description:'put description here',
-        originDate:'Date place opened',
+        originDate:' ',
         address:' 290 Broadway, New York, NY 10007',		
         learnMore: 'https://www.nps.gov/afbg/index.htm',
-        points: 'put points here',
+        points: ' ',
         category: 'landmark'
       },
 
-      generalUlyssesSGrantNationalMemorial: {		
+      grantNationalMemorial: {		
         lat: 40.812632800,	
         lng: -73.963017300,	
         title: 'General Ulysses S Grant National Memorial',	
-        imgSrc: 'link image here',	
+        imgSrc: 'img/thumbnails/grantsTomb.jpg',	
         icon: {	
             url: 'www/img/thumbnails/markers/blue1.png'
         },	
         redirectTmplUrl: '/#/tabs/bucketList',	
         description:'put description here',
-        originDate:'Date place opened',
+        originDate:' ',
         address:'W 122nd St & Riverside Dr, New York, NY 10027',		
         learnMore: 'https://www.nps.gov/gegr/index.htm',
-        points: 'put points here',
+        points: ' ',
         category: 'landmark'
       },
 
+        /*
       greenWoodCemetery: {		
         lat: 40.658077900,	
         lng: -73.994849300,	
         title: 'Green-Wood Cemetery',	
-        imgSrc: 'link image here',	
+        imgSrc: 'img/thumbnails/.jpg',	
         icon: {	
             url: 'www/img/thumbnails/markers/blue1.png'
         },	
         redirectTmplUrl: '/#/tabs/bucketList',	
         description:'put description here',
-        originDate:'Date place opened',
+        originDate:' ',
         address:'500 25th St, Brooklyn, NY 11232',		
         learnMore: 'http://www.green-wood.com/about-history/',
-        points: 'put points here',
+        points: ' ',
         category: 'landmark'
       },
 
@@ -728,67 +729,69 @@ angular.module('app.factories', [])
         lat: 40.821506900,	
         lng: -73.946682800,	
         title: 'Hamilton Grange National Memorial',	
-        imgSrc: 'link image here',	
+        imgSrc: 'img/thumbnails/.jpg',	
         icon: {	
             url: 'www/img/thumbnails/markers/blue1.png'
         },	
         redirectTmplUrl: '/#/tabs/bucketList',	
         description:'put description here',
-        originDate:'Date place opened',
+        originDate:' ',
         address:'414 W 141st St, New York, NY 10031',		
         learnMore: 'https://www.nps.gov/hagr/index.htm',
-        points: 'put points here',
+        points: ' ',
         category: 'landmark'
       },
 
-      nationalMuseumtheAmericanIndian: {		
+
+
+      americanIndianMuseum: {		
         lat:  40.704334200,	
         lng: -74.013977600,	
         title: 'National Museum of the American Indian',	
-        imgSrc: 'link image here',	
+        imgSrc: 'img/thumbnails/.jpg',	
         icon: {	
             url: 'www/img/thumbnails/markers/blue1.png'
         },	
         redirectTmplUrl: '/#/tabs/bucketList',	
         description:'put description here',
-        originDate:'Date place opened',
+        originDate:' ',
         address:'1 Bowling Green, New York, NY 10004',		
         learnMore: 'http://nmai.si.edu/visit/newyork/',
-        points: 'put points here',
-        category: 'museum'
+        points: ' ',
+        category: 'building'
       },
 
       newYorkEarthRoom: {		
         lat: 40.726023200,	
         lng: 73.999851300,	
         title: 'New York Earth Room',	
-        imgSrc: 'link image here',	
+        imgSrc: 'img/thumbnails/.jpg',	
         icon: {	
             url: 'www/img/thumbnails/markers/blue1.png'
         },	
         redirectTmplUrl: '/#/tabs/bucketList',	
         description:'put description here',
-        originDate:'Date place opened',
+        originDate:' ',
         address:'141 Wooster St, New York, NY 10012',		
         learnMore: 'http://www.diaart.org/visit/visit/walter-de-maria-the-new-york-earth-room-new-york-united-states',
-        points: 'put points here',
-        category: 'put category here'
+        points: ' ',
+        category: ' '
       },
 
       oldStoneHouse: {		
         lat: 40.675845700t,	
         lng: -73.987393700,	
         title: 'Old Stone House',	
-        imgSrc: 'link image here',	
+        imgSrc: 'img/thumbnails/.jpg',	
         icon: {	
             url: 'www/img/thumbnails/markers/blue1.png'
         },	
         redirectTmplUrl: '/#/tabs/bucketList',	
         description:'put description here',
-        originDate:'Date place opened',
+        originDate:' ',
         address:'336 3rd St, Brooklyn, NY 11215',		
         learnMore: 'http://theoldstonehouse.org/',
-        points: 'put points here',
+        points: ' ',
         category: 'landmark'
       },
 
@@ -796,37 +799,37 @@ angular.module('app.factories', [])
         lat: 40.814479400,	
         lng: -73.940943500,	
         title: 'Schomburg Center Research Black Culture',	
-        imgSrc: 'link image here',	
+        imgSrc: 'img/thumbnails/.jpg',	
         icon: {	
             url: 'www/img/thumbnails/markers/blue1.png'
         },	
         redirectTmplUrl: '/#/tabs/bucketList',	
         description:'put description here',
-        originDate:'Date place opened',
+        originDate:' ',
         address:'515 Malcolm X Blvd, New York, NY 10037',		
         learnMore: 'https://www.nypl.org/locations/schomburg?gclid=Cj0KEQjwxqS-BRDRgPLp0q2t0IUBEiQAgfMXRKgslQdaj6rqr99NkASFNrj5T-j_SXrpt8YtwCiOk90aArnj8P8HAQ',
-        points: 'put points here',
-        category: 'put category here'
+        points: ' ',
+        category: ' '
       },
 
       socratesSculpturePark: {		
         lat: 40.767695100,	
         lng: -73.936175100,	
         title: 'Socrates Sculpture Park',	
-        imgSrc: 'link image here',	
+        imgSrc: 'img/thumbnails/.jpg',	
         icon: {	
             url: 'www/img/thumbnails/markers/blue1.png'
         },	
         redirectTmplUrl: '/#/tabs/bucketList',	
         description:'put description here',
-        originDate:'Date place opened',
+        originDate:' ',
         address:'32-01 Vernon Blvd, Long Island City, NY 11106',		
         learnMore: 'socratessculpturepark.org',
-        points: 'put points here',
+        points: ' ',
         category: 'landmark'
       }
     }
-        
+*/        
     
     var imagosCoordinates = {
       LIU: {
@@ -965,6 +968,19 @@ angular.module('app.factories', [])
     var createLaBellaFerrara = configureImago(imagoDetails.laBellaFerrara);
     var createNFTEhq = configureImago(imagoDetails.NFTEhq);
     var createAppNexus = configureImago(imagoDetails.AppNexus);
+    var createDesserts520 = configureImago(imagoDetails.desserts520);
+    var createAquarium123 = configureImago(imagoDetails.aquarium123);
+    var createYayaTeaGarden = configureImago(imagoDetails.yayaTeaGarden);
+    var createCulturaPizzaEVita = configureImago(imagoDetails.culturaPizzaEVita);
+    var createPateaBubbleTea = configureImago(imagoDetails.pateaBubbleTea);
+    var createSaigonVietnameseSandwichDeli = configureImago(imagoDetails.saigonVietnameseSandwichDeli);
+    var createStPartricksCathedral = configureImago(imagoDetails.stPartricksCathedral);
+    var createCarnegieHall = configureImago(imagoDetails.carnegieHall);
+    var createNYPL = configureImago(imagoDetails.NYPL);
+    var createSouthStreetSeaport = configureImago(imagoDetails.southStreetSeaport);
+    var createWoolworthBuilding = configureImago(imagoDetails.woolworthBuilding);
+    var createAfricanBurialGround = configureImago(imagoDetails.africanBurialGround);
+    var createGrantNationalMemorial = configureImago(imagoDetails.grantNationalMemorial);
     
     // ADD ALL IMAGO TO THIS ARRAY
     var imagos = [
@@ -994,7 +1010,20 @@ angular.module('app.factories', [])
         createLaBellaFerrara,
         createChipilo,
         createNFTEhq,
-        createAppNexus
+        createAppNexus,
+        createDesserts520,
+        createAquarium123,
+        createYayaTeaGarden,
+        createCulturaPizzaEVita,
+        createPateaBubbleTea,
+        createSaigonVietnameseSandwichDeli,
+        createStPartricksCathedral,
+        createCarnegieHall,
+        createNYPL,
+        createSouthStreetSeaport,
+        createWoolworthBuilding,
+        createAfricanBurialGround,
+        createGrantNationalMemorial
     ];
 
     return {
@@ -1009,11 +1038,64 @@ angular.module('app.factories', [])
   })
 
   // $firebaseAuth instance
-  .factory('Auth', ['$firebaseAuth',
+  .factory('Auth', ['$firebaseAuth', 
+                    
     function ($firebaseAuth) {
-      return $firebaseAuth();
+        return $firebaseAuth();
     }
+    
   ])
+
+
+
+
+  // $firebaseUser instance
+  .factory('User', ['$firebaseAuth',
+                    /*
+                    , '$firebaseUser',
+                    */
+    function ($firebaseAuth) {
+        /*
+        mAuthListener = new firebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                } else {
+                    // User is signed out
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                }
+                // ...
+            }
+        }
+                    
+        FirebaseUser user = firebaseAuth.getInstance().getCurrentUser();
+            if (user != null) {
+                // Name, email address, and profile photo Url
+                String name = user.getDisplayName();
+                String email = user.getEmail();
+                Uri photoUrl = user.getPhotoUrl();
+
+                // The user's ID, unique to the Firebase project. Do NOT use this value to
+                // authenticate with your backend server, if you have one. Use
+                // FirebaseUser.getToken() instead.
+                String uid = user.getUid();
+            }
+
+        */
+
+        return $firebaseAuth();
+    }
+    
+    
+  ])
+
+
+
+
+
 
   .factory('DistanceCalculationsFactory', function (ImagoFactory) {
 
