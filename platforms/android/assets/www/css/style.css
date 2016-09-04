@@ -96,6 +96,7 @@
 	font-size: 22px;
 	font-weight:300;
 	display:inline;
+    vertical-align: middle;
 }
 .ion-android-map{
 	display:inline;
