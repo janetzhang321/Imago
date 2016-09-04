@@ -486,6 +486,7 @@ angular.module('app.factories', [])
         points: '',
         category: ''
       },
+
       desserts520: {		
         lat: 40.761058000,	
         lng: -73.833175000,	
