@@ -705,132 +705,9 @@ angular.module('app.factories', [])
         learnMore: 'https://www.nps.gov/gegr/index.htm',
         points: ' ',
         category: 'landmark'
-<<<<<<< HEAD
-      },
 
-        /*
-      greenWoodCemetery: {		
-        lat: 40.658077900,	
-        lng: -73.994849300,	
-        title: 'Green-Wood Cemetery',	
-        imgSrc: 'img/thumbnails/.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'500 25th St, Brooklyn, NY 11232',		
-        learnMore: 'http://www.green-wood.com/about-history/',
-        points: ' ',
-        category: 'landmark'
-      },
-
-      hamiltonGrangeNationalMemorial: {		
-        lat: 40.821506900,	
-        lng: -73.946682800,	
-        title: 'Hamilton Grange National Memorial',	
-        imgSrc: 'img/thumbnails/.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'414 W 141st St, New York, NY 10031',		
-        learnMore: 'https://www.nps.gov/hagr/index.htm',
-        points: ' ',
-        category: 'landmark'
-      },
-
-
-
-      americanIndianMuseum: {		
-        lat:  40.704334200,	
-        lng: -74.013977600,	
-        title: 'National Museum of the American Indian',	
-        imgSrc: 'img/thumbnails/.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'1 Bowling Green, New York, NY 10004',		
-        learnMore: 'http://nmai.si.edu/visit/newyork/',
-        points: ' ',
-        category: 'building'
-      },
-
-      newYorkEarthRoom: {		
-        lat: 40.726023200,	
-        lng: 73.999851300,	
-        title: 'New York Earth Room',	
-        imgSrc: 'img/thumbnails/.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'141 Wooster St, New York, NY 10012',		
-        learnMore: 'http://www.diaart.org/visit/visit/walter-de-maria-the-new-york-earth-room-new-york-united-states',
-        points: ' ',
-        category: ' '
-      },
-
-      oldStoneHouse: {		
-        lat: 40.675845700t,	
-        lng: -73.987393700,	
-        title: 'Old Stone House',	
-        imgSrc: 'img/thumbnails/.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'336 3rd St, Brooklyn, NY 11215',		
-        learnMore: 'http://theoldstonehouse.org/',
-        points: ' ',
-        category: 'landmark'
-      },
-
-      schomburgCenterResearchBlackCulture: {		
-        lat: 40.814479400,	
-        lng: -73.940943500,	
-        title: 'Schomburg Center Research Black Culture',	
-        imgSrc: 'img/thumbnails/.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'515 Malcolm X Blvd, New York, NY 10037',		
-        learnMore: 'https://www.nypl.org/locations/schomburg?gclid=Cj0KEQjwxqS-BRDRgPLp0q2t0IUBEiQAgfMXRKgslQdaj6rqr99NkASFNrj5T-j_SXrpt8YtwCiOk90aArnj8P8HAQ',
-        points: ' ',
-        category: ' '
-      },
-
-      socratesSculpturePark: {		
-        lat: 40.767695100,	
-        lng: -73.936175100,	
-        title: 'Socrates Sculpture Park',	
-        imgSrc: 'img/thumbnails/.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'32-01 Vernon Blvd, Long Island City, NY 11106',		
-        learnMore: 'socratessculpturepark.org',
-        points: ' ',
-        category: 'landmark'
-=======
->>>>>>> master
       }
+    }
 
         /*
       greenWoodCemetery: {		
@@ -1166,12 +1043,7 @@ angular.module('app.factories', [])
   // $firebaseAuth instance
   .factory('Auth', ['$firebaseAuth', 
                     
-<<<<<<< HEAD
-    function ($firebaseAuth) {
-        return $firebaseAuth();
-    }
-    
-=======
+
     function ($firebaseAuth) {
         return $firebaseAuth();
     }
@@ -1222,60 +1094,7 @@ angular.module('app.factories', [])
     }
     
     
->>>>>>> master
   ])
-
-
-
-
-<<<<<<< HEAD
-  // $firebaseUser instance
-  .factory('User', ['$firebaseAuth',
-                    /*
-                    , '$firebaseUser',
-                    */
-    function ($firebaseAuth) {
-        /*
-        mAuthListener = new firebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-                }
-                // ...
-            }
-        }
-                    
-        FirebaseUser user = firebaseAuth.getInstance().getCurrentUser();
-            if (user != null) {
-                // Name, email address, and profile photo Url
-                String name = user.getDisplayName();
-                String email = user.getEmail();
-                Uri photoUrl = user.getPhotoUrl();
-
-                // The user's ID, unique to the Firebase project. Do NOT use this value to
-                // authenticate with your backend server, if you have one. Use
-                // FirebaseUser.getToken() instead.
-                String uid = user.getUid();
-            }
-
-        */
-
-        return $firebaseAuth();
-    }
-    
-  ])
-
-
-
-
-=======
->>>>>>> master
 
 
   .factory('DistanceCalculationsFactory', function (ImagoFactory) {
