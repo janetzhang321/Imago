@@ -151,9 +151,8 @@ angular.module('app.controllers', [])
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams, ImagoFactory, Map) {
 
-        var markers = Map.markers;
-        debugger;
-
+        var markers = ImagoFactory.markers;
+        
                                  /*
         $scope.goToDetails = function () {
             $state.go('detail',{imagoName:currentImago});
@@ -161,13 +160,43 @@ angular.module('app.controllers', [])
                             */
 
         $scope.getBuildings = function () {
-            $state.go('tabsController.imagoMap',{category:'building'});
+            markers.forEach(function (marker) {
+            
+                if (marker.category !== 'building'){
+                    marker.setVisbility(false);
+                }
+                if (marker.category == 'building'){
+                    marker.setVisbility(true);
+                }
+            
+            });
+            $state.go('tabsController.imagoMap');
         }
         $scope.getLandmarks = function () {
-            $state.go('tabsController.imagoMap',{});
+            markers.forEach(function (marker) {
+            
+                if (marker.category !== 'landmark'){
+                    marker.setVisbility(false);
+                }
+                if (marker.category == 'landmark'){
+                    marker.setVisbility(true);
+                }
+            
+            });
+            $state.go('tabsController.imagoMap');
         }
         $scope.getBusinesses = function () {
-            $state.go('tabsController.imagoMap',{});
+            markers.forEach(function (marker) {
+            
+                if (marker.category !== 'business'){
+                    marker.setVisbility(false);
+                }
+                if (marker.category == 'business'){
+                    marker.setVisbility(true);
+                }
+            
+            });
+            $state.go('tabsController.imagoMap');
         }
 
     }])
