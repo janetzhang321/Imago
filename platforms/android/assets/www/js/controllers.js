@@ -55,20 +55,15 @@ angular.module('app.controllers', [])
                 }
 
                 // IMAGOS NEARBY
-                if (DistanceCalculationsFactory.isAnImagoNearby(currentLocation)) {
+                $scope.nearbyImagoName = DistanceCalculationsFactory.isAnImagoNearby(currentLocation);
+                if ($scope.nearbyImagoName) {
                   $scope.showCamera = true;
                 } else {
                   $scope.showCamera = false;
                 }
 
-                try {
-                  // REGISTER STEPS
-                  StepsFactory.registerSteps(currentLocation);
-
-                } catch (err) {
-                  console.log('steps err', err)
-                }
-
+                // REGISTER STEPS
+                StepsFactory.registerSteps(currentLocation);
               });
 
           });
@@ -77,10 +72,13 @@ angular.module('app.controllers', [])
     });
   })
 
-  .controller('sideNavCtrl', ['$scope', '$stateParams', '$ionicHistory', '$state', '$rootScope', '$ionicSideMenuDelegate', 'Auth', 'StepsFactory',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('sideNavCtrl', ['$scope', '$stateParams', '$ionicHistory', '$state', '$rootScope', '$ionicSideMenuDelegate', 'Auth', 'StepsFactory', 'currentUser',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, $ionicHistory, $state, $rootScope, $ionicSideMenuDelegate, Auth, StepsFactory) {
+    function ($scope, $stateParams, $ionicHistory, $state, $rootScope, $ionicSideMenuDelegate, Auth, StepsFactory, currentUser) {
+
+      // NOW USER CAN BE ACCESSED IN any child controller
+      currentUser.$bindTo($rootScope, 'user');
 
       // Hamburger or Back Button Icon
       if ($state.current.name.indexOf('tabsController') !== -1) {
@@ -129,15 +127,6 @@ angular.module('app.controllers', [])
         Auth.$signOut();
       };
 
-      var user = Auth.$getAuth();
-      console.log('user', user)
-      // uid
-      $scope.user = {
-        displayName: user.displayName,
-        email: user.email,
-        photoURL: user.photoURL
-      }
-
       // Steps Count
       $scope.steps = StepsFactory.steps.total;
       $scope.$watch(function () {
@@ -147,26 +136,11 @@ angular.module('app.controllers', [])
       }, true);
     }])
 
-  .controller('leaderboardCtrl', ['$scope', '$stateParams', 'Users', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('leaderboardCtrl', ['$scope', '$stateParams', 'Users', 'currentUser', 'allUsers',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, Users) {
-      Users.getCurrent().then(function (currentUser) {
-        $scope.user = currentUser;
-      });
-      // Users.firebaseDbUser.$loaded(function () {
-      //   $scope.user = Users.firebaseDbUser;
-
-      //   if (!Users.firebaseDbUser.$value) {
-      //     // do three way data binding
-      //   }
-      //   // $scope.user.uid = 'OTB3UllKb3PtrvQ9fNcf3z0Aqio1';
-      //   // $scope.user.name = 'Carlos';
-      //   console.log($scope.user)
-      //   // Users.firebaseDbUser.$save($scope.user);
-      //   // console.log(Users.firebaseDbUser.$add($scope.user));
-      // });
-
+    function ($scope, $stateParams, Users, currentUser, allUsers) {
+      $scope.allUsers = allUsers;
     }])
 
   .controller('bucketListCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -183,11 +157,8 @@ angular.module('app.controllers', [])
     function ($scope, $stateParams, $state, $ionicPlatform, $cordovaOauth, Auth, GOOGLE_LOGIN_KEY) {
 
       $ionicPlatform.ready(function () {
-
         var self = this,
           user = Auth.$getAuth();
-
-        console.log('userr', user)
 
         if (!user) {
           $scope.signIn = function () {
@@ -229,13 +200,10 @@ angular.module('app.controllers', [])
       });
     }])
 
-  .controller('profileCtrl', ['$scope', '$stateParams', 'Auth',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('profileCtrl', ['$scope', '$stateParams',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, Auth) {
-        Auth.user=this;
-        //getDisplayName();
-        console.log(Auth.$getAuth());
+    function ($scope, $stateParams) {
 
     }])
 
@@ -252,13 +220,13 @@ angular.module('app.controllers', [])
     }])
 
 
-  .controller('pointsCtrl', ['$scope', '$stateParams', 'ImagoFactory',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('pointsCtrl', ['$scope', '$stateParams', '$rootScope', 'ImagoFactory',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, ImagoFactory) {
-        var currentImago = 'LIU';//changes based on which imago is close to you
-        $scope.points=ImagoFactory.imagoDetails[currentImago].points;
-
+    function ($scope, $stateParams, $rootScope, ImagoFactory) {
+      var currentImago = $stateParams.imagoName;//changes based on which imago is close to you
+      $scope.points = ImagoFactory.imagoDetails[currentImago].points;
+      $rootScope.user.totalPoints = $rootScope.user.totalPoints + $scope.points; // update firebase user with points
     }])
 
 
@@ -272,7 +240,7 @@ angular.module('app.controllers', [])
 
     }])
 
-  .controller('pictureCtrl', function ($scope, $cordovaCamera, $ionicPlatform, $state, $timeout, $stateParams) {
+  .controller('pictureCtrl', function ($scope, $cordovaCamera, $ionicPlatform, $state, $timeout, $stateParams, $rootScope) {
 
     $ionicPlatform.ready(function () {
 
@@ -282,7 +250,7 @@ angular.module('app.controllers', [])
           quality: 50,
           destinationType: Camera.DestinationType.DATA_URL,
           sourceType: Camera.PictureSourceType.CAMERA,
-          allowEdit: true,
+          allowEdit: false,
           encodingType: Camera.EncodingType.JPEG,
           targetWidth: 100,
           targetHeight: 100,
@@ -292,9 +260,8 @@ angular.module('app.controllers', [])
         };
 
         $cordovaCamera.getPicture(options).then(function (imageData) {
-
           // redirects to points page
-          $state.go('points');
+          $state.go('points', { imagoName: $stateParams.imagoName });
 
           var image = document.getElementById('myImage');
           image.src = "data:image/jpeg;base64," + imageData;
@@ -366,13 +333,13 @@ angular.module('app.controllers', [])
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams, ImagoFactory) {
-        var currentImago = 'LIU';//changes based on which imago is close to you
-        $scope.funFact=ImagoFactory.imagoDetails[currentImago].funFact;
-        $scope.imgSrc=ImagoFactory.imagoDetails[currentImago].imgSrc;
-        $scope.title=ImagoFactory.imagoDetails[currentImago].title;
-        $scope.originDate=ImagoFactory.imagoDetails[currentImago].originDate;
-        $scope.description=ImagoFactory.imagoDetails[currentImago].description;
-        $scope.learnMore=ImagoFactory.imagoDetails[currentImago].learnMore;
-        $scope.address=ImagoFactory.imagoDetails[currentImago].address;
+      var currentImago = 'LIU';//changes based on which imago is close to you
+      $scope.funFact = ImagoFactory.imagoDetails[currentImago].funFact;
+      $scope.imgSrc = ImagoFactory.imagoDetails[currentImago].imgSrc;
+      $scope.title = ImagoFactory.imagoDetails[currentImago].title;
+      $scope.originDate = ImagoFactory.imagoDetails[currentImago].originDate;
+      $scope.description = ImagoFactory.imagoDetails[currentImago].description;
+      $scope.learnMore = ImagoFactory.imagoDetails[currentImago].learnMore;
+      $scope.address = ImagoFactory.imagoDetails[currentImago].address;
 
     }]);

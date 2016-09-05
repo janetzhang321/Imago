@@ -91,15 +91,15 @@ angular.module('app.routes', [])
 
       .state('points', {
         parent: 'index',
-        url: '/points',
+        url: '/points/:imagoName',
         templateUrl: 'templates/points.html',
         controller: 'pointsCtrl'
       })
 
       .state('camera', {
         parent: 'index',
-        url: '/camera',
-        controller: 'pictureCtrl'
+        controller: 'pictureCtrl',
+        params: { imagoName: null }
       })
 
       .state('detail', {
