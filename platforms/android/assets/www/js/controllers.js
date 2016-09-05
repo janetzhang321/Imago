@@ -146,13 +146,12 @@ angular.module('app.controllers', [])
       $scope.allUsers = allUsers;
     }])
 
-  .controller('bucketListCtrl', ['$scope', '$stateParams', 'ImagoFactory', 'Map',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('bucketListCtrl', ['$scope', '$state', '$stateParams', 'ImagoFactory', 'Map',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, ImagoFactory, Map) {
+    function ($scope, $state, $stateParams, ImagoFactory, Map) {
 
-        var markers = Map.markers;
-        debugger;
+        var markers = ImagoFactory.markers;
 
                                  /*
         $scope.goToDetails = function () {
@@ -161,13 +160,43 @@ angular.module('app.controllers', [])
                             */
 
         $scope.getBuildings = function () {
-            $state.go('tabsController.imagoMap',{category:'building'});
+            markers.forEach(function (marker) {
+
+                if (marker.category !== 'building'){
+                    marker.setVisible(false);
+                }
+                if (marker.category == 'building'){
+                    marker.setVisible(true);
+                }
+
+            });
+            $state.go('tabsController.imagoMap');
         }
         $scope.getLandmarks = function () {
-            $state.go('tabsController.imagoMap',{});
+            markers.forEach(function (marker) {
+
+                if (marker.category !== 'landmark'){
+                    marker.setVisible(false);
+                }
+                if (marker.category == 'landmark'){
+                    marker.setVisible(true);
+                }
+
+            });
+            $state.go('tabsController.imagoMap');
         }
         $scope.getBusinesses = function () {
-            $state.go('tabsController.imagoMap',{});
+            markers.forEach(function (marker) {
+
+                if (marker.category !== 'business'){
+                    marker.setVisible(false);
+                }
+                if (marker.category == 'business'){
+                    marker.setVisible(true);
+                }
+
+            });
+            $state.go('tabsController.imagoMap');
         }
 
     }])

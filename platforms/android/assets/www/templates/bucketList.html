@@ -1,24 +1,24 @@
 <ion-view title="Bucket List" id="page4">
     <ion-content padding="true" class="has-header">
 		<ion-list id="leaderboard-list3">
-			<a href="" class="bucket-list-link" id="link-Lower-Manhattan">
+			<button ng-click="getBuildings()" class="bucket-list-link" id="link-Lower-Manhattan">
 				<ion-item class="item-avatar bucket-list" id="bucket-list1">
 					<i class="icon ion-android-map" style="font-size:50px; color: black"></i>
 					<h1 class="bucket-list-category">Buildings</h1>
 				</ion-item>
-			</a>
-			<a href="" class="bucket-list-link" id="link-Midtown">
+			</button>
+			<button ng-click="getLandmarks()" class="bucket-list-link" id="link-Midtown">
 				<ion-item class="item-avatar bucket-list" id="bucket-list2">
 					<i class="icon ion-android-map" style="font-size:50px; color: black"></i>
 					<h1 class="bucket-list-category">Landmarks</h1>
 				</ion-item>
-			</a>
-			<a href="" class="bucket-list-link" id="link-Midtown">
+			</button>
+			<button ng-click="getBusinesses()" class="bucket-list-link" id="link-Midtown">
 				<ion-item class="item-avatar bucket-list" id="bucket-list2">
 					<i class="icon ion-android-map" style="font-size:50px; color: black"></i>
 					<h1 class="bucket-list-category">Businesses</h1>
 				</ion-item>
-			</a>
+			</button>
         </ion-list>
     </ion-content>
 </ion-view>
