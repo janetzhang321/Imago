@@ -1,41 +1,14 @@
 <ion-view title="Leaderboard" id="page3">
     <ion-content padding="true" class="has-header">
-        <ion-list id="leaderboard-list3">
-            <ion-item class="item-avatar" id="leaderboard-list-item7">
-				<h1 class="rank">1</h1>
-                <h2 class="name">Dan</h2>
-                <p class="score">300 Points</p>
-            </ion-item>
-            <ion-item class="item-avatar" id="leaderboard-list-item8">
-				<h1 class="rank">2</h1>
-                <h2 class="name">Alice</h2>
-                <p class="score">250 Points</p>
-            </ion-item>
-            <ion-item class="item-avatar" id="leaderboard-list-item9">
-				<h1 class="rank">3</h1>
-                <h2 class="name">Fidel</h2>
-                <p class="score">200 Points</p>
-            </ion-item>
-			 <ion-item class="item-avatar" id="leaderboard-list-item10">
-			 	<h1 class="rank">4</h1>
-                <h2 class="name">Janet</h2>
-                <p class="score">150 Points</p>
-            </ion-item>
-			<ion-item class="item-avatar" id="leaderboard-list-item11">
-			 	<h1 class="rank">5</h1>
-                <h2 class="name">Me</h2>
-                <p class="score">100 Points</p>
-            </ion-item>
-			 <ion-item class="item-avatar" id="leaderboard-list-item12">
-			 	<h1 class="rank">6</h1>
-                <h2 class="name">David</h2>
-                <p class="score">70 Points</p>
-            </ion-item>
-			 <ion-item class="item-avatar" id="leaderboard-list-item13">
-			 	<h1 class="rank">7</h1>
-                <h2 class="name">Charu</h2>
-                <p class="score">50 Points</p>
-			</ion-item>
+        <ion-list id="leaderboard-list">
+          <ion-item ng-repeat="user in allUsers | orderBy:'totalPoints':reverse=true">
+            <span class="leaderboard-left">
+              <h1 class="rank">{{$index + 1}}</h1>
+              <h2 class="name">{{user.displayName}}</h1>
+              <p class="score">{{user.totalPoints}}</p>
+            </span>
+            <img ng-src="{{user.photoURL}}" class="leaderboard-right">
+          </ion-item>
         </ion-list>
     </ion-content>
 </ion-view>

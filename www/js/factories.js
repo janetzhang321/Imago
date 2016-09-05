@@ -51,12 +51,12 @@ angular.module('app.factories', [])
         title: 'Long Island University',
         imgSrc: 'img/thumbnails/LIU.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'A branch of Long Island University in Brooklyn',
-        originDate:'1926',
-        address:'1 University Plaza, Brooklyn, NY 11201',
+        description: 'A branch of Long Island University in Brooklyn',
+        originDate: '1926',
+        address: '1 University Plaza, Brooklyn, NY 11201',
         funFact: 'LIU Brooklyn was the founding place of Imago!',
         learnMore: 'http://www.liu.edu/Brooklyn',
         points: '60',
@@ -68,12 +68,12 @@ angular.module('app.factories', [])
         title: 'Mmuseumm',
         imgSrc: 'img/thumbnails/mmuseumm.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'4 Cortlandt Alley, New York, NY 10013',
+        description: '',
+        originDate: '',
+        address: '4 Cortlandt Alley, New York, NY 10013',
         funFact: '',
         learnMore: '',
         points: '',
@@ -84,12 +84,12 @@ angular.module('app.factories', [])
         lng: -73.998113,
         imgSrc: 'img/thumbnails/doyers.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -101,12 +101,12 @@ angular.module('app.factories', [])
         title: 'Flatiron Building',
         imgSrc: 'img/thumbnails/flatironbuilding.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -118,12 +118,12 @@ angular.module('app.factories', [])
         title: 'The Museum at FIT',
         imgSrc: 'img/thumbnails/FIT.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -135,12 +135,12 @@ angular.module('app.factories', [])
         title: 'Gilsey House',
         imgSrc: 'img/thumbnails/GilseyHouse.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -152,12 +152,12 @@ angular.module('app.factories', [])
         lng: -73.982789300,
         imgSrc: 'img/thumbnails/MoPR.png',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -169,12 +169,12 @@ angular.module('app.factories', [])
         title: 'Grand Central terminal',
         imgSrc: 'img/thumbnails/GrandCentral.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -186,12 +186,12 @@ angular.module('app.factories', [])
         title: '33 Thomas Street',
         imgSrc: 'img/thumbnails/33thomas.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -203,12 +203,12 @@ angular.module('app.factories', [])
         title: 'The Plaza Hotel',
         imgSrc: 'img/thumbnails/PlazaHotel.JPG',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -220,12 +220,12 @@ angular.module('app.factories', [])
         title: 'The Metropolitan Museum of Art',
         imgSrc: 'img/thumbnails/Met.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -237,12 +237,12 @@ angular.module('app.factories', [])
         title: 'Museum of the City of New York',
         imgSrc: 'img/thumbnails/MoCityofNY.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -254,12 +254,12 @@ angular.module('app.factories', [])
         title: 'Museum of Modern Art',
         imgSrc: 'img/thumbnails/MOMA.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -271,12 +271,12 @@ angular.module('app.factories', [])
         title: 'Guggenheim Museum',
         imgSrc: 'img/thumbnails/Guggenheim.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -288,12 +288,12 @@ angular.module('app.factories', [])
         title: 'Waldorf Astoria',
         imgSrc: 'img/thumbnails/WaldorfAstoria.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -305,12 +305,12 @@ angular.module('app.factories', [])
         title: 'Rockefeller Center',
         imgSrc: 'img/thumbnails/RockefellerCenter.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -322,12 +322,12 @@ angular.module('app.factories', [])
         title: 'New York City Hall',
         imgSrc: 'img/thumbnails/NYCHall.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -339,12 +339,12 @@ angular.module('app.factories', [])
         title: 'New York Stock Exchange',
         imgSrc: 'img/thumbnails/NYSE.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -356,12 +356,12 @@ angular.module('app.factories', [])
         title: 'Federal Hall',
         imgSrc: 'img/thumbnails/FederalHall.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -373,12 +373,12 @@ angular.module('app.factories', [])
         title: 'Intrepid Sea, Air & Space Museum',
         imgSrc: 'img/thumbnails/Intrepid.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -390,12 +390,12 @@ angular.module('app.factories', [])
         title: 'Federal Reserve',
         imgSrc: 'img/thumbnails/NYCFedReserve.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -407,12 +407,12 @@ angular.module('app.factories', [])
         title: 'Empire State Building',
         imgSrc: 'img/thumbnails/EmpireState.jpg',
         icon: {
-            url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -425,11 +425,11 @@ angular.module('app.factories', [])
         imgSrc: 'img/thumbnails/chipilo.jpg',
         redirectTmplUrl: '/#/tabs/bucketList',
         icon: {
-            url: 'www/img/thumbnails/markers/gold1.png'
+          url: 'www/img/thumbnails/markers/gold1.png'
         },
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -442,11 +442,11 @@ angular.module('app.factories', [])
         imgSrc: 'img/thumbnails/LaBellaFerrara.jpg',
         redirectTmplUrl: '/#/tabs/bucketList',
         icon: {
-            url: 'www/img/thumbnails/markers/yellow1.png'
+          url: 'www/img/thumbnails/markers/yellow1.png'
         },
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -456,14 +456,14 @@ angular.module('app.factories', [])
         lat: 40.704299600,
         lng: -74.006329900,
         title: 'NFTEhq',
-        imgSrc: 'img/thumbnails/nfte.jpg', 
+        imgSrc: 'img/thumbnails/nfte.jpg',
         redirectTmplUrl: '/#/tabs/bucketList',
         icon: {
-            url: 'www/img/thumbnails/markers/yellow1.png'
+          url: 'www/img/thumbnails/markers/yellow1.png'
         },
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
@@ -473,236 +473,236 @@ angular.module('app.factories', [])
         lat: 40.741624300,
         lng: -73.990991300,
         title: 'App Nexus',
-        imgSrc: 'img/thumbnails/appNexus.jpg', 
+        imgSrc: 'img/thumbnails/appNexus.jpg',
         redirectTmplUrl: '/#/tabs/bucketList',
         icon: {
-            url: 'www/img/thumbnails/markers/yellow1.png'
+          url: 'www/img/thumbnails/markers/yellow1.png'
         },
-        description:'',
-        originDate:'',
-        address:'',
+        description: '',
+        originDate: '',
+        address: '',
         funFact: '',
         learnMore: '',
         points: '',
         category: ''
       },
 
-      desserts520: {		
-        lat: 40.761058000,	
-        lng: -73.833175000,	
-        title: '520 Desserts',	
-        imgSrc: 'img/thumbnails/520Desserts.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/yellow1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'',
-        originDate:'',
-        address:'133-53 37th Avenue #101, Flushing, NY 11354',	
+      desserts520: {
+        lat: 40.761058000,
+        lng: -73.833175000,
+        title: '520 Desserts',
+        imgSrc: 'img/thumbnails/520Desserts.jpg',
+        icon: {
+          url: 'www/img/thumbnails/markers/yellow1.png'
+        },
+        redirectTmplUrl: '/#/tabs/bucketList',
+        description: '',
+        originDate: '',
+        address: '133-53 37th Avenue #101, Flushing, NY 11354',
         learnMore: 'http://520desserts.com/',
         points: ' ',
         category: 'restaurant'
-      },	
-	
-      aquarium123: {		
-        lat: 40.719423100,	
-        lng: -73.995634300,	
-        title: '123 Aquarium Inc',	
-        imgSrc: 'img/thumbnails/123Aquarium.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/yellow1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'123 Elizabeth St, New York, NY 10013',		
+      },
+
+      aquarium123: {
+        lat: 40.719423100,
+        lng: -73.995634300,
+        title: '123 Aquarium Inc',
+        imgSrc: 'img/thumbnails/123Aquarium.jpg',
+        icon: {
+          url: 'www/img/thumbnails/markers/yellow1.png'
+        },
+        redirectTmplUrl: '/#/tabs/bucketList',
+        description: 'put description here',
+        originDate: ' ',
+        address: '123 Elizabeth St, New York, NY 10013',
         learnMore: 'put web link here',
         points: ' ',
         category: 'restaurant'
       },
 
-      yayaTeaGarden: {		
-        lat: 40.716358300,	
-        lng: -73.995086500,	
-        title: 'Yaya Tea Garden',	
-        imgSrc: 'img/thumbnails/yaya.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/yellow1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'51 Chrystie St, New York, NY 10002',		
+      yayaTeaGarden: {
+        lat: 40.716358300,
+        lng: -73.995086500,
+        title: 'Yaya Tea Garden',
+        imgSrc: 'img/thumbnails/yaya.jpg',
+        icon: {
+          url: 'www/img/thumbnails/markers/yellow1.png'
+        },
+        redirectTmplUrl: '/#/tabs/bucketList',
+        description: 'put description here',
+        originDate: ' ',
+        address: '51 Chrystie St, New York, NY 10002',
         learnMore: 'http://yayatea.com/',
         points: ' ',
         category: 'restaurant'
       },
 
-      culturaPizzaEVita: {		
-        lat: 40.719453500,	
-        lng: -73.996539600,	
-        title: 'Cultura Pizza e Vita',	
-        imgSrc: 'img/thumbnails/cultura.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/yellow1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'151 Mott St, New York, NY 10013',		
+      culturaPizzaEVita: {
+        lat: 40.719453500,
+        lng: -73.996539600,
+        title: 'Cultura Pizza e Vita',
+        imgSrc: 'img/thumbnails/cultura.jpg',
+        icon: {
+          url: 'www/img/thumbnails/markers/yellow1.png'
+        },
+        redirectTmplUrl: '/#/tabs/bucketList',
+        description: 'put description here',
+        originDate: ' ',
+        address: '151 Mott St, New York, NY 10013',
         learnMore: 'http://culturapizzaevita.com/',
         points: ' ',
         category: 'restaurant'
       },
 
-      pateaBubbleTea: {		
-        lat: 40.718528900,	
-        lng: -73.996898900,	
-        title: 'Patea Bubble Tea',	
-        imgSrc: 'img/thumbnails/patea.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/yellow1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'135 Mott St, New York, NY 10013',		
+      pateaBubbleTea: {
+        lat: 40.718528900,
+        lng: -73.996898900,
+        title: 'Patea Bubble Tea',
+        imgSrc: 'img/thumbnails/patea.jpg',
+        icon: {
+          url: 'www/img/thumbnails/markers/yellow1.png'
+        },
+        redirectTmplUrl: '/#/tabs/bucketList',
+        description: 'put description here',
+        originDate: ' ',
+        address: '135 Mott St, New York, NY 10013',
         learnMore: 'http://www.pateabubbletea.com/',
         points: ' ',
         category: 'restaurant'
       },
 
-      saigonVietnameseSandwichDeli : {		
-        lat: 40.719935300,	
-        lng: -73.995866200,	
-        title: 'Saigon Vietnamese Sandwich Deli',	
-        imgSrc: 'img/thumbnails/Saigon.jpeg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/yellow1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'369 Broome St, New York, NY 10013',		
+      saigonVietnameseSandwichDeli: {
+        lat: 40.719935300,
+        lng: -73.995866200,
+        title: 'Saigon Vietnamese Sandwich Deli',
+        imgSrc: 'img/thumbnails/Saigon.jpeg',
+        icon: {
+          url: 'www/img/thumbnails/markers/yellow1.png'
+        },
+        redirectTmplUrl: '/#/tabs/bucketList',
+        description: 'put description here',
+        originDate: ' ',
+        address: '369 Broome St, New York, NY 10013',
         learnMore: 'http://www.banhmi.nyc/',
         points: ' ',
         category: 'restaurant'
       },
 
-      stPartricksCathedral : {		
-        lat: 40.761667000,	
-        lng: -73.974913600,	
-        title: 'St. Partrick\'s Cathedral ',	
-        imgSrc: 'img/thumbnails/stPatrick.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'5th Ave, New York, NY 10022',		
+      stPartricksCathedral: {
+        lat: 40.761667000,
+        lng: -73.974913600,
+        title: 'St. Partrick\'s Cathedral ',
+        imgSrc: 'img/thumbnails/stPatrick.jpg',
+        icon: {
+          url: 'www/img/thumbnails/markers/blue1.png'
+        },
+        redirectTmplUrl: '/#/tabs/bucketList',
+        description: 'put description here',
+        originDate: ' ',
+        address: '5th Ave, New York, NY 10022',
         learnMore: 'http://saintpatrickscathedral.org/',
         points: ' ',
         category: 'landmark'
       },
 
-      carnegieHall: {		
-        lat: 40.764938000,	
-        lng: -73.833175000,	
-        title: 'Carnegie Hall',	
-        imgSrc: 'img/thumbnails/carnegieHall.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'881 7th Ave, New York, NY 10019',		
+      carnegieHall: {
+        lat: 40.764938000,
+        lng: -73.833175000,
+        title: 'Carnegie Hall',
+        imgSrc: 'img/thumbnails/carnegieHall.jpg',
+        icon: {
+          url: 'www/img/thumbnails/markers/blue1.png'
+        },
+        redirectTmplUrl: '/#/tabs/bucketList',
+        description: 'put description here',
+        originDate: ' ',
+        address: '881 7th Ave, New York, NY 10019',
         learnMore: 'https://www.carnegiehall.org/Information/About-the-Building/',
         points: ' ',
         category: 'landmark'
       },
 
-      NYPL: {		
-        lat: 40.753487700,	
-        lng: -73.980894400,	
-        title: 'New York Public Library',	
-        imgSrc: 'img/thumbnails/NYPL.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:' 5th Ave at 42nd St, New York, NY 10018',		
+      NYPL: {
+        lat: 40.753487700,
+        lng: -73.980894400,
+        title: 'New York Public Library',
+        imgSrc: 'img/thumbnails/NYPL.jpg',
+        icon: {
+          url: 'www/img/thumbnails/markers/blue1.png'
+        },
+        redirectTmplUrl: '/#/tabs/bucketList',
+        description: 'put description here',
+        originDate: ' ',
+        address: ' 5th Ave at 42nd St, New York, NY 10018',
         learnMore: 'https://www.nypl.org/locations/schwarzman',
         points: ' ',
         category: 'landmark'
       },
 
-      southStreetSeaport: {		
-        lat: 40.707087700,	
-        lng: -74.003546000,	
-        title: 'Put name here',	
-        imgSrc: 'img/thumbnails/SSSP.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'19 Fulton Street, New York, NY 10038',		
+      southStreetSeaport: {
+        lat: 40.707087700,
+        lng: -74.003546000,
+        title: 'Put name here',
+        imgSrc: 'img/thumbnails/SSSP.jpg',
+        icon: {
+          url: 'www/img/thumbnails/markers/blue1.png'
+        },
+        redirectTmplUrl: '/#/tabs/bucketList',
+        description: 'put description here',
+        originDate: ' ',
+        address: '19 Fulton Street, New York, NY 10038',
         learnMore: 'http://www.southstreetseaport.com/',
         points: ' ',
         category: 'landmark'
       },
 
-      woolworthBuilding : {		
-        lat: 40.712449100,	
-        lng: -74.008292500,	
-        title: 'Woolworth Building ',	
-        imgSrc: 'img/thumbnails/.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'233 Broadway, New York, NY 10007',		
+      woolworthBuilding: {
+        lat: 40.712449100,
+        lng: -74.008292500,
+        title: 'Woolworth Building ',
+        imgSrc: 'img/thumbnails/.jpg',
+        icon: {
+          url: 'www/img/thumbnails/markers/blue1.png'
+        },
+        redirectTmplUrl: '/#/tabs/bucketList',
+        description: 'put description here',
+        originDate: ' ',
+        address: '233 Broadway, New York, NY 10007',
         learnMore: 'https://en.wikipedia.org/wiki/Woolworth_Building',
         points: ' ',
         category: 'landmark'
       },
-        
-      africanBurialGround: {		
-        lat: 40.714722500,	
-        lng: -74.005142500,	
-        title: 'African Burial Ground National Monument',	
-        imgSrc: 'img/thumbnails/africanBurialGround.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:' 290 Broadway, New York, NY 10007',		
+
+      africanBurialGround: {
+        lat: 40.714722500,
+        lng: -74.005142500,
+        title: 'African Burial Ground National Monument',
+        imgSrc: 'img/thumbnails/africanBurialGround.jpg',
+        icon: {
+          url: 'www/img/thumbnails/markers/blue1.png'
+        },
+        redirectTmplUrl: '/#/tabs/bucketList',
+        description: 'put description here',
+        originDate: ' ',
+        address: ' 290 Broadway, New York, NY 10007',
         learnMore: 'https://www.nps.gov/afbg/index.htm',
         points: ' ',
         category: 'landmark'
       },
 
-      grantNationalMemorial: {		
-        lat: 40.812632800,	
-        lng: -73.963017300,	
-        title: 'General Ulysses S Grant National Memorial',	
-        imgSrc: 'img/thumbnails/grantsTomb.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'W 122nd St & Riverside Dr, New York, NY 10027',		
+      grantNationalMemorial: {
+        lat: 40.812632800,
+        lng: -73.963017300,
+        title: 'General Ulysses S Grant National Memorial',
+        imgSrc: 'img/thumbnails/grantsTomb.jpg',
+        icon: {
+          url: 'www/img/thumbnails/markers/blue1.png'
+        },
+        redirectTmplUrl: '/#/tabs/bucketList',
+        description: 'put description here',
+        originDate: ' ',
+        address: 'W 122nd St & Riverside Dr, New York, NY 10027',
         learnMore: 'https://www.nps.gov/gegr/index.htm',
         points: ' ',
         category: 'landmark'
@@ -710,242 +710,131 @@ angular.module('app.factories', [])
       }
     }
 
-        /*
-      greenWoodCemetery: {		
-        lat: 40.658077900,	
-        lng: -73.994849300,	
-        title: 'Green-Wood Cemetery',	
-        imgSrc: 'img/thumbnails/.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'500 25th St, Brooklyn, NY 11232',		
-        learnMore: 'http://www.green-wood.com/about-history/',
-        points: ' ',
-        category: 'landmark'
-      },
+    /*
+  greenWoodCemetery: {
+    lat: 40.658077900,
+    lng: -73.994849300,
+    title: 'Green-Wood Cemetery',
+    imgSrc: 'img/thumbnails/.jpg',
+    icon: {
+        url: 'www/img/thumbnails/markers/blue1.png'
+    },
+    redirectTmplUrl: '/#/tabs/bucketList',
+    description:'put description here',
+    originDate:' ',
+    address:'500 25th St, Brooklyn, NY 11232',
+    learnMore: 'http://www.green-wood.com/about-history/',
+    points: ' ',
+    category: 'landmark'
+  },
 
-      hamiltonGrangeNationalMemorial: {		
-        lat: 40.821506900,	
-        lng: -73.946682800,	
-        title: 'Hamilton Grange National Memorial',	
-        imgSrc: 'img/thumbnails/.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'414 W 141st St, New York, NY 10031',		
-        learnMore: 'https://www.nps.gov/hagr/index.htm',
-        points: ' ',
-        category: 'landmark'
-      },
+  hamiltonGrangeNationalMemorial: {
+    lat: 40.821506900,
+    lng: -73.946682800,
+    title: 'Hamilton Grange National Memorial',
+    imgSrc: 'img/thumbnails/.jpg',
+    icon: {
+        url: 'www/img/thumbnails/markers/blue1.png'
+    },
+    redirectTmplUrl: '/#/tabs/bucketList',
+    description:'put description here',
+    originDate:' ',
+    address:'414 W 141st St, New York, NY 10031',
+    learnMore: 'https://www.nps.gov/hagr/index.htm',
+    points: ' ',
+    category: 'landmark'
+  },
 
 
 
-      americanIndianMuseum: {		
-        lat:  40.704334200,	
-        lng: -74.013977600,	
-        title: 'National Museum of the American Indian',	
-        imgSrc: 'img/thumbnails/.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'1 Bowling Green, New York, NY 10004',		
-        learnMore: 'http://nmai.si.edu/visit/newyork/',
-        points: ' ',
-        category: 'building'
-      },
+  americanIndianMuseum: {
+    lat:  40.704334200,
+    lng: -74.013977600,
+    title: 'National Museum of the American Indian',
+    imgSrc: 'img/thumbnails/.jpg',
+    icon: {
+        url: 'www/img/thumbnails/markers/blue1.png'
+    },
+    redirectTmplUrl: '/#/tabs/bucketList',
+    description:'put description here',
+    originDate:' ',
+    address:'1 Bowling Green, New York, NY 10004',
+    learnMore: 'http://nmai.si.edu/visit/newyork/',
+    points: ' ',
+    category: 'building'
+  },
 
-      newYorkEarthRoom: {		
-        lat: 40.726023200,	
-        lng: 73.999851300,	
-        title: 'New York Earth Room',	
-        imgSrc: 'img/thumbnails/.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'141 Wooster St, New York, NY 10012',		
-        learnMore: 'http://www.diaart.org/visit/visit/walter-de-maria-the-new-york-earth-room-new-york-united-states',
-        points: ' ',
-        category: ' '
-      },
+  newYorkEarthRoom: {
+    lat: 40.726023200,
+    lng: 73.999851300,
+    title: 'New York Earth Room',
+    imgSrc: 'img/thumbnails/.jpg',
+    icon: {
+        url: 'www/img/thumbnails/markers/blue1.png'
+    },
+    redirectTmplUrl: '/#/tabs/bucketList',
+    description:'put description here',
+    originDate:' ',
+    address:'141 Wooster St, New York, NY 10012',
+    learnMore: 'http://www.diaart.org/visit/visit/walter-de-maria-the-new-york-earth-room-new-york-united-states',
+    points: ' ',
+    category: ' '
+  },
 
-      oldStoneHouse: {		
-        lat: 40.675845700t,	
-        lng: -73.987393700,	
-        title: 'Old Stone House',	
-        imgSrc: 'img/thumbnails/.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'336 3rd St, Brooklyn, NY 11215',		
-        learnMore: 'http://theoldstonehouse.org/',
-        points: ' ',
-        category: 'landmark'
-      },
+  oldStoneHouse: {
+    lat: 40.675845700t,
+    lng: -73.987393700,
+    title: 'Old Stone House',
+    imgSrc: 'img/thumbnails/.jpg',
+    icon: {
+        url: 'www/img/thumbnails/markers/blue1.png'
+    },
+    redirectTmplUrl: '/#/tabs/bucketList',
+    description:'put description here',
+    originDate:' ',
+    address:'336 3rd St, Brooklyn, NY 11215',
+    learnMore: 'http://theoldstonehouse.org/',
+    points: ' ',
+    category: 'landmark'
+  },
 
-      schomburgCenterResearchBlackCulture: {		
-        lat: 40.814479400,	
-        lng: -73.940943500,	
-        title: 'Schomburg Center Research Black Culture',	
-        imgSrc: 'img/thumbnails/.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'515 Malcolm X Blvd, New York, NY 10037',		
-        learnMore: 'https://www.nypl.org/locations/schomburg?gclid=Cj0KEQjwxqS-BRDRgPLp0q2t0IUBEiQAgfMXRKgslQdaj6rqr99NkASFNrj5T-j_SXrpt8YtwCiOk90aArnj8P8HAQ',
-        points: ' ',
-        category: ' '
-      },
+  schomburgCenterResearchBlackCulture: {
+    lat: 40.814479400,
+    lng: -73.940943500,
+    title: 'Schomburg Center Research Black Culture',
+    imgSrc: 'img/thumbnails/.jpg',
+    icon: {
+        url: 'www/img/thumbnails/markers/blue1.png'
+    },
+    redirectTmplUrl: '/#/tabs/bucketList',
+    description:'put description here',
+    originDate:' ',
+    address:'515 Malcolm X Blvd, New York, NY 10037',
+    learnMore: 'https://www.nypl.org/locations/schomburg?gclid=Cj0KEQjwxqS-BRDRgPLp0q2t0IUBEiQAgfMXRKgslQdaj6rqr99NkASFNrj5T-j_SXrpt8YtwCiOk90aArnj8P8HAQ',
+    points: ' ',
+    category: ' '
+  },
 
-      socratesSculpturePark: {		
-        lat: 40.767695100,	
-        lng: -73.936175100,	
-        title: 'Socrates Sculpture Park',	
-        imgSrc: 'img/thumbnails/.jpg',	
-        icon: {	
-            url: 'www/img/thumbnails/markers/blue1.png'
-        },	
-        redirectTmplUrl: '/#/tabs/bucketList',	
-        description:'put description here',
-        originDate:' ',
-        address:'32-01 Vernon Blvd, Long Island City, NY 11106',		
-        learnMore: 'socratessculpturepark.org',
-        points: ' ',
-        category: 'landmark'
-      }
-          
-    }
-*/        
-    
-    var imagosCoordinates = {
-      LIU: {
-        lat: 40.6903991,
-        lng: -73.9811331
-      },
-      mmuseumm: {
-        lat: 40.717363200,
-        lng: -74.002750400
-      },
-      doyers: {
-        lat: 40.714428,
-        lng: -73.998113,
-      },
-      empirestate: {
-        lat: 40.748709700,
-        lng: -73.985655600
-      },
-      flatiron: {
-        lat: 40.740992800,
-        lng: -73.989658700
-      },
-      fit: {
-        lat: 40.746828200,
-        lng: -73.993936600
-      },
-      gilsey: {
-        lat: 40.746166600,
-        lng: -73.988395000
-      },
-      museumPR: {
-        lat: 40.740766800,
-        lng: -73.982789300
-      },
-      grandCentral: {
-        lat: 40.752496100,
-        lng: -73.977302200
-      },
-      thomasSt: {
-        lat: 40.716551100,
-        lng: -74.005794700
-      },
-      plazaHotel: {
-        lat: 40.764609500,
-        lng: -73.974354700
-      },
-      met: {
-        lat: 40.779165500,
-        lng: -73.962927800
-      },
-      museumNYC: {
-        lat: 40.792567500,
-        lng: -73.951999400
-      },
-      MoMA: {
-        lat: 40.761417000,
-        lng: -73.977120300
-      },
-      guggenheim: {
-        lat: 40.783001000,
-        lng: -73.958881600
-      },
-      waldorfAstoria: {
-        lat: 40.756571200,
-        lng: -73.973642100
-      },
-      rockefellerCenter: {
-        lat: 40.759088400,
-        lng: -73.977599500
-      },
-      cityHall: {
-        lat: 40.712746100,
-        lng: -74.005974000
-      },
-      NYSE: {
-        lat: 40.706866100,
-        lng: -74.011318900
-      },
-      fedHall: {
-        lat: 40.707258000,
-        lng: -74.010356400
-      },
-      intrepid: {
-        lat: 40.763726600,
-        lng: -73.999178900
-      },
-      fedReserve: {
-        lat: 40.708366300,
-        lng: -74.008653000
-      },
-      empireState: {
-        lat: 40.748709700,
-        lng: -73.985655600
-      },
-      chipilo: {
-        lat: 40.715154200,
-        lng: -73.999525400
-      },
-      laBellaFerrara: {
-        lat: 40.717359500,
-        lng: -73.998299400
-      },
-      NFTEhq: {
-        lat: 40.704299600,
-        lng: -74.006329900
-      },
-      AppNexus: {
-        lat: 40.741624300,
-        lng: -73.990991300
-      }
-    }
-    
+  socratesSculpturePark: {
+    lat: 40.767695100,
+    lng: -73.936175100,
+    title: 'Socrates Sculpture Park',
+    imgSrc: 'img/thumbnails/.jpg',
+    icon: {
+        url: 'www/img/thumbnails/markers/blue1.png'
+    },
+    redirectTmplUrl: '/#/tabs/bucketList',
+    description:'put description here',
+    originDate:' ',
+    address:'32-01 Vernon Blvd, Long Island City, NY 11106',
+    learnMore: 'socratessculpturepark.org',
+    points: ' ',
+    category: 'landmark'
+  }
+
+}
+*/
+
     var createLiu = configureImago(imagoDetails.LIU);
     var createMmuseumm = configureImago(imagoDetails.mmuseumm);
     var createDoyers = configureImago(imagoDetails.doyers);
@@ -985,53 +874,52 @@ angular.module('app.factories', [])
     var createWoolworthBuilding = configureImago(imagoDetails.woolworthBuilding);
     var createAfricanBurialGround = configureImago(imagoDetails.africanBurialGround);
     var createGrantNationalMemorial = configureImago(imagoDetails.grantNationalMemorial);
-    
+
     // ADD ALL IMAGO TO THIS ARRAY
     var imagos = [
-        createLiu,
-        createMmuseumm,
-        createDoyers,
-        createEmpireState,
-        createFlatironBuilding,
-        createMuseumFIT,
-        createGilseyHouse,
-        createMuseumPR,
-        createGrandCentralterminal,
-        create33ThomasST,
-        createTheplazaHotel,
-        createTheMET,
-        createMuseumNYC,
-        createMoMa,
-        createGuggenheimMuseum,
-        createWaldorfAstoria,
-        createRockefellerCenter,
-        createCityHall,
-        createNYSE,
-        createFederalHall,
-        createIntrepid,
-        createFederalReserve,
-        createEmpireState,
-        createLaBellaFerrara,
-        createChipilo,
-        createNFTEhq,
-        createAppNexus,
-        createDesserts520,
-        createAquarium123,
-        createYayaTeaGarden,
-        createCulturaPizzaEVita,
-        createPateaBubbleTea,
-        createSaigonVietnameseSandwichDeli,
-        createStPartricksCathedral,
-        createCarnegieHall,
-        createNYPL,
-        createSouthStreetSeaport,
-        createWoolworthBuilding,
-        createAfricanBurialGround,
-        createGrantNationalMemorial
+      createLiu,
+      createMmuseumm,
+      createDoyers,
+      createEmpireState,
+      createFlatironBuilding,
+      createMuseumFIT,
+      createGilseyHouse,
+      createMuseumPR,
+      createGrandCentralterminal,
+      create33ThomasST,
+      createTheplazaHotel,
+      createTheMET,
+      createMuseumNYC,
+      createMoMa,
+      createGuggenheimMuseum,
+      createWaldorfAstoria,
+      createRockefellerCenter,
+      createCityHall,
+      createNYSE,
+      createFederalHall,
+      createIntrepid,
+      createFederalReserve,
+      createEmpireState,
+      createLaBellaFerrara,
+      createChipilo,
+      createNFTEhq,
+      createAppNexus,
+      createDesserts520,
+      createAquarium123,
+      createYayaTeaGarden,
+      createCulturaPizzaEVita,
+      createPateaBubbleTea,
+      createSaigonVietnameseSandwichDeli,
+      createStPartricksCathedral,
+      createCarnegieHall,
+      createNYPL,
+      createSouthStreetSeaport,
+      createWoolworthBuilding,
+      createAfricanBurialGround,
+      createGrantNationalMemorial
     ];
 
     return {
-      imagosCoordinates: imagosCoordinates,
       getAllImagos: function (map) {
         imagos.forEach(function (initiateImagoFn) {
           return initiateImagoFn(map);
@@ -1042,61 +930,75 @@ angular.module('app.factories', [])
   })
 
   // $firebaseAuth instance
-  .factory('Auth', ['$firebaseAuth', 
-                    
+  .factory('Auth', ['$firebaseAuth',
+
 
     function ($firebaseAuth) {
-        return $firebaseAuth();
+      return $firebaseAuth();
     }
-    
+
   ])
 
 
 
 
   // $firebaseUser instance
-  .factory('User', ['$firebaseAuth',
-                    /*
-                    , '$firebaseUser',
-                    */
-    function ($firebaseAuth) {
-        /*
-        mAuthListener = new firebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-                }
-                // ...
+  .factory('Users', ['Auth', '$q', '$firebaseArray', '$firebaseObject',
+
+    function (Auth, $q, $firebaseArray, $firebaseObject) {
+      var rootRef = firebase.database().ref().child('users');
+      var firebaseAuthUser = Auth.$getAuth();
+      var firebaseDbUsers = $firebaseArray(rootRef);
+      var firebaseDbUser = $firebaseObject(rootRef.child(firebaseAuthUser.uid));
+
+      function getCurrent() {
+        var deferred = $q.defer();
+
+        firebaseDbUser.$loaded(function () {
+          if (firebaseDbUser.$value === null) {
+            firebaseDbUser.uid = 'firebaseAuthUser.uid';
+            firebaseDbUser.displayName = firebaseAuthUser.displayName;
+            firebaseDbUser.email = firebaseAuthUser.email;
+            firebaseDbUser.photoURL = firebaseAuthUser.photoURL;
+            firebaseDbUser.numOfImagos = 0;
+            firebaseDbUser.totalPoints = 0;
+
+            return firebaseDbUser.$save()
+              .then(function (ref) {
+                deferred.resolve(firebaseDbUser);
+              });
+          } else {
+            if (firebaseDbUser.photoURL !== firebaseAuthUser.photoURL) {
+              firebaseDbUser.photoURL = firebaseAuthUser.photoURL;
+              return firebaseDbUser.$save()
+                .then(function (ref) {
+                  deferred.resolve(firebaseDbUser);
+                });
             }
-        }
-                    
-        FirebaseUser user = firebaseAuth.getInstance().getCurrentUser();
-            if (user != null) {
-                // Name, email address, and profile photo Url
-                String name = user.getDisplayName();
-                String email = user.getEmail();
-                Uri photoUrl = user.getPhotoUrl();
+            return deferred.resolve(firebaseDbUser);
+          }
+        });
 
-                // The user's ID, unique to the Firebase project. Do NOT use this value to
-                // authenticate with your backend server, if you have one. Use
-                // FirebaseUser.getToken() instead.
-                String uid = user.getUid();
-            }
+        return deferred.promise;
+      }
 
-        */
+      function getAll() {
+        var deferred = $q.defer();
 
-        return $firebaseAuth();
+        firebaseDbUsers.$loaded(function () {
+          deferred.resolve(firebaseDbUsers);
+        });
+
+        return deferred.promise;
+      }
+
+      return {
+        getAll: getAll,
+        getCurrent: getCurrent
+      }
     }
-    
-    
-  ])
 
+  ])
 
   .factory('DistanceCalculationsFactory', function (ImagoFactory) {
 
@@ -1165,22 +1067,23 @@ angular.module('app.factories', [])
 
     function isAnImagoNearby(currentLocation) {
       var distanceInMilesCache = 0;
+      var nameOfNearestImago;
 
-      for (var imagoName in ImagoFactory.imagosCoordinates) {
-        var coordinates = {
-          latitude: ImagoFactory.imagosCoordinates[imagoName].lat,
-          longitude: ImagoFactory.imagosCoordinates[imagoName].lng
+      for (var imagoName in ImagoFactory.imagoDetails) {
+        var imagoCoordinates = {
+          latitude: ImagoFactory.imagoDetails[imagoName].lat,
+          longitude: ImagoFactory.imagoDetails[imagoName].lng
         };
 
-        var distanceInMiles = getMilesBtwnTwoLocations(currentLocation, coordinates);
+        var distanceInMiles = getMilesBtwnTwoLocations(currentLocation, imagoCoordinates);
         if (!distanceInMilesCache || distanceInMiles < distanceInMilesCache) {
           distanceInMilesCache = distanceInMiles;
+          nameOfNearestImago = imagoName;
         }
       }
 
-      if (distanceInMilesCache !== 0 && distanceInMilesCache <= .04734848) {
-        // .04734848 miles is 250 feet
-        return true;
+      if (distanceInMilesCache !== 0 && distanceInMilesCache <= .04734848) { // .04734848 miles is 250 feet
+        return nameOfNearestImago;
       } else {
         return false;
       }
@@ -1201,9 +1104,6 @@ angular.module('app.factories', [])
     var coordsCache;
 
     function registerSteps(coords) {
-      console.log('coordsCache', coordsCache)
-      // steps are stored in window.localStorage
-
       if (!coordsCache) {
         coordsCache = coords;
         return;
@@ -1226,5 +1126,29 @@ angular.module('app.factories', [])
       getStepsCount: getStepsCount,
       steps: steps
     }
+  })
+
+  .factory('Camera', function ($cordovaCamera, $q) {
+      var options = {
+        quality: 50,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.CAMERA,
+        allowEdit: false,
+        encodingType: Camera.EncodingType.JPEG,
+        targetWidth: 100,
+        targetHeight: 100,
+        popoverOptions: CameraPopoverOptions,
+        saveToPhotoAlbum: false,
+        correctOrientation: true
+      };
+
+      function takePicture() {
+        return $cordovaCamera.getPicture(options)
+      }
+
+      return {
+        takePicture: takePicture
+      }
   });
+;
 

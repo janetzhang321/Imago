@@ -21,6 +21,12 @@ angular.module('app.routes', [])
         resolve: {
           currentAuth: ['Auth', function (Auth) {
             return Auth.$requireSignIn();
+          }],
+          currentUser: ['currentAuth', 'Users', function (currentAuth, Users) {
+            return Users.getCurrent();
+          }],
+          allUsers: ['currentAuth', 'Users', function (currentAuth, Users) {
+            return Users.getAll();
           }]
         }
       })
@@ -85,15 +91,15 @@ angular.module('app.routes', [])
 
       .state('points', {
         parent: 'index',
-        url: '/points',
+        url: '/points/:imagoName',
         templateUrl: 'templates/points.html',
         controller: 'pointsCtrl'
       })
 
       .state('camera', {
         parent: 'index',
-        url: '/camera',
-        controller: 'pictureCtrl'
+        controller: 'cameraCtrl',
+        params: { imagoName: null }
       })
 
       .state('detail', {
