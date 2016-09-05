@@ -21,6 +21,12 @@ angular.module('app.routes', [])
         resolve: {
           currentAuth: ['Auth', function (Auth) {
             return Auth.$requireSignIn();
+          }],
+          currentUser: ['currentAuth', 'Users', function (currentAuth, Users) {
+            return Users.getCurrent();
+          }],
+          allUsers: ['currentAuth', 'Users', function (currentAuth, Users) {
+            return Users.getAll();
           }]
         }
       })

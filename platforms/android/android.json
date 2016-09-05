@@ -116,6 +116,9 @@
         }
     },
     "installed_plugins": {
+        "com.googlemaps.ios": {
+            "PACKAGE_NAME": "com.ionicframework.imago196429"
+        },
         "cordova-plugin-compat": {
             "PACKAGE_NAME": "com.ionicframework.imago196429"
         },
@@ -278,6 +281,7 @@
         }
     ],
     "plugin_metadata": {
+        "com.googlemaps.ios": "1.13.0",
         "cordova-plugin-compat": "1.0.0",
         "cordova-plugin-camera": "2.2.0",
         "cordova-plugin-console": "1.0.3",

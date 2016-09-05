@@ -1060,70 +1060,53 @@ angular.module('app.factories', [])
     function (Auth, $q, $firebaseArray, $firebaseObject) {
       var rootRef = firebase.database().ref().child('users');
       var firebaseAuthUser = Auth.$getAuth();
-      var firebaseDbUser = $firebaseObject(rootRef.child(firebaseAuthUser.uid));
       var firebaseDbUsers = $firebaseArray(rootRef);
-
-      var User = function (firebaseAuthUser) {
-        this.uid = firebaseAuthUser.uid
-        this.displayName = firebaseAuthUser.displayName,
-          this.email = firebaseAuthUser.email,
-          this.photoURL = firebaseAuthUser.photoURL,
-          this.numOfImagos = 0,
-          this.totalPoints = 0
-      };
-
-      // var userRef = rootRef.child('object');
-
-      // // $getRecord
+      var firebaseDbUser = $firebaseObject(rootRef.child('xyzf'));
 
       function getCurrent() {
-        var currentUser;
         var deferred = $q.defer();
 
         firebaseDbUser.$loaded(function () {
-          if (firebaseDbUser.$value === null) {
-            firebaseDbUser.uid = firebaseAuthUser.uid
-            firebaseDbUser.displayName = firebaseAuthUser.displayName,
-              firebaseDbUser.email = firebaseAuthUser.email,
-              firebaseDbUser.photoURL = firebaseAuthUser.photoURL,
-              firebaseDbUser.numOfImagos = 0,
-              firebaseDbUser.totalPoints = 0
+          // if (firebaseDbUser.$value === null) {
+            firebaseDbUser.uid = 'firebaseAuthUser.uid';
+            firebaseDbUser.displayName = firebaseAuthUser.displayName;
+            firebaseDbUser.email = firebaseAuthUser.email;
+            firebaseDbUser.photoURL = firebaseAuthUser.photoURL;
+            firebaseDbUser.numOfImagos = 0;
+            firebaseDbUser.totalPoints = 0;
 
             return firebaseDbUser.$save()
               .then(function (ref) {
-                currentUser = firebaseDbUser;
                 deferred.resolve(firebaseDbUser);
               });
-          } else {
-            if (firebaseDbUser.photoURL !== firebaseAuthUser.photoURL) {
-              firebaseDbUser.photoURL = firebaseAuthUser.photoURL;
-              return firebaseDbUser.$save()
-                .then(function (ref) {
-                  currentUser = firebaseDbUser;
-                  deferred.resolve(firebaseDbUser);
-                });
-            }
-            return deferred.resolve(firebaseDbUser);
-          }
+          // } else {
+          //   if (firebaseDbUser.photoURL !== firebaseAuthUser.photoURL) {
+          //     firebaseDbUser.photoURL = firebaseAuthUser.photoURL;
+          //     return firebaseDbUser.$save()
+          //       .then(function (ref) {
+          //         deferred.resolve(firebaseDbUser);
+          //       });
+          //   }
+          //   return deferred.resolve(firebaseDbUser);
+          // }
         });
 
         return deferred.promise;
       }
 
       function getAll() {
-        return $firebaseArray(rootRef)
-      }
+        var deferred = $q.defer();
 
-      function add() {
-        return $firebaseArray.$add({}); // TODO: needs user model
+        firebaseDbUsers.$loaded(function () {
+          deferred.resolve(firebaseDbUsers);
+        });
+
+        return deferred.promise;
       }
 
       return {
-        firebaseDbUser: firebaseDbUser,
-        firebaseDbUsers: firebaseDbUsers,
         getAll: getAll,
-        getCurrent: getCurrent,
-        add: add
+        getCurrent: getCurrent
       }
     }
 

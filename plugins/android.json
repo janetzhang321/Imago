@@ -43,6 +43,9 @@
         }
     },
     "dependent_plugins": {
+        "com.googlemaps.ios": {
+            "PACKAGE_NAME": "com.ionicframework.imago196429"
+        },
         "cordova-plugin-compat": {
             "PACKAGE_NAME": "com.ionicframework.imago196429"
         }
