@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/janetzhang/Documents/Important/Imago/platforms/android/CordovaLib/src/main/jniLibs"/></dataSet><dataSet config="release"><source path="/Users/janetzhang/Documents/Important/Imago/platforms/android/CordovaLib/src/release/jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/cmendoza/Desktop/Imago/platforms/android/CordovaLib/src/main/jniLibs"/></dataSet><dataSet config="release"><source path="/Users/cmendoza/Desktop/Imago/platforms/android/CordovaLib/src/release/jniLibs"/></dataSet></merger>

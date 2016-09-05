@@ -489,7 +489,7 @@ angular.module('app.factories', [])
         address:'',
         funFact: '',
         learnMore: '',
-        points: '',
+        points: 100,
         category: ''
       },
 
@@ -880,116 +880,7 @@ angular.module('app.factories', [])
     }
 */        
     
-    var imagosCoordinates = {
-      LIU: {
-        lat: 40.6903991,
-        lng: -73.9811331
-      },
-      mmuseumm: {
-        lat: 40.717363200,
-        lng: -74.002750400
-      },
-      doyers: {
-        lat: 40.714428,
-        lng: -73.998113,
-      },
-      empirestate: {
-        lat: 40.748709700,
-        lng: -73.985655600
-      },
-      flatiron: {
-        lat: 40.740992800,
-        lng: -73.989658700
-      },
-      fit: {
-        lat: 40.746828200,
-        lng: -73.993936600
-      },
-      gilsey: {
-        lat: 40.746166600,
-        lng: -73.988395000
-      },
-      museumPR: {
-        lat: 40.740766800,
-        lng: -73.982789300
-      },
-      grandCentral: {
-        lat: 40.752496100,
-        lng: -73.977302200
-      },
-      thomasSt: {
-        lat: 40.716551100,
-        lng: -74.005794700
-      },
-      plazaHotel: {
-        lat: 40.764609500,
-        lng: -73.974354700
-      },
-      met: {
-        lat: 40.779165500,
-        lng: -73.962927800
-      },
-      museumNYC: {
-        lat: 40.792567500,
-        lng: -73.951999400
-      },
-      MoMA: {
-        lat: 40.761417000,
-        lng: -73.977120300
-      },
-      guggenheim: {
-        lat: 40.783001000,
-        lng: -73.958881600
-      },
-      waldorfAstoria: {
-        lat: 40.756571200,
-        lng: -73.973642100
-      },
-      rockefellerCenter: {
-        lat: 40.759088400,
-        lng: -73.977599500
-      },
-      cityHall: {
-        lat: 40.712746100,
-        lng: -74.005974000
-      },
-      NYSE: {
-        lat: 40.706866100,
-        lng: -74.011318900
-      },
-      fedHall: {
-        lat: 40.707258000,
-        lng: -74.010356400
-      },
-      intrepid: {
-        lat: 40.763726600,
-        lng: -73.999178900
-      },
-      fedReserve: {
-        lat: 40.708366300,
-        lng: -74.008653000
-      },
-      empireState: {
-        lat: 40.748709700,
-        lng: -73.985655600
-      },
-      chipilo: {
-        lat: 40.715154200,
-        lng: -73.999525400
-      },
-      laBellaFerrara: {
-        lat: 40.717359500,
-        lng: -73.998299400
-      },
-      NFTEhq: {
-        lat: 40.704299600,
-        lng: -74.006329900
-      },
-      AppNexus: {
-        lat: 40.741624300,
-        lng: -73.990991300
-      }
-    }
+    
     
     var createLiu = configureImago(imagoDetails.LIU);
     var createMmuseumm = configureImago(imagoDetails.mmuseumm);
@@ -1030,13 +921,14 @@ angular.module('app.factories', [])
     var createWoolworthBuilding = configureImago(imagoDetails.woolworthBuilding);
     var createAfricanBurialGround = configureImago(imagoDetails.africanBurialGround);
     var createGrantNationalMemorial = configureImago(imagoDetails.grantNationalMemorial);
+    var createQueensBotanicalGarden = configureImago(imagoDetails.queensBotanicalGarden);
     
     // ADD ALL IMAGO TO THIS ARRAY
     var imagos = [
         createLiu,
         createMmuseumm,
         createDoyers,
-        createEmpireState,
+//        createEmpireState,
 //        createFlatironBuilding,
         createMuseumFIT,
         createGilseyHouse,
@@ -1072,11 +964,11 @@ angular.module('app.factories', [])
         createSouthStreetSeaport,
         createWoolworthBuilding,
         createAfricanBurialGround,
-        createGrantNationalMemorial
+        createGrantNationalMemorial,
+        createQueensBotanicalGarden
     ];
 
-    return {
-      imagosCoordinates: imagosCoordinates,
+    return {    
       getAllImagos: function (map) {
         imagos.forEach(function (initiateImagoFn) {
           return initiateImagoFn(map);
@@ -1087,61 +979,75 @@ angular.module('app.factories', [])
   })
 
   // $firebaseAuth instance
-  .factory('Auth', ['$firebaseAuth', 
-                    
+  .factory('Auth', ['$firebaseAuth',
+
 
     function ($firebaseAuth) {
-        return $firebaseAuth();
+      return $firebaseAuth();
     }
-    
+
   ])
 
 
 
 
   // $firebaseUser instance
-  .factory('User', ['$firebaseAuth',
-                    /*
-                    , '$firebaseUser',
-                    */
-    function ($firebaseAuth) {
-        /*
-        mAuthListener = new firebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-                }
-                // ...
+  .factory('Users', ['Auth', '$q', '$firebaseArray', '$firebaseObject',
+
+    function (Auth, $q, $firebaseArray, $firebaseObject) {
+      var rootRef = firebase.database().ref().child('users');
+      var firebaseAuthUser = Auth.$getAuth();
+      var firebaseDbUsers = $firebaseArray(rootRef);
+      var firebaseDbUser = $firebaseObject(rootRef.child(firebaseAuthUser.uid));
+
+      function getCurrent() {
+        var deferred = $q.defer();
+
+        firebaseDbUser.$loaded(function () {
+          if (firebaseDbUser.$value === null) {
+            firebaseDbUser.uid = 'firebaseAuthUser.uid';
+            firebaseDbUser.displayName = firebaseAuthUser.displayName;
+            firebaseDbUser.email = firebaseAuthUser.email;
+            firebaseDbUser.photoURL = firebaseAuthUser.photoURL;
+            firebaseDbUser.numOfImagos = 0;
+            firebaseDbUser.totalPoints = 0;
+
+            return firebaseDbUser.$save()
+              .then(function (ref) {
+                deferred.resolve(firebaseDbUser);
+              });
+          } else {
+            if (firebaseDbUser.photoURL !== firebaseAuthUser.photoURL) {
+              firebaseDbUser.photoURL = firebaseAuthUser.photoURL;
+              return firebaseDbUser.$save()
+                .then(function (ref) {
+                  deferred.resolve(firebaseDbUser);
+                });
             }
-        }
-                    
-        FirebaseUser user = firebaseAuth.getInstance().getCurrentUser();
-            if (user != null) {
-                // Name, email address, and profile photo Url
-                String name = user.getDisplayName();
-                String email = user.getEmail();
-                Uri photoUrl = user.getPhotoUrl();
+            return deferred.resolve(firebaseDbUser);
+          }
+        });
 
-                // The user's ID, unique to the Firebase project. Do NOT use this value to
-                // authenticate with your backend server, if you have one. Use
-                // FirebaseUser.getToken() instead.
-                String uid = user.getUid();
-            }
+        return deferred.promise;
+      }
 
-        */
+      function getAll() {
+        var deferred = $q.defer();
 
-        return $firebaseAuth();
+        firebaseDbUsers.$loaded(function () {
+          deferred.resolve(firebaseDbUsers);
+        });
+
+        return deferred.promise;
+      }
+
+      return {
+        getAll: getAll,
+        getCurrent: getCurrent
+      }
     }
-    
-    
-  ])
 
+  ])
 
   .factory('DistanceCalculationsFactory', function (ImagoFactory) {
 
@@ -1210,22 +1116,23 @@ angular.module('app.factories', [])
 
     function isAnImagoNearby(currentLocation) {
       var distanceInMilesCache = 0;
+      var nameOfNearestImago;
 
-      for (var imagoName in ImagoFactory.imagosCoordinates) {
-        var coordinates = {
-          latitude: ImagoFactory.imagosCoordinates[imagoName].lat,
-          longitude: ImagoFactory.imagosCoordinates[imagoName].lng
+      for (var imagoName in ImagoFactory.imagoDetails) {
+        var imagoCoordinates = {
+          latitude: ImagoFactory.imagoDetails[imagoName].lat,
+          longitude: ImagoFactory.imagoDetails[imagoName].lng
         };
 
-        var distanceInMiles = getMilesBtwnTwoLocations(currentLocation, coordinates);
+        var distanceInMiles = getMilesBtwnTwoLocations(currentLocation, imagoCoordinates);
         if (!distanceInMilesCache || distanceInMiles < distanceInMilesCache) {
           distanceInMilesCache = distanceInMiles;
+          nameOfNearestImago = imagoName;
         }
       }
 
-      if (distanceInMilesCache !== 0 && distanceInMilesCache <= .04734848) {
-        // .04734848 miles is 250 feet
-        return true;
+      if (distanceInMilesCache !== 0 && distanceInMilesCache <= .04734848) { // .04734848 miles is 250 feet
+        return nameOfNearestImago;
       } else {
         return false;
       }
@@ -1246,9 +1153,6 @@ angular.module('app.factories', [])
     var coordsCache;
 
     function registerSteps(coords) {
-      console.log('coordsCache', coordsCache)
-      // steps are stored in window.localStorage
-
       if (!coordsCache) {
         coordsCache = coords;
         return;
@@ -1271,5 +1175,29 @@ angular.module('app.factories', [])
       getStepsCount: getStepsCount,
       steps: steps
     }
+  })
+
+  .factory('Camera', function ($cordovaCamera, $q) {
+      var options = {
+        quality: 50,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.CAMERA,
+        allowEdit: false,
+        encodingType: Camera.EncodingType.JPEG,
+        targetWidth: 100,
+        targetHeight: 100,
+        popoverOptions: CameraPopoverOptions,
+        saveToPhotoAlbum: false,
+        correctOrientation: true
+      };
+
+      function takePicture() {
+        return $cordovaCamera.getPicture(options)
+      }
+
+      return {
+        takePicture: takePicture
+      }
   });
+;
 
