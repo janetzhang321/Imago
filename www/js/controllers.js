@@ -1,6 +1,6 @@
 angular.module('app.controllers', [])
 
-  .controller('imagoMapCtrl', function ($scope, $cordovaGeolocation, $ionicPlatform, $rootScope, ImagoFactory, DistanceCalculationsFactory, StepsFactory) {
+  .controller('imagoMapCtrl', function ($scope, $state, $cordovaGeolocation, $ionicPlatform, $rootScope, ImagoFactory, DistanceCalculationsFactory, StepsFactory, Camera) {
     var div, map;
 
     $ionicPlatform.ready(function () {
@@ -57,6 +57,15 @@ angular.module('app.controllers', [])
                 // IMAGOS NEARBY
                 $scope.nearbyImagoName = DistanceCalculationsFactory.isAnImagoNearby(currentLocation);
                 if ($scope.nearbyImagoName) {
+                  $scope.takePicture = function () {
+                    Camera.takePicture()
+                      .then(function () {
+                        $state.go('points', { imagoName: $scope.nearbyImagoName });
+                      })
+                      .catch(function (err) {
+                        console.log(err);
+                      });
+                  }
                   $scope.showCamera = true;
                 } else {
                   $scope.showCamera = false;
@@ -240,7 +249,7 @@ angular.module('app.controllers', [])
 
     }])
 
-  .controller('pictureCtrl', function ($scope, $cordovaCamera, $ionicPlatform, $state, $timeout, $stateParams, $rootScope) {
+  .controller('cameraCtrl', function ($scope, $cordovaCamera, $ionicPlatform, $state, $timeout, $stateParams, $rootScope) {
 
     $ionicPlatform.ready(function () {
 

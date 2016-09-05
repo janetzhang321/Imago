@@ -707,23 +707,6 @@ angular.module('app.factories', [])
         points: ' ',
         category: 'landmark'
 
-      },
-      home: {
-        lat: 40.760693,
-        lng: -73.920905,
-        title: 'Home',
-        imgSrc: 'img/thumbnails/grantsTomb.jpg',
-        icon: {
-          url: 'www/img/thumbnails/markers/blue1.png'
-        },
-        redirectTmplUrl: '/#/tabs/bucketList',
-        description: 'put description here',
-        originDate: ' ',
-        address: 'W 122nd St & Riverside Dr, New York, NY 10027',
-        learnMore: 'https://www.nps.gov/gegr/index.htm',
-        points: 60,
-        category: 'landmark'
-
       }
     }
 
@@ -891,7 +874,6 @@ angular.module('app.factories', [])
     var createWoolworthBuilding = configureImago(imagoDetails.woolworthBuilding);
     var createAfricanBurialGround = configureImago(imagoDetails.africanBurialGround);
     var createGrantNationalMemorial = configureImago(imagoDetails.grantNationalMemorial);
-     var createHome = configureImago(imagoDetails.home);
 
     // ADD ALL IMAGO TO THIS ARRAY
     var imagos = [
@@ -934,8 +916,7 @@ angular.module('app.factories', [])
       createSouthStreetSeaport,
       createWoolworthBuilding,
       createAfricanBurialGround,
-      createGrantNationalMemorial,
-      createHome
+      createGrantNationalMemorial
     ];
 
     return {
@@ -1145,5 +1126,29 @@ angular.module('app.factories', [])
       getStepsCount: getStepsCount,
       steps: steps
     }
+  })
+
+  .factory('Camera', function ($cordovaCamera, $q) {
+      var options = {
+        quality: 50,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.CAMERA,
+        allowEdit: false,
+        encodingType: Camera.EncodingType.JPEG,
+        targetWidth: 100,
+        targetHeight: 100,
+        popoverOptions: CameraPopoverOptions,
+        saveToPhotoAlbum: false,
+        correctOrientation: true
+      };
+
+      function takePicture() {
+        return $cordovaCamera.getPicture(options)
+      }
+
+      return {
+        takePicture: takePicture
+      }
   });
+;
 

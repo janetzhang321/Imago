@@ -891,7 +891,7 @@ angular.module('app.factories', [])
     var createWoolworthBuilding = configureImago(imagoDetails.woolworthBuilding);
     var createAfricanBurialGround = configureImago(imagoDetails.africanBurialGround);
     var createGrantNationalMemorial = configureImago(imagoDetails.grantNationalMemorial);
-     var createHome = configureImago(imagoDetails.home);
+    var createHome = configureImago(imagoDetails.home);
 
     // ADD ALL IMAGO TO THIS ARRAY
     var imagos = [
@@ -968,7 +968,7 @@ angular.module('app.factories', [])
       var rootRef = firebase.database().ref().child('users');
       var firebaseAuthUser = Auth.$getAuth();
       var firebaseDbUsers = $firebaseArray(rootRef);
-      var firebaseDbUser = $firebaseObject(rootRef.child('xyzf'));
+      var firebaseDbUser = $firebaseObject(rootRef.child(firebaseAuthUser.uid));
 
       function getCurrent() {
         var deferred = $q.defer();
@@ -1145,5 +1145,29 @@ angular.module('app.factories', [])
       getStepsCount: getStepsCount,
       steps: steps
     }
+  })
+
+  .factory('Camera', function ($cordovaCamera, $q) {
+      var options = {
+        quality: 50,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.CAMERA,
+        allowEdit: false,
+        encodingType: Camera.EncodingType.JPEG,
+        targetWidth: 100,
+        targetHeight: 100,
+        popoverOptions: CameraPopoverOptions,
+        saveToPhotoAlbum: false,
+        correctOrientation: true
+      };
+
+      function takePicture() {
+        return $cordovaCamera.getPicture(options)
+      }
+
+      return {
+        takePicture: takePicture
+      }
   });
+;
 

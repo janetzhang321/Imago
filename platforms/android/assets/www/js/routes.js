@@ -98,7 +98,7 @@ angular.module('app.routes', [])
 
       .state('camera', {
         parent: 'index',
-        controller: 'pictureCtrl',
+        controller: 'cameraCtrl',
         params: { imagoName: null }
       })
 
