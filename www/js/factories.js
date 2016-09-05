@@ -352,7 +352,7 @@ angular.module('app.factories', [])
         funFact: 'The NYSE is the oldest exchange in the United States, and now money is actually kept at the exchange itself.',
         learnMore: '',
         points: '',
-        category: ''
+        category: 'landmark'
       },
       fedHall: {
         lat: 40.707258000,
@@ -369,7 +369,7 @@ angular.module('app.factories', [])
         funFact: '',
         learnMore: '',
         points: '',
-        category: ''
+        category: 'building'
       },
       intrepid: {
         lat: 40.763726600,
@@ -386,7 +386,7 @@ angular.module('app.factories', [])
         funFact: '',
         learnMore: '',
         points: '',
-        category: ''
+        category: 'landmark'
       },
       fedReserve: {
         lat: 40.708366300,
@@ -403,7 +403,7 @@ angular.module('app.factories', [])
         funFact: '',
         learnMore: '',
         points: '',
-        category: ''
+        category: 'building'
       },
         /*
       empireState: {
@@ -439,7 +439,7 @@ angular.module('app.factories', [])
         funFact: '',
         learnMore: '',
         points: '',
-        category: ''
+        category: 'business'
       },
       laBellaFerrara: {
         lat: 40.717359500,
@@ -456,7 +456,7 @@ angular.module('app.factories', [])
         funFact: '',
         learnMore: '',
         points: '',
-        category: ''
+        category: 'business'
       },
       NFTEhq: {
         lat: 40.704299600,
@@ -473,7 +473,7 @@ angular.module('app.factories', [])
         funFact: '',
         learnMore: '',
         points: '',
-        category: ''
+        category: 'building'
       },
       AppNexus: {
         lat: 40.741624300,
@@ -490,7 +490,7 @@ angular.module('app.factories', [])
         funFact: '',
         learnMore: '',
         points: 100,
-        category: ''
+        category: 'building'
       },
 
       desserts520: {		
@@ -508,7 +508,7 @@ angular.module('app.factories', [])
         funFact: '',
         learnMore: 'http://520desserts.com/',
         points: ' ',
-        category: 'restaurant'
+        category: 'business'
       },	
 	
       aquarium123: {		
@@ -526,7 +526,7 @@ angular.module('app.factories', [])
         funFact: '',
         learnMore: 'put web link here',
         points: ' ',
-        category: 'restaurant'
+        category: 'business'
       },
 
       yayaTeaGarden: {		
@@ -544,7 +544,7 @@ angular.module('app.factories', [])
         funFact: '',	
         learnMore: 'http://yayatea.com/',
         points: ' ',
-        category: 'restaurant'
+        category: 'business'
       },
 
       culturaPizzaEVita: {		
@@ -562,7 +562,7 @@ angular.module('app.factories', [])
         funFact: '',	
         learnMore: 'http://culturapizzaevita.com/',
         points: ' ',
-        category: 'restaurant'
+        category: 'business'
       },
 
       pateaBubbleTea: {		
@@ -580,7 +580,7 @@ angular.module('app.factories', [])
         funFact: '',	
         learnMore: 'http://www.pateabubbletea.com/',
         points: ' ',
-        category: 'restaurant'
+        category: 'business'
       },
 
       saigonVietnameseSandwichDeli : {		
@@ -597,7 +597,7 @@ angular.module('app.factories', [])
         address:'369 Broome St, New York, NY 10013',		
         learnMore: 'http://www.banhmi.nyc/',
         points: ' ',
-        category: 'restaurant'
+        category: 'business'
       },
 
       stPartricksCathedral : {		
@@ -615,7 +615,7 @@ angular.module('app.factories', [])
         funFact: '',
         learnMore: 'http://saintpatrickscathedral.org/',
         points: ' ',
-        category: 'landmark'
+        category: 'building'
       },
 
       carnegieHall: {		
@@ -633,7 +633,7 @@ angular.module('app.factories', [])
         funFact: '',	
         learnMore: 'https://www.carnegiehall.org/Information/About-the-Building/',
         points: ' ',
-        category: 'landmark'
+        category: 'building'
       },
 
       NYPL: {		
@@ -651,7 +651,7 @@ angular.module('app.factories', [])
         funFact: '',	
         learnMore: 'https://www.nypl.org/locations/schwarzman',
         points: ' ',
-        category: 'landmark'
+        category: 'building'
       },
 
       southStreetSeaport: {		
@@ -1198,6 +1198,24 @@ angular.module('app.factories', [])
       return {
         takePicture: takePicture
       }
-  });
-;
+  })
+
+
+.factory('Map', function () {
+
+      // Initialize the map view
+      var map = plugin.google.maps.Map.getMap(div, {
+        controls: {
+          compass: true,
+          myLocationButton: true,
+          zoom: true
+        }
+      });
+
+      return {
+        map: map
+      }
+
+
+});
 
