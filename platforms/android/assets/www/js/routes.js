@@ -104,7 +104,7 @@ angular.module('app.routes', [])
 
       .state('detail', {
         parent: 'index',
-        url: '/detail',
+        url: '/detail/:imagoName',
         templateUrl: 'templates/detail.html',
         controller: 'detailCtrl'
       })

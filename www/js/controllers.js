@@ -8,7 +8,7 @@ angular.module('app.controllers', [])
 
       div = document.getElementById("map_canvas");
       // Initialize the map view
-      map = Map.map;
+      map = Map.initializeMap(div);
 
       map.addEventListener(plugin.google.maps.event.MAP_READY, function () {
         //$rootScope.currentPosition.then(
@@ -150,22 +150,23 @@ angular.module('app.controllers', [])
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams, ImagoFactory, Map) {
-                   
-        var map = Map.map;
-        
+
+        var markers = Map.markers;
+        debugger;
+
                                  /*
         $scope.goToDetails = function () {
             $state.go('detail',{imagoName:currentImago});
         }
-                            */     
-                                 
-        $scope.getBuildings = function () {                   
+                            */
+
+        $scope.getBuildings = function () {
             $state.go('tabsController.imagoMap',{category:'building'});
         }
-        $scope.getLandmarks = function () {                   
+        $scope.getLandmarks = function () {
             $state.go('tabsController.imagoMap',{});
         }
-        $scope.getBusinesses = function () {                   
+        $scope.getBusinesses = function () {
             $state.go('tabsController.imagoMap',{});
         }
 
@@ -246,15 +247,15 @@ angular.module('app.controllers', [])
     function (currentUser, $scope, $stateParams, $state , $rootScope, ImagoFactory) {
       var currentImago = $stateParams.imagoName;//changes based on which imago is close to you
       $scope.points = ImagoFactory.imagoDetails[currentImago].points;
-        
+
         $scope.goToDetails = function () {
             $state.go('detail',{imagoName:currentImago});
         }
-        
-        
-        
+
+
+
       currentUser.totalPoints = currentUser.totalPoints + $scope.points; // update firebase user with points
-        
+
         $scope.goToDetails = function () {
             $state.go('detail',{imagoName:currentImago});
         }
@@ -366,7 +367,7 @@ angular.module('app.controllers', [])
     function ($scope, $stateParams, ImagoFactory) {
         console.log($stateParams);
       var currentImago = $stateParams.imagoName;//changes based on which imago is close to you
-        
+
       $scope.funFact = ImagoFactory.imagoDetails[currentImago].funFact;
       $scope.imgSrc = ImagoFactory.imagoDetails[currentImago].imgSrc;
       $scope.title = ImagoFactory.imagoDetails[currentImago].title;
@@ -375,5 +376,5 @@ angular.module('app.controllers', [])
       $scope.learnMore = ImagoFactory.imagoDetails[currentImago].learnMore;
       $scope.address = ImagoFactory.imagoDetails[currentImago].address;
 
-        
+
     }]);
