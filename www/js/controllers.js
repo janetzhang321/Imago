@@ -130,6 +130,8 @@ angular.module('app.controllers', [])
       };
 
       var user = Auth.$getAuth();
+      console.log('user', user)
+      // uid
       $scope.user = {
         displayName: user.displayName,
         email: user.email,
@@ -145,11 +147,25 @@ angular.module('app.controllers', [])
       }, true);
     }])
 
-  .controller('leaderboardCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('leaderboardCtrl', ['$scope', '$stateParams', 'Users', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams) {
+    function ($scope, $stateParams, Users) {
+      Users.getCurrent().then(function (currentUser) {
+        $scope.user = currentUser;
+      });
+      // Users.firebaseDbUser.$loaded(function () {
+      //   $scope.user = Users.firebaseDbUser;
 
+      //   if (!Users.firebaseDbUser.$value) {
+      //     // do three way data binding
+      //   }
+      //   // $scope.user.uid = 'OTB3UllKb3PtrvQ9fNcf3z0Aqio1';
+      //   // $scope.user.name = 'Carlos';
+      //   console.log($scope.user)
+      //   // Users.firebaseDbUser.$save($scope.user);
+      //   // console.log(Users.firebaseDbUser.$add($scope.user));
+      // });
 
     }])
 
@@ -170,6 +186,8 @@ angular.module('app.controllers', [])
 
         var self = this,
           user = Auth.$getAuth();
+
+        console.log('userr', user)
 
         if (!user) {
           $scope.signIn = function () {
