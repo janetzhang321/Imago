@@ -91,12 +91,13 @@
 .item-avatar{
 	padding-left:0px !important;
 }
-
+/*Bucket-List*/
 .bucket-list-category{
 	font-size: 22px;
 	font-weight:300;
 	display:inline;
-    vertical-align: middle;
+	position:relative;
+	top:-10px;
 }
 .ion-android-map{
 	display:inline;
@@ -104,11 +105,29 @@
 	padding-right:30px;
 }
 .bucket-list-link{
+	color:white;
+	font-size:16px;
+	border-radius:3px;
 	text-decoration:none;
+	padding:0 0 0 0;
+	position:relative;
+	float:right;
+	display:inline;
 }
-.bucket-list:hover{
-	background-color:#f2f2f2;
+.bucket-list-link-list{
+	background-color:rgb(68,68,68);
+	padding: 7px 6px 10px 6px !important;
+	/*top:-15px;*/
 }
+.bucket-list-link-map{
+	background-color:rgb(56,126,245);
+	padding: 7px 6px 10px 6px !important;
+	/*bottom:-15px;*/
+}
+
+
+
+
 
 #details-list-item14{
     overflow: auto !important;
