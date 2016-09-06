@@ -202,7 +202,7 @@
 /**BUCKETLIST**/
 
   .container { 
-    max-width: 33%;  
+    max-width: 100%;  
     height: auto;
     overflow: hidden; 
   }

@@ -470,7 +470,7 @@ angular.module('app.factories', [])
         imgSrc: 'img/thumbnails/nfte.jpg',
         redirectTmplUrl: '/#/tabs/bucketList',
         icon: {
-          url: 'www/img/thumbnails/markers/yellow1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
         description: '',
         originDate: '',

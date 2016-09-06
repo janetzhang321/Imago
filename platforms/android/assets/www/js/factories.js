@@ -64,7 +64,7 @@ angular.module('app.factories', [])
         address: '1 University Plaza, Brooklyn, NY 11201',
         funFact: 'LIU Brooklyn was the founding place of Imago!',
         learnMore: 'http://www.liu.edu/Brooklyn',
-        points: '60',
+        points: 60,
         category: 'building'
       },
       mmuseumm: {
@@ -81,7 +81,7 @@ angular.module('app.factories', [])
         address: '4 Cortlandt Alley, New York, NY 10013',
         funFact: 'It started as a petite pet project of a trio of friends who run a film company out of an office upstairs from this alley attraction.',
         learnMore: 'http://www.roadsideamerica.com/story/37020',
-        points: '',
+        points: 100,
         category: 'building'
       },
       doyers: {
@@ -89,7 +89,7 @@ angular.module('app.factories', [])
         lng: -73.998113,
         imgSrc: 'img/thumbnails/doyers.jpg',
         icon: {
-          url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/green1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
         description: 'Street in Chinatown',
@@ -97,7 +97,7 @@ angular.module('app.factories', [])
         address: 'Doyers St, New York, NY 10002',
         funFact: 'Has a rare 90-degree curve called the “bloody angle” which was once home to the most murders per square foot in New York City.',
         learnMore: 'https://en.wikipedia.org/wiki/Doyers_Street',
-        points: '',
+        points: 100,
         category: 'landmark'
       },
       /*
@@ -133,7 +133,7 @@ angular.module('app.factories', [])
         address: '227 W 27th St, New York, NY 10001',
         funFact: '',
         learnMore: 'http://www.fitnyc.edu/museum/',
-        points: '',
+        points: 30,
         category: 'building'
       },
       gilsey: {
@@ -147,11 +147,11 @@ angular.module('app.factories', [])
         redirectTmplUrl: '/#/tabs/bucketList',
         description: '',
         originDate: '',
-        address: '',
+        address: '1200 Broadway, New York, NY 10001',
         funFact: '',
         learnMore: '',
-        points: '',
-        category: ''
+        points: 30,
+        category: 'building'
       },
       museumPR: {
         title: 'Museum of Public Relations',
@@ -167,8 +167,8 @@ angular.module('app.factories', [])
         address: '',
         funFact: '',
         learnMore: '',
-        points: '',
-        category: ''
+        points: 30,
+        category: 'building'
       },
       grandCentral: {
         lat: 40.752496100,
@@ -176,7 +176,7 @@ angular.module('app.factories', [])
         title: 'Grand Central terminal',
         imgSrc: 'img/thumbnails/GrandCentral.jpg',
         icon: {
-          url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/green1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
         description: 'Grand Central Terminal is a commuter, rapid transit railroad terminal at 42nd Street and Park Avenue in Midtown Manhattan in New York City, United States.',
@@ -201,7 +201,7 @@ angular.module('app.factories', [])
         address: '33 Thomas St, New York, NY 10007',
         funFact: 'AT&T wanted a building that could handle anything, especially a nuclear attack. In the event that Manhattan was bombed, AT&T wanted to be sure that the phone lines would not go down. So the architect made a building that was heavy-duty. Windows would make the structure weaker. They have estimated that the building would continue to operate without interruption for about two weeks after a nuclear bomb.',
         learnMore: 'https://en.wikipedia.org/wiki/33_Thomas_Street',
-        points: '',
+        points: 30,
         category: 'building'
       },
       plazaHotel: {
@@ -218,7 +218,7 @@ angular.module('app.factories', [])
         address: '768 5th Ave, New York, NY 10019',
         funFact: 'With the opening of the new Plaza Hotel came the introduction of the city\'s first-ever taxi cabs, which lined up along the hotel\'s entrance on its first day of business.',
         learnMore: 'http://www.fairmont.com/about-us/ourhistory/',
-        points: '',
+        points: 30,
         category: 'building'
       },
       met: {
@@ -235,7 +235,7 @@ angular.module('app.factories', [])
         address: '1000 5th Ave, New York, NY 10028',
         funFact: 'The Met was founded by a group of businessmen, financiers, artists, and cultural enthusiasts.',
         learnMore: 'http://www.metmuseum.org/',
-        points: '',
+        points: 30,
         category: 'building'
       },
       museumNYC: {
@@ -252,8 +252,8 @@ angular.module('app.factories', [])
         address: '',
         funFact: '',
         learnMore: '',
-        points: '',
-        category: ''
+        points: 30,
+        category: 'building'
       },
       MoMA: {
         lat: 40.761417000,
@@ -269,8 +269,8 @@ angular.module('app.factories', [])
         address: '',
         funFact: '',
         learnMore: '',
-        points: '',
-        category: ''
+        points: 30,
+        category: 'building'
       },
       guggenheim: {
         lat: 40.783001000,
@@ -286,7 +286,7 @@ angular.module('app.factories', [])
         address: '1071 5th Ave, New York, NY 10128',
         funFact: 'The Guggenheim Museum’s design, by Frank Lloyd Wright, was inspired by a seashell and the shape of the building is a play on the ancient Mesopotamian ziggurat, which narrows as it rises. Guggenheim’s structure actually widens as it rises.',
         learnMore: 'https://www.guggenheim.org/',
-        points: '',
+        points: 30,
         category: 'building'
       },
       waldorfAstoria: {
@@ -303,7 +303,7 @@ angular.module('app.factories', [])
         address: '301 Park Ave, New York, NY 10022',
         funFact: 'In the 1930s, the hotel invented room service. In the mood for a late night snack? You can order off of a specialty menu until 5am.',
         learnMore: 'http://www.waldorfnewyork.com/',
-        points: '',
+        points: 30,
         category: 'building'
       },
       /*
@@ -313,7 +313,7 @@ angular.module('app.factories', [])
       title: 'Rockefeller Center',
       imgSrc: 'img/thumbnails/RockefellerCenter.jpg',
       icon: {
-          url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/green1.png'
       },
       redirectTmplUrl: '/#/tabs/bucketList',
       description:'',
@@ -339,7 +339,7 @@ angular.module('app.factories', [])
         address: 'City Hall Park, New York, NY 10007',
         funFact: 'The oldest City Hall in the nation that still houses its original governmental functions, New York’s City Hall is also considered one of the finest architectural achievements of its period. ',
         learnMore: 'https://en.wikipedia.org/wiki/New_York_City_Hall',
-        points: '',
+        points: 20,
         category: 'building'
       },
       NYSE: {
@@ -348,15 +348,15 @@ angular.module('app.factories', [])
         title: 'New York Stock Exchange',
         imgSrc: 'img/thumbnails/NYSE.jpg',
         icon: {
-          url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/green1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: '',
-        originDate: '',
-        address: '',
+        description: 'American stock exchange',
+        originDate: '1817',
+        address: '11 Wall St, New York, NY 10005',
         funFact: 'The NYSE is the oldest exchange in the United States, and now money is actually kept at the exchange itself.',
-        learnMore: '',
-        points: '',
+        learnMore: 'https://en.wikipedia.org/wiki/New_York_Stock_Exchange',
+        points: 20,
         category: 'landmark'
       },
       fedHall: {
@@ -368,12 +368,12 @@ angular.module('app.factories', [])
           url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: '',
-        originDate: '',
-        address: '',
-        funFact: '',
-        learnMore: '',
-        points: '',
+        description: 'Historical Building',
+        originDate: '1700',
+        address: '26 Wall St, New York, NY 10005',
+        funFact: 'George Washington took the oath of office as our first President, and this site was home to the first Congress, Supreme Court, and Executive Branch offices. ',
+        learnMore: 'https://www.nps.gov/feha/index.htm',
+        points: 20,
         category: 'building'
       },
       intrepid: {
@@ -382,32 +382,32 @@ angular.module('app.factories', [])
         title: 'Intrepid Sea, Air & Space Museum',
         imgSrc: 'img/thumbnails/Intrepid.jpg',
         icon: {
-          url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/green1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: '',
-        originDate: '',
-        address: '',
-        funFact: '',
-        learnMore: '',
-        points: '',
+        description: 'The Intrepid Sea, Air & Space Museum is a military and maritime history museum with a collection of museum ships in New York City.',
+        originDate: '1982',
+        address: 'Pier 86, W 46th St & 12th Ave, New York, NY 10036',
+        funFact: 'The U.S.S. Intrepid nickname is “The fighting I” ',
+        learnMore: 'https://en.wikipedia.org/wiki/USS_Intrepid_(CV-11)',
+        points: 50,
         category: 'landmark'
       },
       fedReserve: {
         lat: 40.708366300,
         lng: -74.008653000,
-        title: 'Federal Reserve',
+        title: 'Federal Reserve Bank of New York',
         imgSrc: 'img/thumbnails/NYCFedReserve.jpg',
         icon: {
           url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: '',
-        originDate: '',
-        address: '',
-        funFact: '',
-        learnMore: '',
-        points: '',
+        description: 'National Bank',
+        originDate: '1913',
+        address: '33 Liberty St, New York, NY 10045',
+        funFact: 'The Federal Reserve Bank on New York’s Wall Street contains vaults that are located 80 feet beneath the bank and hold about 25 percent of the world’s gold bullion.',
+        learnMore: 'https://www.newyorkfed.org/',
+        points: 20,
         category: 'building'
       },
       /*
@@ -438,12 +438,12 @@ angular.module('app.factories', [])
         icon: {
           url: 'www/img/thumbnails/markers/gold1.png'
         },
-        description: '',
-        originDate: '',
-        address: '',
-        funFact: '',
-        learnMore: '',
-        points: '',
+        description: 'restaurant',
+        originDate: '2016 ',
+        address: '48 Mulberry St, New York, NY 10013',
+        funFact: 'Imago’s first potential customer, it is also a small town of Puebla, Mexico that was founded by Northern Italian immigrants in 1888 ',
+        learnMore: 'https://www.yelp.com/biz/chipilo-new-york',
+        points: 100,
         category: 'business'
       },
       laBellaFerrara: {
@@ -455,11 +455,11 @@ angular.module('app.factories', [])
         icon: {
           url: 'www/img/thumbnails/markers/yellow1.png'
         },
-        description: '',
-        originDate: '',
-        address: '',
+        description: 'This traditional Italian bakery popular for its cannoli & lobster tails also offers custom cakes.',
+        originDate: '2009',
+        address: '108 Mulberry St, New York, NY 10013',
         funFact: '',
-        learnMore: '',
+        learnMore: 'https://www.yelp.com/biz/la-bella-ferrara-new-york',
         points: '',
         category: 'business'
       },
@@ -477,23 +477,23 @@ angular.module('app.factories', [])
         address: '',
         funFact: '',
         learnMore: '',
-        points: '',
+        points: 10,
         category: 'building'
       },
       AppNexus: {
         lat: 40.741624300,
         lng: -73.990991300,
-        title: 'App Nexus',
+        title: 'App Nexus Office',
         imgSrc: 'img/thumbnails/appNexus.jpg',
         redirectTmplUrl: '/#/tabs/bucketList',
         icon: {
-          url: 'www/img/thumbnails/markers/yellow1.png'
+          url: 'www/img/thumbnails/markers/blue1.png'
         },
-        description: '',
-        originDate: '',
-        address: '',
-        funFact: '',
-        learnMore: '',
+        description: 'Office in NYC',
+        originDate: '2007',
+        address: '28 W 23rd St, New York, NY 10010',
+        funFact: '50 cent\'s old music studio used to be this location, so the bathroom at AppNexus actually has memorabilia from \"Get Rich or Die Trying\" on the wall',
+        learnMore: 'https://www.appnexus.com/',
         points: 100,
         category: 'building'
       },
@@ -512,7 +512,7 @@ angular.module('app.factories', [])
         address: '133-53 37th Avenue #101, Flushing, NY 11354',
         funFact: '',
         learnMore: 'http://520desserts.com/',
-        points: ' ',
+        points: 80,
         category: 'business'
       },
 
@@ -525,12 +525,12 @@ angular.module('app.factories', [])
           url: 'www/img/thumbnails/markers/yellow1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: 'put description here',
+        description: ' ',
         originDate: ' ',
         address: '123 Elizabeth St, New York, NY 10013',
         funFact: '',
         learnMore: 'put web link here',
-        points: ' ',
+        points: 40,
         category: 'business'
       },
 
@@ -543,12 +543,12 @@ angular.module('app.factories', [])
           url: 'www/img/thumbnails/markers/yellow1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: 'put description here',
+        description: ' ',
         originDate: ' ',
         address: '51 Chrystie St, New York, NY 10002',
         funFact: '',
         learnMore: 'http://yayatea.com/',
-        points: ' ',
+        points: 30,
         category: 'business'
       },
 
@@ -561,12 +561,12 @@ angular.module('app.factories', [])
           url: 'www/img/thumbnails/markers/yellow1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: 'put description here',
+        description: ' ',
         originDate: ' ',
         address: '151 Mott St, New York, NY 10013',
         funFact: '',
         learnMore: 'http://culturapizzaevita.com/',
-        points: ' ',
+        points: 30,
         category: 'business'
       },
 
@@ -579,12 +579,12 @@ angular.module('app.factories', [])
           url: 'www/img/thumbnails/markers/yellow1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: 'put description here',
+        description: ' ',
         originDate: ' ',
         address: '135 Mott St, New York, NY 10013',
         funFact: '',
         learnMore: 'http://www.pateabubbletea.com/',
-        points: ' ',
+        points: 40,
         category: 'business'
       },
 
@@ -597,11 +597,11 @@ angular.module('app.factories', [])
           url: 'www/img/thumbnails/markers/yellow1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: 'put description here',
+        description: ' ',
         originDate: ' ',
         address: '369 Broome St, New York, NY 10013',
         learnMore: 'http://www.banhmi.nyc/',
-        points: ' ',
+        points: 40,
         category: 'business'
       },
 
@@ -614,12 +614,12 @@ angular.module('app.factories', [])
           url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: 'put description here',
+        description: ' ',
         originDate: ' ',
         address: '5th Ave, New York, NY 10022',
         funFact: '',
         learnMore: 'http://saintpatrickscathedral.org/',
-        points: ' ',
+        points: 20,
         category: 'building'
       },
 
@@ -632,12 +632,12 @@ angular.module('app.factories', [])
           url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: 'put description here',
+        description: ' ',
         originDate: ' ',
         address: '881 7th Ave, New York, NY 10019',
         funFact: '',
         learnMore: 'https://www.carnegiehall.org/Information/About-the-Building/',
-        points: ' ',
+        points: 20,
         category: 'building'
       },
 
@@ -650,12 +650,12 @@ angular.module('app.factories', [])
           url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: 'put description here',
-        originDate: ' ',
-        address: ' 5th Ave at 42nd St, New York, NY 10018',
+        description: ' ',
+        originDate: '1895',
+        address: '5th Ave at 42nd St, New York, NY 10018',
         funFact: '',
         learnMore: 'https://www.nypl.org/locations/schwarzman',
-        points: ' ',
+        points: 20,
         category: 'building'
       },
 
@@ -665,15 +665,15 @@ angular.module('app.factories', [])
         title: 'Put name here',
         imgSrc: 'img/thumbnails/SSSP.jpg',
         icon: {
-          url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/green1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: 'put description here',
-        originDate: ' ',
+        description: '',
+        originDate: '1967',
         address: '19 Fulton Street, New York, NY 10038',
         funFact: '',
         learnMore: 'http://www.southstreetseaport.com/',
-        points: ' ',
+        points: 50,
         category: 'landmark'
       },
 
@@ -683,15 +683,15 @@ angular.module('app.factories', [])
         title: 'Woolworth Building ',
         imgSrc: 'img/thumbnails/.jpg',
         icon: {
-          url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/green1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: 'put description here',
-        originDate: ' ',
+        description: 'An early US skyscraper.',
+        originDate: '1913',
         address: '233 Broadway, New York, NY 10007',
-        funFact: '',
+        funFact: 'There’s An Abandoned Pool and Hot Tub in the Basement',
         learnMore: 'https://en.wikipedia.org/wiki/Woolworth_Building',
-        points: ' ',
+        points: 30,
         category: 'landmark'
       },
 
@@ -701,15 +701,15 @@ angular.module('app.factories', [])
         title: 'African Burial Ground National Monument',
         imgSrc: 'img/thumbnails/africanBurialGround.jpg',
         icon: {
-          url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/green1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: 'put description here',
-        originDate: ' ',
+        description: 'Graveyard',
+        originDate: '2006',
         address: ' 290 Broadway, New York, NY 10007',
-        funFact: '',
-        learnMore: 'https://www.nps.gov/afbg/index.htm',
-        points: ' ',
+        funFact: 'The Burial Ground site is New York\'s earliest known African-American \"cemetery\"; studies show an estimated 15,000 African American people were buried here.',
+        learnMore: 'https://en.wikipedia.org/wiki/African_Burial_Ground_National_Monument',
+        points: 50,
         category: 'landmark'
       },
 
@@ -719,15 +719,15 @@ angular.module('app.factories', [])
         title: 'General Ulysses S Grant National Memorial',
         imgSrc: 'img/thumbnails/grantsTomb.jpg',
         icon: {
-          url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/green1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: 'put description here',
-        originDate: ' ',
+        description: 'Graveyard',
+        originDate: '1885',
         address: 'W 122nd St & Riverside Dr, New York, NY 10027',
         funFact: '',
         learnMore: 'https://www.nps.gov/gegr/index.htm',
-        points: ' ',
+        points: 50,
         category: 'landmark'
 
       },
@@ -738,15 +738,15 @@ angular.module('app.factories', [])
         title: 'Queens Botanical Garden',
         imgSrc: 'img/thumbnails/QueensBotanicalGarden.jpg',
         icon: {
-          url: 'www/img/thumbnails/markers/blue1.png'
+          url: 'www/img/thumbnails/markers/green1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: 'put description here',
-        originDate: ' ',
+        description: 'Botanical Garden',
+        originDate: '1939',
         address: '43-50 Main St, Flushing, NY 11355',
-        funFact: 'The Queens Botanical Garden began as part of the 1939 New York World\'s Fair in Queens.',
+        funFact: 'The Queens Botanical Garden began as part of the New York World\'s Fair in Queens.',
         learnMore: 'http://www.queensbotanical.org/',
-        points: ' ',
+        points: 20,
         category: 'landmark'
       }
     }
@@ -763,7 +763,7 @@ angular.module('app.factories', [])
         url: 'www/img/thumbnails/markers/blue1.png'
     },
     redirectTmplUrl: '/#/tabs/bucketList',
-    description:'put description here',
+    description:' ',
     originDate:' ',
     address:'500 25th St, Brooklyn, NY 11232',
     funFact: '',
@@ -781,7 +781,7 @@ angular.module('app.factories', [])
         url: 'www/img/thumbnails/markers/blue1.png'
     },
     redirectTmplUrl: '/#/tabs/bucketList',
-    description:'put description here',
+    description:' ',
     originDate:' ',
     address:'414 W 141st St, New York, NY 10031',
     funFact: '',
@@ -801,7 +801,7 @@ angular.module('app.factories', [])
         url: 'www/img/thumbnails/markers/blue1.png'
     },
     redirectTmplUrl: '/#/tabs/bucketList',
-    description:'put description here',
+    description:' ',
     originDate:' ',
     address:'1 Bowling Green, New York, NY 10004',
     funFact: '',
@@ -819,7 +819,7 @@ angular.module('app.factories', [])
         url: 'www/img/thumbnails/markers/blue1.png'
     },
     redirectTmplUrl: '/#/tabs/bucketList',
-    description:'put description here',
+    description:' ',
     originDate:' ',
     address:'141 Wooster St, New York, NY 10012',
     funFact: '',
@@ -837,7 +837,7 @@ angular.module('app.factories', [])
         url: 'www/img/thumbnails/markers/blue1.png'
     },
     redirectTmplUrl: '/#/tabs/bucketList',
-    description:'put description here',
+    description:' ',
     originDate:' ',
     address:'336 3rd St, Brooklyn, NY 11215',
     funFact: '',
@@ -855,7 +855,7 @@ angular.module('app.factories', [])
         url: 'www/img/thumbnails/markers/blue1.png'
     },
     redirectTmplUrl: '/#/tabs/bucketList',
-    description:'put description here',
+    description:' ',
     originDate:' ',
     address:'515 Malcolm X Blvd, New York, NY 10037',
     funFact: '',
@@ -873,7 +873,7 @@ angular.module('app.factories', [])
         url: 'www/img/thumbnails/markers/blue1.png'
     },
     redirectTmplUrl: '/#/tabs/bucketList',
-    description:'put description here',
+    description:' ',
     originDate:' ',
     address:'32-01 Vernon Blvd, Long Island City, NY 11106',
     funFact: '',

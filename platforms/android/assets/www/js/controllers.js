@@ -201,9 +201,15 @@ $state.go('detail',{imagoName:currentImago});
           marker.setVisible(true);
         });
         $state.go('tabsController.imagoMap');
+      }      
+      $scope.listBuildings = function () {
+        $state.go('buildings');
       }
       $scope.listLandmarks = function () {
         $state.go('landmarks');
+      }
+      $scope.listBusinesses = function () {
+        $state.go('businesses');
       }
 
     }])
@@ -262,6 +268,7 @@ $state.go('detail',{imagoName:currentImago});
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams, currentUser) {
       $scope.user = currentUser
+      console.log(currentUser)
     }])
 
   .controller('aboutCtrl', ['$scope', '$stateParams', '$ionicHistory', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -406,25 +413,23 @@ $state.go('detail',{imagoName:currentImago});
   })
 
 
-  .controller('buildingsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('buildingsCtrl', ['$scope', '$stateParams', 'ImagoFactory',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams) {
+    function ($scope, $stateParams, ImagoFactory) {
 
 
-      $scope.listBuildings = function () {
-        markers.forEach(function (marker) {
+      var markers = ImagoFactory.markers;
 
-          if (marker.category !== 'building') {
-            marker.setVisible(false);
-          }
-          if (marker.category == 'building') {
-            marker.setVisible(true);
-          }
+      console.log();
 
-        });
-        $state.go('tabsController.imagoMap');
-      }
+      $scope.markersList = markers.map(function (marker) {
+
+        if (marker.category === 'building') {
+          return marker.imgSrc;
+        }
+
+      });
 
     }])
 
@@ -448,12 +453,22 @@ $state.go('detail',{imagoName:currentImago});
 
     }])
 
-  .controller('businessesCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('businessesCtrl', ['$scope', '$stateParams', 'ImagoFactory',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams) {
+    function ($scope, $stateParams, ImagoFactory) {
 
+      var markers = ImagoFactory.markers;
 
+      console.log();
+
+      $scope.markersList = markers.map(function (marker) {
+
+        if (marker.category === 'business') {
+          return marker.imgSrc;
+        }
+
+      });
 
     }])
 
