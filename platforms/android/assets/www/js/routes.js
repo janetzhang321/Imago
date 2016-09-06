@@ -108,6 +108,27 @@ angular.module('app.routes', [])
         templateUrl: 'templates/detail.html',
         controller: 'detailCtrl'
       })
+      
+      .state('buildings', {
+        parent: 'index',
+        url: '/templates/buildings',
+        templateUrl: 'templates/buildings.html',
+        controller: 'buildingsCtrl'
+      })
+      
+      .state('landmarks', {
+        parent: 'index',
+        url: '/templates/landmarks',
+        templateUrl: 'templates/landmarks.html',
+        controller: 'landmarksCtrl'
+      })
+      
+      .state('businesses', {
+        parent: 'index',
+        url: '/templates/businesses',
+        templateUrl: 'templates/businesses.html',
+        controller: 'businessesCtrl'
+      })
 
     $urlRouterProvider.otherwise('/')
 
