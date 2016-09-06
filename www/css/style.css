@@ -164,6 +164,12 @@
     margin-top: 20px;
     margin-left: 5px;
 }
+#dropdown-imagos{
+	display:none;
+}
+#profile-list-item11:hover #dropdown-imagos{
+	display:inline;
+}
 
 /** LEADERBOARD **/
 .leaderboard-left {
