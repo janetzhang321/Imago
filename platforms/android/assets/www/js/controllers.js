@@ -78,65 +78,62 @@ angular.module('app.controllers', [])
   .controller('sideNavCtrl', ['$scope', '$stateParams', '$ionicHistory', '$state', '$rootScope', '$ionicSideMenuDelegate', 'Auth', 'StepsFactory', 'currentUser',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams, $ionicHistory, $state, $rootScope, $ionicSideMenuDelegate, Auth, StepsFactory, currentUser) {
+    function ($scope, $stateParams, $ionicHistory, $state, $rootScope, $ionicSideMenuDelegate, Auth, StepsFactory) {
 
-      // NOW USER CAN BE ACCESSED IN any child controller
-      currentUser.$bindTo($rootScope, 'user');
-
-      // Hamburger or Back Button Icon
-      if ($state.current.name.indexOf('tabsController') !== -1) {
-        $scope.showBackButton = false;
-        $scope.showHamburgerMenu = true;
-      } else {
-        $scope.showHamburgerMenu = false;
-        $scope.showBackButton = true;
-      }
-
-      $rootScope.$on('$stateChangeStart',
-        function (event, toState, toParams, fromState, fromParams, options) {
-          if (toState.name.indexOf('tabsController') !== -1) {
-            $scope.showBackButton = false;
-            $scope.showHamburgerMenu = true;
-          } else {
-            $scope.showHamburgerMenu = false;
-            $scope.showBackButton = true;
-          }
-        })
-
-      // Back button
-      $scope.goBack = function () {
-        $state.go('tabsController.imagoMap');
-      }
-
-      $scope.$watch(function () {
-        return $ionicSideMenuDelegate.getOpenRatio();
-      }, function (newValue, oldValue) {
-
-        if (newValue == 0) {
-          $scope.hideLeft = true;
-          $scope.hideRight = true;
+        // Hamburger or Back Button Icon
+        if ($state.current.name.indexOf('tabsController') !== -1) {
+          $scope.showBackButton = false;
+          $scope.showHamburgerMenu = true;
         } else {
-          if (newValue == 1) {
-            $scope.hideLeft = false;
-          } else {
-            $scope.hideRight = false;
-          }
+          $scope.showHamburgerMenu = false;
+          $scope.showBackButton = true;
         }
-      });
 
-      // Sign Out
-      $scope.signOut = function () {
-        $state.go('login');
-        Auth.$signOut();
-      };
+        $rootScope.$on('$stateChangeStart',
+          function (event, toState, toParams, fromState, fromParams, options) {
+            if (toState.name.indexOf('tabsController') !== -1) {
+              $scope.showBackButton = false;
+              $scope.showHamburgerMenu = true;
+            } else {
+              $scope.showHamburgerMenu = false;
+              $scope.showBackButton = true;
+            }
+          })
 
-      // Steps Count
-      $scope.steps = StepsFactory.steps.total;
-      $scope.$watch(function () {
-        return StepsFactory;
-      }, function (newVal, oldVal) {
-        $scope.steps = parseInt(newVal.steps.total);
-      }, true);
+        // Back button
+        $scope.goBack = function () {
+          $state.go('tabsController.imagoMap');
+        }
+
+        $scope.$watch(function () {
+          return $ionicSideMenuDelegate.getOpenRatio();
+        }, function (newValue, oldValue) {
+
+          if (newValue == 0) {
+            $scope.hideLeft = true;
+            $scope.hideRight = true;
+          } else {
+            if (newValue == 1) {
+              $scope.hideLeft = false;
+            } else {
+              $scope.hideRight = false;
+            }
+          }
+        });
+
+        // Sign Out
+        $scope.signOut = function () {
+          $state.go('login');
+          Auth.$signOut();
+        };
+
+        // Steps Count
+        $scope.steps = StepsFactory.steps.total;
+        $scope.$watch(function () {
+          return StepsFactory;
+        }, function (newVal, oldVal) {
+          $scope.steps = parseInt(newVal.steps.total);
+        }, true);
     }])
 
   .controller('leaderboardCtrl', ['$scope', '$stateParams', 'Users', 'currentUser', 'allUsers',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -151,53 +148,52 @@ angular.module('app.controllers', [])
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $state, $stateParams, ImagoFactory, Map) {
 
-        var markers = ImagoFactory.markers;
+      var markers = ImagoFactory.markers;
 
-                                 /*
-        $scope.goToDetails = function () {
-            $state.go('detail',{imagoName:currentImago});
-        }
-                            */
+      /*
+$scope.goToDetails = function () {
+$state.go('detail',{imagoName:currentImago});
+}
+ */
 
-        $scope.getBuildings = function () {
-            markers.forEach(function (marker) {
+      $scope.getBuildings = function () {
+        markers.forEach(function (marker) {
 
-                if (marker.category !== 'building'){
-                    marker.setVisible(false);
-                }
-                if (marker.category == 'building'){
-                    marker.setVisible(true);
-                }
+          if (marker.category !== 'building') {
+            marker.setVisible(false);
+          }
+          if (marker.category == 'building') {
+            marker.setVisible(true);
+          }
 
-            });
-            $state.go('tabsController.imagoMap');
-        }
-        $scope.getLandmarks = function () {
-            markers.forEach(function (marker) {
+        });
+        $state.go('tabsController.imagoMap');
+      }
+      $scope.getLandmarks = function () {
+        markers.forEach(function (marker) {
 
-                if (marker.category !== 'landmark'){
-                    marker.setVisible(false);
-                }
-                if (marker.category == 'landmark'){
-                    marker.setVisible(true);
-                }
+          if (marker.category !== 'landmark') {
+            marker.setVisible(false);
+          }
+          if (marker.category == 'landmark') {
+            marker.setVisible(true);
+          }
 
-            });
-            $state.go('tabsController.imagoMap');
-        }
-        $scope.getBusinesses = function () {
-            markers.forEach(function (marker) {
+        });
+        $state.go('tabsController.imagoMap');
+      }
+      $scope.getBusinesses = function () {
+        markers.forEach(function (marker) {
 
-                if (marker.category !== 'business'){
-                    marker.setVisible(false);
-                }
-                if (marker.category == 'business'){
-                    marker.setVisible(true);
-                }
-
-            });
-            $state.go('tabsController.imagoMap');
-        }
+          if (marker.category !== 'business') {
+            marker.setVisible(false);
+          }
+          if (marker.category == 'business') {
+            marker.setVisible(true);
+          }
+        });
+        $state.go('tabsController.imagoMap');
+      }
         $scope.showImagos = function () {
             markers.forEach(function (marker) {
                 marker.setVisible(true);
@@ -207,7 +203,6 @@ angular.module('app.controllers', [])
         $scope.listLandmarks = function () {
             $state.go('landmarks');
         }
-        
 
     }])
 
@@ -260,11 +255,11 @@ angular.module('app.controllers', [])
       });
     }])
 
-  .controller('profileCtrl', ['$scope', '$stateParams',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('profileCtrl', ['$scope', '$stateParams', 'currentUser',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function ($scope, $stateParams) {
-
+    function ($scope, $stateParams, currentUser) {
+      $scope.user = currentUser;
     }])
 
   .controller('aboutCtrl', ['$scope', '$stateParams', '$ionicHistory', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -280,17 +275,15 @@ angular.module('app.controllers', [])
     }])
 
 
-  .controller('pointsCtrl', ['currentUser' , '$scope', '$stateParams', '$state' , '$rootScope', 'ImagoFactory',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+  .controller('pointsCtrl', ['currentUser', '$scope', '$stateParams', '$state', '$rootScope', 'ImagoFactory',// The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function (currentUser, $scope, $stateParams, $state , $rootScope, ImagoFactory) {
-      var currentImago = $stateParams.imagoName;//changes based on which imago is close to you
-      $scope.points = ImagoFactory.imagoDetails[currentImago].points;
+    function (currentUser, $scope, $stateParams, $state, $rootScope, ImagoFactory) {
+      currentUser.$bindTo($scope, 'user').then(function () {
+        var currentImagoName = $stateParams.imagoName;//changes based on which imago is close to you
+        $scope.points = ImagoFactory.imagoDetails[currentImagoName].points;
 
-        $scope.goToDetails = function () {
-            $state.go('detail',{imagoName:currentImago});
-        }
-
+        $scope.userHasVisitedImago = $scope.user.visitedImagos.indexOf(currentImagoName) === -1 ? false: true;
 
 
       currentUser.$bindTo($scope, 'user').then(function() {
@@ -299,14 +292,21 @@ angular.module('app.controllers', [])
         
       })
         
+        if (!$scope.userHasVisitedImago) {
+          $scope.user.totalPoints = parseInt($scope.user.totalPoints) + parseInt($scope.points); // update firebase user with points
+          if (!$scope.user.visitedImagos) {
+            $scope.user.visitedImagos = currentImagoName;
+          } else {
+            $scope.user.visitedImagos = $scope.user.visitedImagos + ', ' + currentImagoName;
+          }
+          $scope.user.numOfImagos = parseInt($scope.user.numOfImagos) + 1;
+        }
 
         $scope.goToDetails = function () {
-            $state.go('detail',{imagoName:currentImago});
+          $state.go('detail', { imagoName: currentImagoName });
         }
+      });
     }])
-
-
-
 
   .controller('rewardsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
@@ -461,7 +461,7 @@ angular.module('app.controllers', [])
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams, ImagoFactory) {
-        console.log($stateParams);
+      console.log($stateParams);
       var currentImago = $stateParams.imagoName;//changes based on which imago is close to you
 
       $scope.funFact = ImagoFactory.imagoDetails[currentImago].funFact;
