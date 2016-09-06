@@ -93,7 +93,7 @@
 }
 /*Bucket-List*/
 .bucket-list-category{
-	font-size: 22px;
+	font-size: 18px;
 	font-weight:300;
 	display:inline;
 	position:relative;
@@ -101,12 +101,12 @@
 }
 .ion-android-map{
 	display:inline;
-	padding-left:30px;
-	padding-right:30px;
+	padding-left:20px;
+	padding-right:20px;
 }
 .bucket-list-link{
 	color:white;
-	font-size:16px;
+	font-size:12px;
 	border-radius:3px;
 	text-decoration:none;
 	padding:0 0 0 0;
@@ -116,12 +116,12 @@
 }
 .bucket-list-link-list{
 	background-color:rgb(68,68,68);
-	padding: 7px 6px 10px 6px !important;
+	padding: 2px 3px 5px 3px !important;
 	/*top:-15px;*/
 }
 .bucket-list-link-map{
 	background-color:rgb(56,126,245);
-	padding: 7px 6px 10px 6px !important;
+	padding: 2px 3px 5px 3px !important;
 	/*bottom:-15px;*/
 }
 
@@ -192,7 +192,7 @@
 }
 .view-on-map-button{
  background-color:rgb(56,126,245);
- padding: 1px 6px 4px 6px;
+ padding: 1px 20px 4px 20px;
 }
 .view-bucket-list-button{
  background-color:rgb(68,68,68);
