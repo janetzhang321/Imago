@@ -1016,6 +1016,7 @@ angular.module('app.factories', [])
             firebaseDbUser.photoURL = firebaseAuthUser.photoURL;
             firebaseDbUser.numOfImagos = 0;
             firebaseDbUser.totalPoints = 0;
+            firebaseDbUser.imagosVisited = [];
 
             return firebaseDbUser.$save()
               .then(function (ref) {

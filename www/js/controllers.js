@@ -273,18 +273,21 @@ $state.go('detail',{imagoName:currentImago});
     function (currentUser, $scope, $stateParams, $state, $rootScope, ImagoFactory) {
 
       currentUser.$bindTo($scope, 'user').then(function () {
+        var currentImagoName = $stateParams.imagoName;//changes based on which imago is close to you
+        $scope.points = ImagoFactory.imagoDetails[currentImagoName].points;
 
-        var currentImago = $stateParams.imagoName;//changes based on which imago is close to you
-        $scope.points = ImagoFactory.imagoDetails[currentImago].points;
+        var userHasVisitedImago = $scope.user.imagosVisited.every(function (imagoName) {
+          return imagoName !== currentImagoName;
+        });
 
-        $scope.goToDetails = function () {
-          $state.go('detail', { imagoName: currentImago });
+        if (!userHasVisitedImago) {
+          $scope.user.totalPoints = parseInt($scope.user.totalPoints) + parseInt($scope.points); // update firebase user with points
+          $scope.user.imagosVisited.push(currentImagoName);
+          $scope.user.numOfImagos = parseInt($scope.user.totalPoints) + 1;
         }
 
-        $scope.user.totalPoints = parseInt($scope.user.totalPoints) + parseInt($scope.points); // update firebase user with points
-
         $scope.goToDetails = function () {
-          $state.go('detail', { imagoName: currentImago });
+          $state.go('detail', { imagoName: currentImagoName });
         }
       });
     }])
