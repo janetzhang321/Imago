@@ -198,3 +198,16 @@
  background-color:rgb(68,68,68);
  padding: 1px 6px 4px 6px;
 }
+
+/**BUCKETLIST**/
+
+  .container { 
+    max-width: 33%;  
+    height: auto;
+    overflow: hidden; 
+  }
+  .container img { 
+    height:100%;
+    width: 100%;
+  }
+
