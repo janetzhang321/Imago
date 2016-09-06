@@ -42,7 +42,7 @@ angular.module('app.factories', [])
 
           return map.addMarker(getMarkerConfigs(), function (marker) {
             marker.category = configs.category;
-            marker.icon = configs.icon;
+            marker.imgSrc = configs.imgSrc;
             markers.push(marker);
           });
         }

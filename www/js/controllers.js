@@ -289,9 +289,9 @@ $state.go('detail',{imagoName:currentImago});
       currentUser.$bindTo($scope, 'user').then(function() {
 
         $scope.user.totalPoints = $scope.user.totalPoints + $scope.points; // update firebase user with points
-        
+
       })
-        
+
         if (!$scope.userHasVisitedImago) {
           $scope.user.totalPoints = parseInt($scope.user.totalPoints) + parseInt($scope.points); // update firebase user with points
           if (!$scope.user.visitedImagos) {
@@ -409,7 +409,7 @@ $state.go('detail',{imagoName:currentImago});
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams) {
 
-        
+
         $scope.listBuildings = function () {
             markers.forEach(function (marker) {
 
@@ -432,18 +432,18 @@ $state.go('detail',{imagoName:currentImago});
     function ($scope, $stateParams, ImagoFactory) {
 
         var markers = ImagoFactory.markers;
-                 
+
         console.log();
-        
+
         $scope.markersList = markers.map(function (marker) {
 
                 if (marker.category === 'landmark'){
-                    return marker.icon.url;
+                    return marker.imgSrc;
                 }
 
             });
-        
-        
+
+
     }])
 
   .controller('businessesCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -451,7 +451,7 @@ $state.go('detail',{imagoName:currentImago});
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams) {
 
-        
+
 
     }])
 
