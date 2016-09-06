@@ -97,7 +97,7 @@
 	font-weight:300;
 	display:inline;
 	position:relative;
-	top:-5px;
+	top:-10px;
 }
 .ion-android-map{
 	display:inline;
@@ -105,24 +105,24 @@
 	padding-right:30px;
 }
 .bucket-list-link{
-	text-decoration:none;
-	padding:0 0 0 0;
-	position:relative;
-}
-.bucket-list-button{
 	color:white;
 	font-size:16px;
 	border-radius:3px;
-	display:inline;
+	text-decoration:none;
+	padding:0 0 0 0;
 	position:relative;
+	float:right;
+	display:inline;
 }
-.view-on-map-button{
-	background-color:rgb(56,126,245);
-	padding: 1px 6px 4px 6px;
-}
-.view-bucket-list-button{
+.bucket-list-link-list{
 	background-color:rgb(68,68,68);
-	padding: 1px 6px 4px 6px;
+	padding: 7px 6px 10px 6px !important;
+	/*top:-15px;*/
+}
+.bucket-list-link-map{
+	background-color:rgb(56,126,245);
+	padding: 7px 6px 10px 6px !important;
+	/*bottom:-15px;*/
 }
 
 
