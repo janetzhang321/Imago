@@ -1,6 +1,7 @@
 angular.module('app.factories', [])
 
   .factory('ImagoFactory', function () {
+    var markers = [];
 
     function configureImago(configs) {
       return function (map) {
@@ -39,7 +40,11 @@ angular.module('app.factories', [])
         return img.onload = function () {
           context.drawImage(img, 0, 0, 120, 90); // 120 * 90, size of imgSrc
 
-          return map.addMarker(getMarkerConfigs());
+          return map.addMarker(getMarkerConfigs(), function (marker) {
+            marker.category = configs.category;
+            marker.imgSrc = configs.imgSrc;
+            markers.push(marker);
+          });
         }
       }
     }
@@ -71,11 +76,11 @@ angular.module('app.factories', [])
           url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: '',
-        originDate: '',
+        description: 'museum in an old elevator shaft',
+        originDate: '2012 and 2015',
         address: '4 Cortlandt Alley, New York, NY 10013',
-        funFact: '',
-        learnMore: '',
+        funFact: 'It started as a petite pet project of a trio of friends who run a film company out of an office upstairs from this alley attraction.',
+        learnMore: 'http://www.roadsideamerica.com/story/37020',
         points: '',
         category: 'building'
       },
@@ -87,31 +92,33 @@ angular.module('app.factories', [])
           url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: '',
-        originDate: '',
-        address: '',
-        funFact: '',
-        learnMore: '',
+        description: 'Street in Chinatown',
+        originDate: '1791',
+        address: 'Doyers St, New York, NY 10002',
+        funFact: 'Has a rare 90-degree curve called the “bloody angle” which was once home to the most murders per square foot in New York City.',
+        learnMore: 'https://en.wikipedia.org/wiki/Doyers_Street',
         points: '',
-        category: ''
+        category: 'landmark'
       },
-      flatiron: {
-        lat: 40.740992800,
-        lng: -73.989658700,
-        title: 'Flatiron Building',
-        imgSrc: 'img/thumbnails/flatironbuilding.jpg',
-        icon: {
+      /*
+    flatiron: {
+      lat: 40.740992800,
+      lng: -73.989658700,
+      title: 'Flatiron Building',
+      imgSrc: 'img/thumbnails/flatironbuilding.jpg',
+      icon: {
           url: 'www/img/thumbnails/markers/blue1.png'
-        },
-        redirectTmplUrl: '/#/tabs/bucketList',
-        description: '',
-        originDate: '',
-        address: '',
-        funFact: '',
-        learnMore: '',
-        points: '',
-        category: ''
       },
+      redirectTmplUrl: '/#/tabs/bucketList',
+      description:'',
+      originDate:'',
+      address:'',
+      funFact: '',
+      learnMore: '',
+      points: '',
+      category: ''
+    },
+    */
       fit: {
         lat: 40.746828200,
         lng: -73.993936600,
@@ -121,13 +128,13 @@ angular.module('app.factories', [])
           url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: '',
-        originDate: '',
-        address: '',
+        description: 'Fashion Institute of Technology\'s Museum',
+        originDate: '1969',
+        address: '227 W 27th St, New York, NY 10001',
         funFact: '',
-        learnMore: '',
+        learnMore: 'http://www.fitnyc.edu/museum/',
         points: '',
-        category: ''
+        category: 'building'
       },
       gilsey: {
         lat: 40.746166600,
@@ -172,13 +179,13 @@ angular.module('app.factories', [])
           url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: '',
-        originDate: '',
-        address: '',
-        funFact: '',
-        learnMore: '',
+        description: 'Grand Central Terminal is a commuter, rapid transit railroad terminal at 42nd Street and Park Avenue in Midtown Manhattan in New York City, United States.',
+        originDate: '1871',
+        address: '89 E 42nd St, New York, NY 10017',
+        funFact: 'A once secret basement, widely referred to as M42, lies under the Terminal, containing converters used to supply electric currents to run the trains from the Terminal.',
+        learnMore: 'http://www.grandcentralterminal.com/',
         points: '',
-        category: ''
+        category: 'landmark'
       },
       thomasSt: {
         lat: 40.716551100,
@@ -189,13 +196,13 @@ angular.module('app.factories', [])
           url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: '',
-        originDate: '',
-        address: '',
-        funFact: '',
-        learnMore: '',
+        description: 'Building without windows',
+        originDate: '1974 -- Permanently Closed',
+        address: '33 Thomas St, New York, NY 10007',
+        funFact: 'AT&T wanted a building that could handle anything, especially a nuclear attack. In the event that Manhattan was bombed, AT&T wanted to be sure that the phone lines would not go down. So the architect made a building that was heavy-duty. Windows would make the structure weaker. They have estimated that the building would continue to operate without interruption for about two weeks after a nuclear bomb.',
+        learnMore: 'https://en.wikipedia.org/wiki/33_Thomas_Street',
         points: '',
-        category: ''
+        category: 'building'
       },
       plazaHotel: {
         lat: 40.764609500,
@@ -206,13 +213,13 @@ angular.module('app.factories', [])
           url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: '',
-        originDate: '',
-        address: '',
-        funFact: '',
-        learnMore: '',
+        description: 'Hotel in NYC',
+        originDate: '1966',
+        address: '768 5th Ave, New York, NY 10019',
+        funFact: 'With the opening of the new Plaza Hotel came the introduction of the city\'s first-ever taxi cabs, which lined up along the hotel\'s entrance on its first day of business.',
+        learnMore: 'http://www.fairmont.com/about-us/ourhistory/',
         points: '',
-        category: ''
+        category: 'building'
       },
       met: {
         lat: 40.779165500,
@@ -223,13 +230,13 @@ angular.module('app.factories', [])
           url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: '',
-        originDate: '',
-        address: '',
-        funFact: '',
-        learnMore: '',
+        description: 'The Metropolitan Museum of Art, colloquially "the Met", is located in New York City and is the largest art museum in the United States, and among the most visited art museums in the world.',
+        originDate: '1870',
+        address: '1000 5th Ave, New York, NY 10028',
+        funFact: 'The Met was founded by a group of businessmen, financiers, artists, and cultural enthusiasts.',
+        learnMore: 'http://www.metmuseum.org/',
         points: '',
-        category: ''
+        category: 'building'
       },
       museumNYC: {
         lat: 40.792567500,
@@ -274,13 +281,13 @@ angular.module('app.factories', [])
           url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: '',
-        originDate: '',
-        address: '',
-        funFact: '',
-        learnMore: '',
+        description: 'The Solomon R. Guggenheim Museum, often referred to as The Guggenheim, is an art museum located at 1071 Fifth Avenue on the corner of East 89th Street in the Upper East Side neighborhood of Manhattan, New York City.',
+        originDate: '1939',
+        address: '1071 5th Ave, New York, NY 10128',
+        funFact: 'The Guggenheim Museum’s design, by Frank Lloyd Wright, was inspired by a seashell and the shape of the building is a play on the ancient Mesopotamian ziggurat, which narrows as it rises. Guggenheim’s structure actually widens as it rises.',
+        learnMore: 'https://www.guggenheim.org/',
         points: '',
-        category: ''
+        category: 'building'
       },
       waldorfAstoria: {
         lat: 40.756571200,
@@ -291,31 +298,33 @@ angular.module('app.factories', [])
           url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: '',
-        originDate: '',
-        address: '',
-        funFact: '',
-        learnMore: '',
+        description: 'Upscale art deco hotel',
+        originDate: '1893',
+        address: '301 Park Ave, New York, NY 10022',
+        funFact: 'In the 1930s, the hotel invented room service. In the mood for a late night snack? You can order off of a specialty menu until 5am.',
+        learnMore: 'http://www.waldorfnewyork.com/',
         points: '',
-        category: ''
+        category: 'building'
       },
-      rockefellerCenter: {
-        lat: 40.759088400,
-        lng: -73.977599500,
-        title: 'Rockefeller Center',
-        imgSrc: 'img/thumbnails/RockefellerCenter.jpg',
-        icon: {
+      /*
+    rockefellerCenter: {
+      lat: 40.759088400,
+      lng: -73.977599500,
+      title: 'Rockefeller Center',
+      imgSrc: 'img/thumbnails/RockefellerCenter.jpg',
+      icon: {
           url: 'www/img/thumbnails/markers/blue1.png'
-        },
-        redirectTmplUrl: '/#/tabs/bucketList',
-        description: '',
-        originDate: '',
-        address: '',
-        funFact: '',
-        learnMore: '',
-        points: '',
-        category: ''
       },
+      redirectTmplUrl: '/#/tabs/bucketList',
+      description:'',
+      originDate:'',
+      address:'',
+      funFact: 'Under Rockefeller center there are a network of tunnels open to the public that connect the subway, and are filled with shops. Allowing a person to never leave the complex for the moment they arrive to the the time they leave.  ',
+      learnMore: '',
+      points: '',
+      category: 'landmark'
+    },
+    */
       cityHall: {
         lat: 40.712746100,
         lng: -74.005974000,
@@ -325,13 +334,13 @@ angular.module('app.factories', [])
           url: 'www/img/thumbnails/markers/blue1.png'
         },
         redirectTmplUrl: '/#/tabs/bucketList',
-        description: '',
-        originDate: '',
-        address: '',
-        funFact: '',
-        learnMore: '',
+        description: 'New York City Hall is the seat of New York City government.',
+        originDate: '1811',
+        address: 'City Hall Park, New York, NY 10007',
+        funFact: 'The oldest City Hall in the nation that still houses its original governmental functions, New York’s City Hall is also considered one of the finest architectural achievements of its period. ',
+        learnMore: 'https://en.wikipedia.org/wiki/New_York_City_Hall',
         points: '',
-        category: ''
+        category: 'building'
       },
       NYSE: {
         lat: 40.706866100,
@@ -345,10 +354,10 @@ angular.module('app.factories', [])
         description: '',
         originDate: '',
         address: '',
-        funFact: '',
+        funFact: 'The NYSE is the oldest exchange in the United States, and now money is actually kept at the exchange itself.',
         learnMore: '',
         points: '',
-        category: ''
+        category: 'landmark'
       },
       fedHall: {
         lat: 40.707258000,
@@ -365,7 +374,7 @@ angular.module('app.factories', [])
         funFact: '',
         learnMore: '',
         points: '',
-        category: ''
+        category: 'building'
       },
       intrepid: {
         lat: 40.763726600,
@@ -382,7 +391,7 @@ angular.module('app.factories', [])
         funFact: '',
         learnMore: '',
         points: '',
-        category: ''
+        category: 'landmark'
       },
       fedReserve: {
         lat: 40.708366300,
@@ -399,25 +408,27 @@ angular.module('app.factories', [])
         funFact: '',
         learnMore: '',
         points: '',
-        category: ''
+        category: 'building'
       },
-      empireState: {
-        lat: 40.748709700,
-        lng: -73.985655600,
-        title: 'Empire State Building',
-        imgSrc: 'img/thumbnails/EmpireState.jpg',
-        icon: {
+      /*
+    empireState: {
+      lat: 40.748709700,
+      lng: -73.985655600,
+      title: 'Empire State Building',
+      imgSrc: 'img/thumbnails/EmpireState.jpg',
+      icon: {
           url: 'www/img/thumbnails/markers/blue1.png'
-        },
-        redirectTmplUrl: '/#/tabs/bucketList',
-        description: '',
-        originDate: '',
-        address: '',
-        funFact: '',
-        learnMore: '',
-        points: '',
-        category: ''
       },
+      redirectTmplUrl: '/#/tabs/bucketList',
+      description:'',
+      originDate:'',
+      address:'',
+      funFact: '',
+      learnMore: '',
+      points: '',
+      category: ''
+    },
+      */
       chipilo: {
         lat: 40.715154200,
         lng: -73.999525400,
@@ -433,7 +444,7 @@ angular.module('app.factories', [])
         funFact: '',
         learnMore: '',
         points: '',
-        category: ''
+        category: 'business'
       },
       laBellaFerrara: {
         lat: 40.717359500,
@@ -450,7 +461,7 @@ angular.module('app.factories', [])
         funFact: '',
         learnMore: '',
         points: '',
-        category: ''
+        category: 'business'
       },
       NFTEhq: {
         lat: 40.704299600,
@@ -467,7 +478,7 @@ angular.module('app.factories', [])
         funFact: '',
         learnMore: '',
         points: '',
-        category: ''
+        category: 'building'
       },
       AppNexus: {
         lat: 40.741624300,
@@ -483,8 +494,8 @@ angular.module('app.factories', [])
         address: '',
         funFact: '',
         learnMore: '',
-        points: '',
-        category: ''
+        points: 100,
+        category: 'building'
       },
 
       desserts520: {
@@ -499,9 +510,10 @@ angular.module('app.factories', [])
         description: '',
         originDate: '',
         address: '133-53 37th Avenue #101, Flushing, NY 11354',
+        funFact: '',
         learnMore: 'http://520desserts.com/',
         points: ' ',
-        category: 'restaurant'
+        category: 'business'
       },
 
       aquarium123: {
@@ -516,9 +528,10 @@ angular.module('app.factories', [])
         description: 'put description here',
         originDate: ' ',
         address: '123 Elizabeth St, New York, NY 10013',
+        funFact: '',
         learnMore: 'put web link here',
         points: ' ',
-        category: 'restaurant'
+        category: 'business'
       },
 
       yayaTeaGarden: {
@@ -533,9 +546,10 @@ angular.module('app.factories', [])
         description: 'put description here',
         originDate: ' ',
         address: '51 Chrystie St, New York, NY 10002',
+        funFact: '',
         learnMore: 'http://yayatea.com/',
         points: ' ',
-        category: 'restaurant'
+        category: 'business'
       },
 
       culturaPizzaEVita: {
@@ -550,9 +564,10 @@ angular.module('app.factories', [])
         description: 'put description here',
         originDate: ' ',
         address: '151 Mott St, New York, NY 10013',
+        funFact: '',
         learnMore: 'http://culturapizzaevita.com/',
         points: ' ',
-        category: 'restaurant'
+        category: 'business'
       },
 
       pateaBubbleTea: {
@@ -567,9 +582,10 @@ angular.module('app.factories', [])
         description: 'put description here',
         originDate: ' ',
         address: '135 Mott St, New York, NY 10013',
+        funFact: '',
         learnMore: 'http://www.pateabubbletea.com/',
         points: ' ',
-        category: 'restaurant'
+        category: 'business'
       },
 
       saigonVietnameseSandwichDeli: {
@@ -586,7 +602,7 @@ angular.module('app.factories', [])
         address: '369 Broome St, New York, NY 10013',
         learnMore: 'http://www.banhmi.nyc/',
         points: ' ',
-        category: 'restaurant'
+        category: 'business'
       },
 
       stPartricksCathedral: {
@@ -601,14 +617,15 @@ angular.module('app.factories', [])
         description: 'put description here',
         originDate: ' ',
         address: '5th Ave, New York, NY 10022',
+        funFact: '',
         learnMore: 'http://saintpatrickscathedral.org/',
         points: ' ',
-        category: 'landmark'
+        category: 'building'
       },
 
       carnegieHall: {
         lat: 40.764938000,
-        lng: -73.833175000,
+        lng: -73.979897000,
         title: 'Carnegie Hall',
         imgSrc: 'img/thumbnails/carnegieHall.jpg',
         icon: {
@@ -618,9 +635,10 @@ angular.module('app.factories', [])
         description: 'put description here',
         originDate: ' ',
         address: '881 7th Ave, New York, NY 10019',
+        funFact: '',
         learnMore: 'https://www.carnegiehall.org/Information/About-the-Building/',
         points: ' ',
-        category: 'landmark'
+        category: 'building'
       },
 
       NYPL: {
@@ -635,9 +653,10 @@ angular.module('app.factories', [])
         description: 'put description here',
         originDate: ' ',
         address: ' 5th Ave at 42nd St, New York, NY 10018',
+        funFact: '',
         learnMore: 'https://www.nypl.org/locations/schwarzman',
         points: ' ',
-        category: 'landmark'
+        category: 'building'
       },
 
       southStreetSeaport: {
@@ -652,6 +671,7 @@ angular.module('app.factories', [])
         description: 'put description here',
         originDate: ' ',
         address: '19 Fulton Street, New York, NY 10038',
+        funFact: '',
         learnMore: 'http://www.southstreetseaport.com/',
         points: ' ',
         category: 'landmark'
@@ -669,6 +689,7 @@ angular.module('app.factories', [])
         description: 'put description here',
         originDate: ' ',
         address: '233 Broadway, New York, NY 10007',
+        funFact: '',
         learnMore: 'https://en.wikipedia.org/wiki/Woolworth_Building',
         points: ' ',
         category: 'landmark'
@@ -686,6 +707,7 @@ angular.module('app.factories', [])
         description: 'put description here',
         originDate: ' ',
         address: ' 290 Broadway, New York, NY 10007',
+        funFact: '',
         learnMore: 'https://www.nps.gov/afbg/index.htm',
         points: ' ',
         category: 'landmark'
@@ -703,12 +725,33 @@ angular.module('app.factories', [])
         description: 'put description here',
         originDate: ' ',
         address: 'W 122nd St & Riverside Dr, New York, NY 10027',
+        funFact: '',
         learnMore: 'https://www.nps.gov/gegr/index.htm',
         points: ' ',
         category: 'landmark'
 
+      },
+
+      queensBotanicalGarden: {
+        lat: 40.751152800,
+        lng: -73.827472900,
+        title: 'Queens Botanical Garden',
+        imgSrc: 'img/thumbnails/QueensBotanicalGarden.jpg',
+        icon: {
+          url: 'www/img/thumbnails/markers/blue1.png'
+        },
+        redirectTmplUrl: '/#/tabs/bucketList',
+        description: 'put description here',
+        originDate: ' ',
+        address: '43-50 Main St, Flushing, NY 11355',
+        funFact: 'The Queens Botanical Garden began as part of the 1939 New York World\'s Fair in Queens.',
+        learnMore: 'http://www.queensbotanical.org/',
+        points: ' ',
+        category: 'landmark'
       }
     }
+
+
 
     /*
   greenWoodCemetery: {
@@ -723,6 +766,7 @@ angular.module('app.factories', [])
     description:'put description here',
     originDate:' ',
     address:'500 25th St, Brooklyn, NY 11232',
+    funFact: '',
     learnMore: 'http://www.green-wood.com/about-history/',
     points: ' ',
     category: 'landmark'
@@ -740,6 +784,7 @@ angular.module('app.factories', [])
     description:'put description here',
     originDate:' ',
     address:'414 W 141st St, New York, NY 10031',
+    funFact: '',
     learnMore: 'https://www.nps.gov/hagr/index.htm',
     points: ' ',
     category: 'landmark'
@@ -759,6 +804,7 @@ angular.module('app.factories', [])
     description:'put description here',
     originDate:' ',
     address:'1 Bowling Green, New York, NY 10004',
+    funFact: '',
     learnMore: 'http://nmai.si.edu/visit/newyork/',
     points: ' ',
     category: 'building'
@@ -776,6 +822,7 @@ angular.module('app.factories', [])
     description:'put description here',
     originDate:' ',
     address:'141 Wooster St, New York, NY 10012',
+    funFact: '',
     learnMore: 'http://www.diaart.org/visit/visit/walter-de-maria-the-new-york-earth-room-new-york-united-states',
     points: ' ',
     category: ' '
@@ -793,6 +840,7 @@ angular.module('app.factories', [])
     description:'put description here',
     originDate:' ',
     address:'336 3rd St, Brooklyn, NY 11215',
+    funFact: '',
     learnMore: 'http://theoldstonehouse.org/',
     points: ' ',
     category: 'landmark'
@@ -810,6 +858,7 @@ angular.module('app.factories', [])
     description:'put description here',
     originDate:' ',
     address:'515 Malcolm X Blvd, New York, NY 10037',
+    funFact: '',
     learnMore: 'https://www.nypl.org/locations/schomburg?gclid=Cj0KEQjwxqS-BRDRgPLp0q2t0IUBEiQAgfMXRKgslQdaj6rqr99NkASFNrj5T-j_SXrpt8YtwCiOk90aArnj8P8HAQ',
     points: ' ',
     category: ' '
@@ -827,6 +876,7 @@ angular.module('app.factories', [])
     description:'put description here',
     originDate:' ',
     address:'32-01 Vernon Blvd, Long Island City, NY 11106',
+    funFact: '',
     learnMore: 'socratessculpturepark.org',
     points: ' ',
     category: 'landmark'
@@ -835,10 +885,12 @@ angular.module('app.factories', [])
 }
 */
 
+
+
     var createLiu = configureImago(imagoDetails.LIU);
     var createMmuseumm = configureImago(imagoDetails.mmuseumm);
     var createDoyers = configureImago(imagoDetails.doyers);
-    var createFlatironBuilding = configureImago(imagoDetails.flatiron);
+    //    var createFlatironBuilding = configureImago(imagoDetails.flatiron);
     var createMuseumFIT = configureImago(imagoDetails.fit);
     var createGilseyHouse = configureImago(imagoDetails.gilsey);
     var createMuseumPR = configureImago(imagoDetails.museumPR);
@@ -850,13 +902,13 @@ angular.module('app.factories', [])
     var createMoMa = configureImago(imagoDetails.MoMA);
     var createGuggenheimMuseum = configureImago(imagoDetails.guggenheim);
     var createWaldorfAstoria = configureImago(imagoDetails.waldorfAstoria);
-    var createRockefellerCenter = configureImago(imagoDetails.rockefellerCenter);
+    //    var createRockefellerCenter = configureImago(imagoDetails.rockefellerCenter);
     var createCityHall = configureImago(imagoDetails.cityHall);
     var createNYSE = configureImago(imagoDetails.NYSE);
     var createFederalHall = configureImago(imagoDetails.fedHall);
     var createIntrepid = configureImago(imagoDetails.intrepid);
     var createFederalReserve = configureImago(imagoDetails.fedReserve);
-    var createEmpireState = configureImago(imagoDetails.empireState);
+    //    var createEmpireState = configureImago(imagoDetails.empireState);
     var createChipilo = configureImago(imagoDetails.chipilo);
     var createLaBellaFerrara = configureImago(imagoDetails.laBellaFerrara);
     var createNFTEhq = configureImago(imagoDetails.NFTEhq);
@@ -874,14 +926,15 @@ angular.module('app.factories', [])
     var createWoolworthBuilding = configureImago(imagoDetails.woolworthBuilding);
     var createAfricanBurialGround = configureImago(imagoDetails.africanBurialGround);
     var createGrantNationalMemorial = configureImago(imagoDetails.grantNationalMemorial);
+    var createQueensBotanicalGarden = configureImago(imagoDetails.queensBotanicalGarden);
 
     // ADD ALL IMAGO TO THIS ARRAY
     var imagos = [
       createLiu,
       createMmuseumm,
       createDoyers,
-      createEmpireState,
-      createFlatironBuilding,
+      //        createEmpireState,
+      //        createFlatironBuilding,
       createMuseumFIT,
       createGilseyHouse,
       createMuseumPR,
@@ -893,13 +946,13 @@ angular.module('app.factories', [])
       createMoMa,
       createGuggenheimMuseum,
       createWaldorfAstoria,
-      createRockefellerCenter,
+      //        createRockefellerCenter,
       createCityHall,
       createNYSE,
       createFederalHall,
       createIntrepid,
       createFederalReserve,
-      createEmpireState,
+      //        createEmpireState,
       createLaBellaFerrara,
       createChipilo,
       createNFTEhq,
@@ -916,7 +969,8 @@ angular.module('app.factories', [])
       createSouthStreetSeaport,
       createWoolworthBuilding,
       createAfricanBurialGround,
-      createGrantNationalMemorial
+      createGrantNationalMemorial,
+      createQueensBotanicalGarden
     ];
 
     return {
@@ -925,7 +979,8 @@ angular.module('app.factories', [])
           return initiateImagoFn(map);
         });
       },
-      imagoDetails: imagoDetails
+      imagoDetails: imagoDetails,
+      markers: markers
     };
   })
 
@@ -955,13 +1010,14 @@ angular.module('app.factories', [])
         var deferred = $q.defer();
 
         firebaseDbUser.$loaded(function () {
-          if (firebaseDbUser.$value === null) {
-            firebaseDbUser.uid = 'firebaseAuthUser.uid';
+          if (!firebaseDbUsers.uid) {
             firebaseDbUser.displayName = firebaseAuthUser.displayName;
             firebaseDbUser.email = firebaseAuthUser.email;
             firebaseDbUser.photoURL = firebaseAuthUser.photoURL;
             firebaseDbUser.numOfImagos = 0;
             firebaseDbUser.totalPoints = 0;
+            firebaseDbUser.visitedImagos = '';
+            firebaseDbUsers.uid = firebaseAuthUser.uid;
 
             return firebaseDbUser.$save()
               .then(function (ref) {
@@ -1129,26 +1185,49 @@ angular.module('app.factories', [])
   })
 
   .factory('Camera', function ($cordovaCamera, $q) {
-      var options = {
-        quality: 50,
-        destinationType: Camera.DestinationType.DATA_URL,
-        sourceType: Camera.PictureSourceType.CAMERA,
-        allowEdit: false,
-        encodingType: Camera.EncodingType.JPEG,
-        targetWidth: 100,
-        targetHeight: 100,
-        popoverOptions: CameraPopoverOptions,
-        saveToPhotoAlbum: false,
-        correctOrientation: true
-      };
+    var options = {
+      quality: 50,
+      destinationType: Camera.DestinationType.DATA_URL,
+      sourceType: Camera.PictureSourceType.CAMERA,
+      allowEdit: false,
+      encodingType: Camera.EncodingType.JPEG,
+      targetWidth: 100,
+      targetHeight: 100,
+      popoverOptions: CameraPopoverOptions,
+      saveToPhotoAlbum: false,
+      correctOrientation: true
+    };
 
-      function takePicture() {
-        return $cordovaCamera.getPicture(options)
-      }
+    function takePicture() {
+      return $cordovaCamera.getPicture(options)
+    }
 
-      return {
-        takePicture: takePicture
-      }
+    return {
+      takePicture: takePicture
+    }
+  })
+
+
+  .factory('Map', function () {
+    var map;
+
+    // Initialize the map view
+    function initializeMap(div) {
+      map = plugin.google.maps.Map.getMap(div, {
+        controls: {
+          compass: true,
+          myLocationButton: true,
+          zoom: true
+        }
+      });
+
+      return map;
+    }
+
+    return {
+      initializeMap: initializeMap,
+      map: map
+    }
+
   });
-;
 

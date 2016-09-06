@@ -176,3 +176,25 @@
   height: 50px;
   width: 50px;
 }
+
+/** BUCKETLIST **/
+.bucket-list-link{
+ text-decoration:none;
+ padding:0 0 0 0;
+ position:relative;
+}
+.bucket-list-button{
+ color:white;
+ font-size:16px;
+ border-radius:3px;
+ display:inline;
+ position:relative;
+}
+.view-on-map-button{
+ background-color:rgb(56,126,245);
+ padding: 1px 6px 4px 6px;
+}
+.view-bucket-list-button{
+ background-color:rgb(68,68,68);
+ padding: 1px 6px 4px 6px;
+}
