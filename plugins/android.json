@@ -38,14 +38,11 @@
             "PACKAGE_NAME": "com.ionicframework.imago196429"
         },
         "plugin.google.maps": {
-            "API_KEY_FOR_ANDROID": "AIzaSyCc-MVvwsO8lwRqRP9Bm18nKB0vWxJLKnI",
+            "API_KEY_FOR_ANDROID": "AIzaSyDrJUq6Ng68h-Sle4fLTciPkWHxkMtE7KM",
             "PACKAGE_NAME": "com.ionicframework.imago196429"
         }
     },
     "dependent_plugins": {
-        "com.googlemaps.ios": {
-            "PACKAGE_NAME": "com.ionicframework.imago196429"
-        },
         "cordova-plugin-compat": {
             "PACKAGE_NAME": "com.ionicframework.imago196429"
         }
