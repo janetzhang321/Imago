@@ -1,0 +1,14 @@
+<ion-view title="Leaderboard" id="page3">
+    <ion-content padding="true" class="has-header">
+        <ion-list id="leaderboard-list">
+          <ion-item ng-repeat="user in allUsers | orderBy:'totalPoints':reverse=true">
+            <span class="leaderboard-left">
+              <h1 class="rank">{{$index + 1}}</h1>
+              <h2 class="name">{{user.displayName}}</h1>
+              <p class="score">{{user.totalPoints}}</p>
+            </span>
+            <img ng-src="{{user.photoURL}}" class="leaderboard-right">
+          </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
