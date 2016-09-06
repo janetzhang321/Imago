@@ -260,12 +260,7 @@ $state.go('detail',{imagoName:currentImago});
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams, currentUser) {
       $scope.user = currentUser;
-<<<<<<< HEAD
       console.log($scope.user)
-=======
-        
-        console.log(user);
->>>>>>> feac3d8c8786021ab1acb334516de2a011313ef5
     }])
 
   .controller('aboutCtrl', ['$scope', '$stateParams', '$ionicHistory', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
