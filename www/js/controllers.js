@@ -271,20 +271,24 @@ $state.go('detail',{imagoName:currentImago});
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function (currentUser, $scope, $stateParams, $state, $rootScope, ImagoFactory) {
-
       currentUser.$bindTo($scope, 'user').then(function () {
+        var currentImagoName = $stateParams.imagoName;//changes based on which imago is close to you
+        $scope.points = ImagoFactory.imagoDetails[currentImagoName].points;
 
-        var currentImago = $stateParams.imagoName;//changes based on which imago is close to you
-        $scope.points = ImagoFactory.imagoDetails[currentImago].points;
+        $scope.userHasVisitedImago = $scope.user.visitedImagos.indexOf(currentImagoName) === -1 ? false: true;
 
-        $scope.goToDetails = function () {
-          $state.go('detail', { imagoName: currentImago });
+        if (!$scope.userHasVisitedImago) {
+          $scope.user.totalPoints = parseInt($scope.user.totalPoints) + parseInt($scope.points); // update firebase user with points
+          if (!$scope.user.visitedImagos) {
+            $scope.user.visitedImagos = currentImagoName;
+          } else {
+            $scope.user.visitedImagos = $scope.user.visitedImagos + ', ' + currentImagoName;
+          }
+          $scope.user.numOfImagos = parseInt($scope.user.numOfImagos) + 1;
         }
 
-        $scope.user.totalPoints = parseInt($scope.user.totalPoints) + parseInt($scope.points); // update firebase user with points
-
         $scope.goToDetails = function () {
-          $state.go('detail', { imagoName: currentImago });
+          $state.go('detail', { imagoName: currentImagoName });
         }
       });
     }])
