@@ -1,5 +1,7 @@
 <ion-view title="Buildings" id="page9">
     <ion-content padding="true" class="has-header">
-        <img src={{}}>
+      <span ng-repeat="url in markersList track by $index">
+        <img ng-src={{url}}>
+      </span>
     </ion-content>
 </ion-view>
