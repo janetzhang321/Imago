@@ -1010,13 +1010,12 @@ angular.module('app.factories', [])
 
         firebaseDbUser.$loaded(function () {
           if (firebaseDbUser.$value === null) {
-            firebaseDbUser.uid = 'firebaseAuthUser.uid';
             firebaseDbUser.displayName = firebaseAuthUser.displayName;
             firebaseDbUser.email = firebaseAuthUser.email;
             firebaseDbUser.photoURL = firebaseAuthUser.photoURL;
             firebaseDbUser.numOfImagos = 0;
             firebaseDbUser.totalPoints = 0;
-            firebaseDbUser.imagosVisited = [];
+            firebaseDbUser.visitedImagos = '';
 
             return firebaseDbUser.$save()
               .then(function (ref) {
