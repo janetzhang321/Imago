@@ -1010,13 +1010,14 @@ angular.module('app.factories', [])
         var deferred = $q.defer();
 
         firebaseDbUser.$loaded(function () {
-          if (firebaseDbUser.$value === null) {
+          if (!firebaseDbUsers.uid) {
             firebaseDbUser.displayName = firebaseAuthUser.displayName;
             firebaseDbUser.email = firebaseAuthUser.email;
             firebaseDbUser.photoURL = firebaseAuthUser.photoURL;
             firebaseDbUser.numOfImagos = 0;
             firebaseDbUser.totalPoints = 0;
             firebaseDbUser.visitedImagos = '';
+            firebaseDbUsers.uid = firebaseAuthUser.uid;
 
             return firebaseDbUser.$save()
               .then(function (ref) {
