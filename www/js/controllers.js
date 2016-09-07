@@ -289,17 +289,11 @@ $state.go('detail',{imagoName:currentImago});
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function (currentUser, $scope, $stateParams, $state, $rootScope, ImagoFactory) {
       currentUser.$bindTo($scope, 'user').then(function () {
+        console.log(currentUser)
         var currentImagoName = $stateParams.imagoName;//changes based on which imago is close to you
         $scope.points = ImagoFactory.imagoDetails[currentImagoName].points;
 
         $scope.userHasVisitedImago = $scope.user.visitedImagos.indexOf(currentImagoName) === -1 ? false : true;
-
-
-        currentUser.$bindTo($scope, 'user').then(function () {
-
-          $scope.user.totalPoints = $scope.user.totalPoints + $scope.points; // update firebase user with points
-
-        })
 
         if (!$scope.userHasVisitedImago) {
           $scope.user.totalPoints = parseInt($scope.user.totalPoints) + parseInt($scope.points); // update firebase user with points
