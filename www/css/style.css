@@ -93,21 +93,16 @@
 }
 /*Bucket-List*/
 .bucket-list-category{
-	font-size: 18px;
+	font-size: 16px;
 	font-weight:300;
 	display:inline;
 	position:relative;
-	top:-10px;
+	top:-5px;
 }
 .ion-android-map{
 	display:inline;
-	padding-left:20px;
-	padding-right:20px;
-}
-.ion-android-navigate{
-	display:inline;
-	padding-left:20px;
-	padding-right:20px;
+	padding-left:10px;
+	padding-right:5px;
 }
 .bucket-list-link{
 	color:white;
