@@ -2,8 +2,11 @@
     <ion-content padding="true" class="has-header">
         <div class="list card" id="profile-card21">
             <center><img src={{user.photoURL}} style="width:30%; border-radius:100%"></center>
-            <ion-item class="item-avatar" id="profile-list-item10">
-                <h2 id="display-username" style="margin-left:5px;">{{user.displayName}}</h2>
+            <ion-item class="item-avatar" id="profile-list-item10" style="left-padding: 20px;">
+                <h2 id="display-username" style="margin-left:5px;">Name: {{user.displayName}}</h2>
+            </ion-item>
+            <ion-item class="item-avatar" id="profile-list-item10" style="left-padding: 20px;">
+                <h2 id="display-username" style="margin-left:5px;">Points: {{user.totalPoints}}</h2>
             </ion-item>
             <div style="margin: 0px; line-height: 250px; text-align: center; background-color: rgb(232, 235, 239);">
 <!--                <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>-->

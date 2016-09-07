@@ -1,31 +1,31 @@
 <ion-view title="Imago Details" id="page10">
     <ion-content padding="true" class="has-header">
       
-<!--        <h4 id="details-heading9" style="color:#000000;font-weight:400;text-align:center;" class=" ">Details</h4>-->
         <ion-list id="details-list12" class=" ">
-            <ion-item class="item-thumbnail-left  " id="details-list-item11">
-                <img style="width:auto; height:auto" src={{imgSrc}}>
-                <h2>{{title}}</h2>
-                <p>{{description}}</p>
-            </ion-item>
-            <ion-item id="details-list-item12" class="  ">Founded: {{originDate}}
-                <span class="item-note"></span>
-            </ion-item>
-            <ion-item id="details-list-item13" class="  ">Address: {{address}}</ion-item>
-            
-         <ion-item id="details-list-item14" height="auto" class="  ">
 
-        <div id="details-markdown6" style="margin-top:0px;color:#000000;display: inline;" class="funfact" >
-            <p id="funfactp">Fun Fact: {{funFact}}</div>
-            </p>
+            <ion-item class="item-thumbnail-left  " id="details-list-item11">
+                <img style="width:auto; height:100%" src={{imgSrc}}>
+                <h2 style="font-size:30px">{{title}}</h2>
+                <p style="font-size:25px; line-height: 30px">{{description}}</p>
             </ion-item>
-        <div>
-            <p>
-            </p>
-            <center>
-                <a href={{LearnMore}}>Learn more</a>
-            </center>
-            <p></p>
-        </div>
+
+            <ion-item id="details-list-item12" class="  " style="font-size:25px; line-height: 30px">
+                Founded: {{originDate}}
+            </ion-item>
+
+            <ion-item id="details-list-item13" class="  " style="white-space:normal; font-size:25px; line-height: 30px">
+                Address: {{address}}
+            </ion-item>
+            
+            <ion-item id="details-list-item14" class="  " style="white-space:normal; font-size:25px; line-height: 30px">
+                Fun Fact: {{funFact}}
+            </ion-item>
+
+            <div>
+                <center>
+                    <a href={{learnMore}} target="_blank" style="font-size:30px; line-height: 40px">Learn more</a>
+                </center>
+            </div>
+
     </ion-content>
 </ion-view>
