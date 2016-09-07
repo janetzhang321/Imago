@@ -7,71 +7,73 @@ angular.module('app.controllers', [])
       $scope.showCamera = false;
 
       div = document.getElementById("map_canvas");
-      // Initialize the map view
-      map = Map.initializeMap(div);
 
-      map.addEventListener(plugin.google.maps.event.MAP_READY, function () {
-        //$rootScope.currentPosition.then(
-        map.getMyLocation({ enableHighAccuracy: true }, function (position) {
-          var currentPosition = new plugin.google.maps.LatLng(position.latLng.lat, position.latLng.lng);
+      if (ionic.Platform.isAndroid()) {
+        // Initialize the map view
+        map = Map.initializeMap(div);
 
-          // camera view, zoom, and tilt
-          map.animateCamera({
-            target: currentPosition,
-            tilt: 30,
-            zoom: 12,
-          });
+        map.addEventListener(plugin.google.maps.event.MAP_READY, function () {
+          //$rootScope.currentPosition.then(
+          map.getMyLocation({ enableHighAccuracy: true }, function (position) {
+            var currentPosition = new plugin.google.maps.LatLng(position.latLng.lat, position.latLng.lng);
 
-          // place all Imagos/Markers on map
-          console.log(ImagoFactory.getAllImagos(map));
+            // camera view, zoom, and tilt
+            map.animateCamera({
+              target: currentPosition,
+              tilt: 30,
+              zoom: 12,
+            });
 
-          // add tracking circle
-          map.addCircle({
-            'center': currentPosition,
-            'radius': 77, // in meters
-            'strokeColor': '#159966',
-            'strokeWidth': 2,
-            'fillColor': '#23FFAA'
-          }, function (circle) {
+            // place all Imagos/Markers on map
+            ImagoFactory.getAllImagos(map);
 
-            // track location
-            $rootScope.watchPosition.then(null,
-              function (err) {
-                // TODO: handleError
-              },
-              function (position) {
-                var latestPosition = new plugin.google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                circle.setCenter(latestPosition);
+            // add tracking circle
+            map.addCircle({
+              'center': currentPosition,
+              'radius': 77, // in meters
+              'strokeColor': '#159966',
+              'strokeWidth': 2,
+              'fillColor': '#23FFAA'
+            }, function (circle) {
 
-                var currentLocation = {
-                  latitude: position.coords.latitude,
-                  longitude: position.coords.longitude
-                }
+              // track location
+              $rootScope.watchPosition.then(null,
+                function (err) {
+                  // TODO: handleError
+                },
+                function (position) {
+                  var latestPosition = new plugin.google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                  circle.setCenter(latestPosition);
 
-                // IMAGOS NEARBY
-                $scope.nearbyImagoName = DistanceCalculationsFactory.isAnImagoNearby(currentLocation);
-                if ($scope.nearbyImagoName) {
-                  $scope.takePicture = function () {
-                    Camera.takePicture()
-                      .then(function () {
-                        $state.go('points', { imagoName: $scope.nearbyImagoName });
-                      })
-                      .catch(function (err) {
-                        console.log(err);
-                      });
+                  var currentLocation = {
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude
                   }
-                  $scope.showCamera = true;
-                } else {
-                  $scope.showCamera = false;
-                }
 
-                // REGISTER STEPS
-                StepsFactory.registerSteps(currentLocation);
-              });
+                  // IMAGOS NEARBY
+                  $scope.nearbyImagoName = DistanceCalculationsFactory.isAnImagoNearby(currentLocation);
+                  if ($scope.nearbyImagoName) {
+                    $scope.takePicture = function () {
+                      Camera.takePicture()
+                        .then(function () {
+                          $state.go('points', { imagoName: $scope.nearbyImagoName });
+                        })
+                        .catch(function (err) {
+                          console.log(err);
+                        });
+                    }
+                    $scope.showCamera = true;
+                  } else {
+                    $scope.showCamera = false;
+                  }
 
+                  // REGISTER STEPS
+                  StepsFactory.registerSteps(currentLocation);
+                });
+            });
           });
         });
-      });
+      }
     });
   })
 
@@ -268,7 +270,6 @@ $state.go('detail',{imagoName:currentImago});
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function ($scope, $stateParams, currentUser) {
       $scope.user = currentUser
-      console.log(currentUser)
     }])
 
   .controller('aboutCtrl', ['$scope', '$stateParams', '$ionicHistory', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -288,27 +289,24 @@ $state.go('detail',{imagoName:currentImago});
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function (currentUser, $scope, $stateParams, $state, $rootScope, ImagoFactory) {
-      currentUser.$bindTo($scope, 'user').then(function () {
-        console.log(currentUser)
-        var currentImagoName = $stateParams.imagoName;//changes based on which imago is close to you
-        $scope.points = ImagoFactory.imagoDetails[currentImagoName].points;
+      var currentImagoName = $stateParams.imagoName;//changes based on which imago is close to you
+      $scope.points = ImagoFactory.imagoDetails[currentImagoName].points || 0;
+      $scope.userHasVisitedImago = currentUser.visitedImagos.indexOf(currentImagoName) === -1 ? false : true;
 
-        $scope.userHasVisitedImago = $scope.user.visitedImagos.indexOf(currentImagoName) === -1 ? false : true;
-
-        if (!$scope.userHasVisitedImago) {
-          $scope.user.totalPoints = parseInt($scope.user.totalPoints) + parseInt($scope.points); // update firebase user with points
-          if (!$scope.user.visitedImagos) {
-            $scope.user.visitedImagos = currentImagoName;
-          } else {
-            $scope.user.visitedImagos = $scope.user.visitedImagos + ', ' + currentImagoName;
-          }
-          $scope.user.numOfImagos = parseInt($scope.user.numOfImagos) + 1;
+      if (!$scope.userHasVisitedImago) {
+        currentUser.totalPoints = parseInt(currentUser.totalPoints) + parseInt($scope.points); // update firebase user with points
+        if (!currentUser.visitedImagos) {
+          currentUser.visitedImagos = currentImagoName;
+        } else {
+          currentUser.visitedImagos = currentUser.visitedImagos + ', ' + currentImagoName;
         }
+        currentUser.numOfImagos = parseInt(currentUser.numOfImagos) + 1;
+        currentUser.$save().then(function () { console.log('saved') })
+      }
 
-        $scope.goToDetails = function () {
-          $state.go('detail', { imagoName: currentImagoName });
-        }
-      });
+      $scope.goToDetails = function () {
+        $state.go('detail', { imagoName: currentImagoName });
+      }
     }])
 
   .controller('rewardsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -318,39 +316,6 @@ $state.go('detail',{imagoName:currentImago});
 
 
     }])
-
-  .controller('cameraCtrl', function ($scope, $cordovaCamera, $ionicPlatform, $state, $timeout, $stateParams, $rootScope) {
-
-    $ionicPlatform.ready(function () {
-
-      document.addEventListener("deviceready", function () {
-
-        var options = {
-          quality: 50,
-          destinationType: Camera.DestinationType.DATA_URL,
-          sourceType: Camera.PictureSourceType.CAMERA,
-          allowEdit: false,
-          encodingType: Camera.EncodingType.JPEG,
-          targetWidth: 100,
-          targetHeight: 100,
-          popoverOptions: CameraPopoverOptions,
-          saveToPhotoAlbum: false,
-          correctOrientation: true
-        };
-
-        $cordovaCamera.getPicture(options).then(function (imageData) {
-          // redirects to points page
-          $state.go('points', { imagoName: $stateParams.imagoName });
-
-          var image = document.getElementById('myImage');
-          image.src = "data:image/jpeg;base64," + imageData;
-        }, function (err) {
-          // error
-        });
-
-      }, false);
-    });
-  })
 
   .controller('compassCtrl', function ($scope, $cordovaDeviceOrientation, $ionicPlatform) {
 
