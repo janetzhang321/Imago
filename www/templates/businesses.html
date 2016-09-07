@@ -1,7 +1,11 @@
+<ion-nav-view class="background">
+
 <ion-view title="Businesses" id="page9">
     <ion-content padding="true" class="has-header">
       <span ng-repeat="url in markersList track by $index">
-          <span class="container"><img style="max-width:30vw; height: 30vw; border:2px solid #F3DDD8 " ng-src={{url}}></span>
+          <img style="max-width:30vw; height: 30vw; border:2px solid #F3DDD8 " ng-src={{url}}>
       </span>
     </ion-content>
 </ion-view>
+
+</ion-nav-view>

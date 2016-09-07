@@ -216,5 +216,9 @@
     width: 100%;
   }
 
+  .background, .background .pane, .background .item, .background .item-complex .item-content{
+    background-color: #F3DDD8;
+  }
+
 /**PROFILE**/
 
