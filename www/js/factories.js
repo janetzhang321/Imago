@@ -306,25 +306,25 @@ angular.module('app.factories', [])
         points: 30,
         category: 'building'
       },
-      /*
-    rockefellerCenter: {
-      lat: 40.759088400,
-      lng: -73.977599500,
-      title: 'Rockefeller Center',
-      imgSrc: 'img/thumbnails/RockefellerCenter.jpg',
-      icon: {
+
+      rockefellerCenter: {
+        lat: 40.759116, 
+        lng: -73.979611,
+        title: 'Rockefeller Center',
+        imgSrc: 'img/thumbnails/RockefellerCenter.jpg',
+        icon: {
           url: 'www/img/thumbnails/markers/green1.png'
+        },
+        redirectTmplUrl: '/#/tabs/bucketList',
+        description: 'Complex of 19 commercial buildings covering 22 acres ',
+        originDate: '1930',
+        address: '45 Rockefeller Plaza, New York, NY 10111',
+        funFact: 'Under Rockefeller center there are a network of tunnels open to the public that connect the subway, and are filled with shops. Allowing a person to never leave the complex for the moment they arrive to the the time they leave.  ',
+        learnMore: 'https://www.rockefellercenter.com/',
+        points: '20',
+        category: 'landmark'
       },
-      redirectTmplUrl: '/#/tabs/bucketList',
-      description:'',
-      originDate:'',
-      address:'',
-      funFact: 'Under Rockefeller center there are a network of tunnels open to the public that connect the subway, and are filled with shops. Allowing a person to never leave the complex for the moment they arrive to the the time they leave.  ',
-      learnMore: '',
-      points: '',
-      category: 'landmark'
-    },
-    */
+
       cityHall: {
         lat: 40.712746100,
         lng: -74.005974000,
@@ -902,7 +902,7 @@ angular.module('app.factories', [])
     var createMoMa = configureImago(imagoDetails.MoMA);
     var createGuggenheimMuseum = configureImago(imagoDetails.guggenheim);
     var createWaldorfAstoria = configureImago(imagoDetails.waldorfAstoria);
-    //    var createRockefellerCenter = configureImago(imagoDetails.rockefellerCenter);
+    var createRockefellerCenter = configureImago(imagoDetails.rockefellerCenter);
     var createCityHall = configureImago(imagoDetails.cityHall);
     var createNYSE = configureImago(imagoDetails.NYSE);
     var createFederalHall = configureImago(imagoDetails.fedHall);
@@ -946,7 +946,7 @@ angular.module('app.factories', [])
       createMoMa,
       createGuggenheimMuseum,
       createWaldorfAstoria,
-      //        createRockefellerCenter,
+      createRockefellerCenter,
       createCityHall,
       createNYSE,
       createFederalHall,
@@ -1005,19 +1005,19 @@ angular.module('app.factories', [])
       var firebaseAuthUser = Auth.$getAuth();
       var firebaseDbUsers = $firebaseArray(rootRef);
       var firebaseDbUser = $firebaseObject(rootRef.child(firebaseAuthUser.uid));
-
+      console.log(firebaseAuthUser);
       function getCurrent() {
         var deferred = $q.defer();
 
         firebaseDbUser.$loaded(function () {
-          if (!firebaseDbUsers.uid) {
+          if (!firebaseDbUser.uid) {
             firebaseDbUser.displayName = firebaseAuthUser.displayName;
             firebaseDbUser.email = firebaseAuthUser.email;
             firebaseDbUser.photoURL = firebaseAuthUser.photoURL;
             firebaseDbUser.numOfImagos = 0;
             firebaseDbUser.totalPoints = 0;
             firebaseDbUser.visitedImagos = '';
-            firebaseDbUsers.uid = firebaseAuthUser.uid;
+            firebaseDbUser.uid = firebaseAuthUser.uid;
 
             return firebaseDbUser.$save()
               .then(function (ref) {
