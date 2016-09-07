@@ -11,5 +11,14 @@ platforms/ios/www/plugins/plugin.google.maps/
 plugins/com.googlemaps.ios/
 plugins/plugin.google.maps/
 platforms/android/src/plugin/google/maps
+
+# Constants
 env.constants.js
+
+# Code Editors
 .brackets.json
+
+# Android Store
+my-release-key.keystore
+android-release-unsigned.apk
+android.apk
