@@ -201,7 +201,7 @@ $state.go('detail',{imagoName:currentImago});
           marker.setVisible(true);
         });
         $state.go('tabsController.imagoMap');
-      }      
+      }
       $scope.listBuildings = function () {
         $state.go('buildings');
       }
