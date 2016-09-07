@@ -1003,28 +1003,24 @@ angular.module('app.factories', [])
         var rootRef = firebase.database().ref('users');
         var firebaseAuthUser = Auth.$getAuth();
         var uid = firebaseAuthUser.uid;
-        var firebaseDbUser = $firebaseObject(rootRef.orderByKey().equalTo('61Q2ttnV4nMyMNJ0apqZlVo2wMq2'));
+        var firebaseDbUser = $firebaseObject(rootRef.child(uid));
         var deferred = $q.defer();
 
         firebaseDbUser.$loaded().then(function () {
-          console.log(firebaseDbUser)
-          if (!firebaseDbUser[uid]) {
-            var newfirebaseDbUser = $firebaseObject(rootRef.child(uid));
+          if (!firebaseDbUser.uid) {
 
-            newfirebaseDbUser.$loaded().then(function () {
-              newfirebaseDbUser.displayName = firebaseAuthUser.displayName || 'Guest User';
-              newfirebaseDbUser.email = firebaseAuthUser.email;
-              newfirebaseDbUser.photoURL = firebaseAuthUser.photoURL || 'img/icon.png';
-              newfirebaseDbUser.numOfImagos = 0;
-              newfirebaseDbUser.totalPoints = 0;
-              newfirebaseDbUser.visitedImagos = '';
-              newfirebaseDbUser.uid = uid;
+            firebaseDbUser.displayName = firebaseAuthUser.displayName || 'Guest User';
+            firebaseDbUser.email = firebaseAuthUser.email;
+            firebaseDbUser.photoURL = firebaseAuthUser.photoURL || 'img/icon.png';
+            firebaseDbUser.numOfImagos = 0;
+            firebaseDbUser.totalPoints = 0;
+            firebaseDbUser.visitedImagos = '';
+            firebaseDbUser.uid = uid;
 
-              return newfirebaseDbUser.$save()
-                .then(function (ref) {
-                  deferred.resolve(newfirebaseDbUser);
-                });
-            });
+            return firebaseDbUser.$save()
+              .then(function (ref) {
+                deferred.resolve(firebaseDbUser);
+              });
           }
 
           return deferred.resolve(firebaseDbUser);
@@ -1035,7 +1031,7 @@ angular.module('app.factories', [])
 
       function getAll() {
         var rootRef = firebase.database().ref('users');
-                var firebaseDbUsers = $firebaseArray(rootRef);
+        var firebaseDbUsers = $firebaseArray(rootRef);
 
         var deferred = $q.defer();
 
@@ -1183,18 +1179,22 @@ angular.module('app.factories', [])
   })
 
   .factory('Camera', function ($cordovaCamera, $q) {
-    var options = {
-      quality: 50,
-      destinationType: Camera.DestinationType.DATA_URL,
-      sourceType: Camera.PictureSourceType.CAMERA,
-      allowEdit: false,
-      encodingType: Camera.EncodingType.JPEG,
-      targetWidth: 100,
-      targetHeight: 100,
-      popoverOptions: CameraPopoverOptions,
-      saveToPhotoAlbum: false,
-      correctOrientation: true
-    };
+    var options;
+
+    if (ionic.Platform.isAndroid()) {
+      options = {
+        quality: 50,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.CAMERA,
+        allowEdit: false,
+        encodingType: Camera.EncodingType.JPEG,
+        targetWidth: 100,
+        targetHeight: 100,
+        popoverOptions: CameraPopoverOptions,
+        saveToPhotoAlbum: false,
+        correctOrientation: true
+      };
+    }
 
     function takePicture() {
       return $cordovaCamera.getPicture(options)
