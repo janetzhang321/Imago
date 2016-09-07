@@ -1007,7 +1007,6 @@ angular.module('app.factories', [])
         var deferred = $q.defer();
 
         firebaseDbUser.$loaded().then(function () {
-          console.log(firebaseDbUser)
           if (!firebaseDbUser.uid) {
 
             firebaseDbUser.displayName = firebaseAuthUser.displayName || 'Guest User';
@@ -1180,18 +1179,22 @@ angular.module('app.factories', [])
   })
 
   .factory('Camera', function ($cordovaCamera, $q) {
-    var options = {
-      quality: 50,
-      destinationType: Camera.DestinationType.DATA_URL,
-      sourceType: Camera.PictureSourceType.CAMERA,
-      allowEdit: false,
-      encodingType: Camera.EncodingType.JPEG,
-      targetWidth: 100,
-      targetHeight: 100,
-      popoverOptions: CameraPopoverOptions,
-      saveToPhotoAlbum: false,
-      correctOrientation: true
-    };
+    var options;
+
+    if (ionic.Platform.isAndroid()) {
+      options = {
+        quality: 50,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.CAMERA,
+        allowEdit: false,
+        encodingType: Camera.EncodingType.JPEG,
+        targetWidth: 100,
+        targetHeight: 100,
+        popoverOptions: CameraPopoverOptions,
+        saveToPhotoAlbum: false,
+        correctOrientation: true
+      };
+    }
 
     function takePicture() {
       return $cordovaCamera.getPicture(options)
