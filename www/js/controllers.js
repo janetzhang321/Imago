@@ -288,27 +288,24 @@ $state.go('detail',{imagoName:currentImago});
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function (currentUser, $scope, $stateParams, $state, $rootScope, ImagoFactory) {
-      currentUser.$bindTo($scope, 'user').then(function () {
-        console.log(currentUser)
         var currentImagoName = $stateParams.imagoName;//changes based on which imago is close to you
-        $scope.points = ImagoFactory.imagoDetails[currentImagoName].points;
-
-        $scope.userHasVisitedImago = $scope.user.visitedImagos.indexOf(currentImagoName) === -1 ? false : true;
+        $scope.points = ImagoFactory.imagoDetails[currentImagoName].points || 0;
+        $scope.userHasVisitedImago = currentUser.visitedImagos.indexOf(currentImagoName) === -1 ? false : true;
 
         if (!$scope.userHasVisitedImago) {
-          $scope.user.totalPoints = parseInt($scope.user.totalPoints) + parseInt($scope.points); // update firebase user with points
-          if (!$scope.user.visitedImagos) {
-            $scope.user.visitedImagos = currentImagoName;
+            currentUser.totalPoints = parseInt(currentUser.totalPoints) + parseInt($scope.points); // update firebase user with points
+          if (!currentUser.visitedImagos) {
+            currentUser.visitedImagos = currentImagoName;
           } else {
-            $scope.user.visitedImagos = $scope.user.visitedImagos + ', ' + currentImagoName;
+            currentUser.visitedImagos = currentUser.visitedImagos + ', ' + currentImagoName;
           }
-          $scope.user.numOfImagos = parseInt($scope.user.numOfImagos) + 1;
+          currentUser.numOfImagos = parseInt(currentUser.numOfImagos) + 1;
+          currentUser.$save().then(function() {console.log('saved')})
         }
 
         $scope.goToDetails = function () {
           $state.go('detail', { imagoName: currentImagoName });
         }
-      });
     }])
 
   .controller('rewardsCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
