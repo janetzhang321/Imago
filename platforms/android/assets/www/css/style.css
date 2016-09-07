@@ -104,6 +104,11 @@
 	padding-left:10px;
 	padding-right:5px;
 }
+.ion-android-navigate{
+	display:inline;
+	padding-left:20px;
+	padding-right:20px;
+}
 .bucket-list-link{
 	color:white;
 	font-size:12px;
